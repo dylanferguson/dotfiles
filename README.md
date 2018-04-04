@@ -4,22 +4,28 @@ For a fresh install, run:
 xcode-select --install`
 
 Then:
-`git clone https://github.com/dylanferguson/dotfiles.git ~/.dotfiles
+```shell
+git clone https://github.com/dylanferguson/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
-sh install.sh`
+sh install.sh
+```
 
 Finally:
-`sudo reboot`
+```shell
+sudo reboot
+```
 
-###Some Notes
-- *Update bash* (Since OSX ships with an `3.2.57` &#1F44D): 
-`echo $BASH_VERSION
+### Some Notes
+- *Update bash* (Since OSX ships with an `3.2.57` &#128077;): 
+```shell
+echo $BASH_VERSION
 sudo -s
 echo /usr/local/bin/bash >> /etc/shells
 chsh -s /usr/local/bin/bash
-echo $BASH_VERSION`
+echo $BASH_VERSION
+```
 
-####Sublime Packages
+#### Sublime Packages
  - Package Control
  - Git
  - JsPrettier
