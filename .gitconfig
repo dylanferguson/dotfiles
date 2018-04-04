@@ -4,3 +4,6 @@
 
 [github]
 	user = dylanferguson
+
+[core]
+	editor = sublime -n -w

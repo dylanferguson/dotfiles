@@ -4,6 +4,7 @@
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew update
 brew upgrade
+brew doctor
 
 # Install packages
 brew install git
@@ -28,6 +29,7 @@ brew install cmatrix
 brew install virtualbox
 brew install coreutils
 brew install bash
+brew install colordiff
 brew install tree
 brew install mysql
 brew install java
@@ -46,8 +48,8 @@ brew cask install --appdir="/Applications" anki
 brew cask install --appdir="/Applications" vlc
 brew cask install --appdir="/Applications" nordvpn
 brew cask install --appdir="/Applications" 1password
-brew cask install --appdir="/Applications" calibre
 brew cask install --appdir="/Applications" docker
+brew cask install --appdir="/Applications" calibre
 brew cask install --appdir="/Applications" dropbox
 brew cask install --appdir="/Applications" flux
 brew cask install --appdir="/Applications" idrive #trash but temporary
@@ -60,6 +62,7 @@ brew cask install --appdir="/Applications" spectacle
 brew cask install --appdir="/Applications" appcleaner
 brew cask install --appdir="/Applications" the-unarchiver
 brew cask install --appdir="/Applications" iterm2
+brew cask install --appdir="/Applications" paragon-ntfs
 
 # Quick Look Plugins (https://github.com/sindresorhus/quick-look-plugins)
 brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql qlimagesize webpquicklook qlvideo
