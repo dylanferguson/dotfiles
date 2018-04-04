@@ -1,7 +1,9 @@
 ## Install
 For a fresh install, run: 
-`sudo softwareupdate -i -a
-xcode-select --install`
+```shell
+sudo softwareupdate -i -a
+xcode-select --install
+```
 
 Then:
 ```shell
