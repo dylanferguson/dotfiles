@@ -13,4 +13,7 @@ ln -s ~/.dotfiles/.gitignore_global ~/.gitignore_global
 git config --global core.excludesfile ~/.gitignore_global
 git config --list
 
+rm -rf ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
+ln -s ~/.dotfiles/sublime ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User
+
 . system_defaults.sh
