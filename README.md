@@ -35,3 +35,17 @@ echo $BASH_VERSION
  - SublimeREPL
  - Non-Text-Files
  - PackageResourceViewer
+ - SublimeLinter
+ - SublimeLinter-html-tidy
+ - SublimeLinter-clang
+ - SublimeLinter-csslint
+ - SublimeLinter-eslint
+ - SublimeLinter-flow
+ - SublimeLinter-annotations
+ - SublimeLinter-jsxhint
+ - SublimeLinter-shellcheck
+ - SublimeLinter-json
+ - Markdown Preview
+ - ApplySyntax
+ - nginx
+ - Pretty JSON
