@@ -1,4 +1,4 @@
-## Install
+# Install
 For a fresh install, run: 
 ```shell
 sudo softwareupdate -i -a
@@ -17,11 +17,11 @@ Finally:
 sudo reboot
 ```
 
-### Post-Reboot
-- *Install Sublime packages#:*
- 1. Install Package Control
- 2. Restart ST3
- 
+## Post-Reboot
+- *Install Sublime packages:*
+    1. [Install](https://packagecontrol.io/installation) Package Control
+    2. Restart ST3
+
 - *Update bash* (Since OSX ships with `3.2.57` &#128077;): 
 ```shell
 echo $BASH_VERSION
@@ -31,7 +31,7 @@ chsh -s /usr/local/bin/bash
 echo $BASH_VERSION
 ```
 
-#### Sublime Packages
+### Sublime Packages
  - Package Control
  - Git
  - JsPrettier
