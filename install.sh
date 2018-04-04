@@ -1,9 +1,8 @@
-#!/usr/bin/env bash
-#x-code
-xcode-select --install
+#!/bin/sh
+. brew.sh
+. dock.sh
 
-# Install brew with packages & casks
-. "$DOTFILES_DIR/install/brew.sh"
+mkdir ~/dev ~/books ~/books-jp 
+sudo rm -rf ~/Movies ~/Music ~/Pictures ~/Public ~/Documents 
 
-# Setup macos defaults
-. "$DOTFILES_DIR/macos/defaults.sh"
+. system_defaults.sh
