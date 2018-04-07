@@ -42,6 +42,7 @@ brew tap caskroom/versions
 # Install cask packages
 brew cask install --appdir="/Applications" google-chrome
 brew cask install --appdir="/Applications" firefox
+brew cask install --appdir="/Applications" firefox-developer-edition
 brew cask install --appdir="/Applications" notational-velocity
 brew cask install --appdir="/Applications" slack
 brew cask install --appdir="/Applications" anki
@@ -63,6 +64,7 @@ brew cask install --appdir="/Applications" appcleaner
 brew cask install --appdir="/Applications" the-unarchiver
 brew cask install --appdir="/Applications" iterm2
 brew cask install --appdir="/Applications" paragon-ntfs
+brew cask install --appdir="/Applications" daisydisk
 
 #Mac App Store 
 mas install 421696351 #Chill
