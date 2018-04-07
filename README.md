@@ -32,24 +32,26 @@ echo $BASH_VERSION
 ```
 
 ### Sublime Packages
- - Package Control
+ - ApplySyntax
+ - BracketHighlighter
  - Git
  - JsPrettier
- - SideBarEnhancements
- - SublimeREPL
- - Non-Text-Files
+ - Markdown Preview
+ - Non Text Files
+ - Package Control
  - PackageResourceViewer
+ - Pretty JSON
+ - Python Improved
+ - SideBarEnhancements
  - SublimeLinter
- - SublimeLinter-html-tidy
+ - SublimeLinter-annotations
  - SublimeLinter-clang
  - SublimeLinter-csslint
  - SublimeLinter-eslint
  - SublimeLinter-flow
- - SublimeLinter-annotations
+ - SublimeLinter-html-tidy
+ - SublimeLinter-json
  - SublimeLinter-jsxhint
  - SublimeLinter-shellcheck
- - SublimeLinter-json
- - Markdown Preview
- - ApplySyntax
+ - SublimeREPL
  - nginx
- - Pretty JSON

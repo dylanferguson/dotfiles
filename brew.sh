@@ -66,8 +66,10 @@ brew cask install --appdir="/Applications" iterm2
 brew cask install --appdir="/Applications" paragon-ntfs
 brew cask install --appdir="/Applications" daisydisk
 
-#Mac App Store 
+#Mac App Store
 mas install 421696351 #Chill
 
 # Quick Look Plugins (https://github.com/sindresorhus/quick-look-plugins)
 brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql qlimagesize webpquicklook qlvideo
+
+brew cask cleanup

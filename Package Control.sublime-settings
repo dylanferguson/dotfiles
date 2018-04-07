@@ -1,0 +1,27 @@
+{
+    "installed_packages": [
+        "ApplySyntax",
+        "BracketHighlighter",
+        "Git",
+        "JsPrettier",
+        "Markdown Preview",
+        "Non Text Files",
+        "Package Control",
+        "PackageResourceViewer",
+        "Pretty JSON",
+        "Python Improved",
+        "SideBarEnhancements",
+        "SublimeLinter",
+        "SublimeLinter-annotations",
+        "SublimeLinter-clang",
+        "SublimeLinter-csslint",
+        "SublimeLinter-eslint",
+        "SublimeLinter-flow",
+        "SublimeLinter-html-tidy",
+        "SublimeLinter-json",
+        "SublimeLinter-jsxhint",
+        "SublimeLinter-shellcheck",
+        "SublimeREPL",
+        "nginx",
+    ]
+}
