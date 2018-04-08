@@ -43,6 +43,11 @@ brew tap caskroom/versions
 
 #Fonts
 brew tap caskroom/fonts 
+# Fonts
+brew cask install 'font-source-code-pro-for-powerline'
+brew cask install 'font-source-code-pro'
+brew cask install 'font-source-sans-pro'
+brew cask install 'font-source-serif-pro'
 
 # Install cask packages
 brew cask install --appdir="/Applications" 1password
