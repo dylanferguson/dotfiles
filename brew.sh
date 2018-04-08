@@ -14,11 +14,13 @@ brew install cmatrix
 brew install colordiff
 brew install coreutils # Install GNU core utilities (those that come with macOS are outdated)
 brew install dockutil
+brew install exiftool
 brew install ffmpeg
 brew install findutils # Install GNU `find`, `locate`, `updatedb`, and `xargs`, g-prefixed
 brew install gifsicle
 brew install git
 brew install git-standup
+brew install go
 brew install grep --with-default-names
 brew install heroku/brew/heroku
 brew install imagemagick
@@ -26,8 +28,10 @@ brew install java
 brew install mas
 brew install mysql
 brew install node
+brew install openssl
 brew install pyenv
 brew install python3
+brew install sqlite
 brew install thefuck
 brew install tree
 brew install unrar
@@ -67,6 +71,7 @@ brew cask install --appdir="/Applications" nocturne
 brew cask install --appdir="/Applications" nordvpn
 brew cask install --appdir="/Applications" notational-velocity
 brew cask install --appdir="/Applications" paragon-ntfs
+brew cask install --appdir="/Applications" sequel-pro
 brew cask install --appdir="/Applications" slack
 brew cask install --appdir="/Applications" spectacle
 brew cask install --appdir="/Applications" spotify
