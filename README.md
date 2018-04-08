@@ -36,6 +36,7 @@ echo $BASH_VERSION
 ### Sublime Packages
  - ApplySyntax
  - BracketHighlighter
+ - CSScomb
  - Git
  - JsPrettier
  - Markdown Preview
