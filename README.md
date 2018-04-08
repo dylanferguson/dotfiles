@@ -1,5 +1,7 @@
 # Install
-For a fresh install, run: 
+First, do a [clean install](https://www.imore.com/how-do-clean-install-macos)
+
+After that, run: 
 ```shell
 sudo softwareupdate -i -a
 xcode-select --install
