@@ -17,6 +17,7 @@ wget https://packagecontrol.io/Package%20Control.sublime-package -P ~/Library/Ap
 rm -rf  ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Package\ Control.sublime-settings
 mkdir -p ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/
 cp ~/.dotfiles/Package\ Control.sublime-settings ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/
+cp ~/.dotfiles/Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/
 #Package Control: List Packages
 
 . system_defaults.sh
