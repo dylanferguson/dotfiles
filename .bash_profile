@@ -36,14 +36,12 @@ extract () {
 
 #   memHogsTop, memHogsPs:  Find memory hogs
 #   -----------------------------------------------------
-    alias memHogsTop='top -l 1 -o rsize | head -20'
-    alias memHogsPs='ps wwaxm -o pid,stat,vsize,rss,time,command | head -10'
+alias memHogsTop='top -l 1 -o rsize | head -20'
+alias memHogsPs='ps wwaxm -o pid,stat,vsize,rss,time,command | head -10'
 
 #   cpuHogs:  Find CPU hogs
 #   -----------------------------------------------------
-    alias cpu_hogs='ps wwaxr -o pid,stat,%cpu,time,command | head -10'
-
-    alias 
+alias cpu_hogs='ps wwaxr -o pid,stat,%cpu,time,command | head -10'
 
 #Networking 
 alias myip='curl ifconfig.co'                    # myip:         Public facing IP Address
