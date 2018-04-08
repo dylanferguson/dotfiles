@@ -4,7 +4,12 @@ export PS2="> "
 
 export EDITOR=/usr/local/bin/subl
 
-alias edit='subl' 
+alias edit='subl'                           # edit:         Opens any file in sublime editor
+alias cp='cp -iv'                           # Preferred 'cp' implementation
+alias mv='mv -iv'                           # Preferred 'mv' implementation
+alias mkdir='mkdir -pv'                     # Preferred 'mkdir' implementation
+alias f='open -a Finder ./'                 # f:            Opens current directory in MacOS Finde
+alias c='clear'                             # c:            Clear terminal display
 ql () { qlmanage -p "$*" >& /dev/null; }    # ql:           Opens any file in MacOS Quicklook Preview
 
 #extract:  Extract most know archives with one command
