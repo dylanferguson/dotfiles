@@ -1,3 +1,4 @@
 {
-	"theme": "Adaptive.sublime-theme"
+	"theme": "Adaptive.sublime-theme",
+	"show_full_path": true
 }
