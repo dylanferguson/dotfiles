@@ -1,4 +1,6 @@
 {
 	"theme": "Adaptive.sublime-theme",
-	"show_full_path": true
+	"show_full_path": true,
+	"word_wrap": true,
+	"font_size": 14,
 }

@@ -28,4 +28,7 @@ cp ~/.dotfiles/Package\ Control.sublime-settings ~/Library/Application\ Support/
 cp ~/.dotfiles/Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/
 #Package Control: List Packages
 
+#Yarn global 
+yarn global add prettier
+
 . system_defaults.sh
