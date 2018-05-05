@@ -11,6 +11,7 @@ Then:
 ```shell
 git clone https://github.com/dylanferguson/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
+chmod +wx install.sh
 sh install.sh
 ```
 
