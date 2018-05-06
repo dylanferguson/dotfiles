@@ -87,6 +87,7 @@ mas install 421696351 #Chill
 mas install 1147396723 #Whatsapp
 mas install 668208984 #Giphy Capture 
 mas install 402476602 #Sketch
+mas install 417375580 #BetterSnapTool
 
 # Quick Look Plugins (https://github.com/sindresorhus/quick-look-plugins)
 brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql qlimagesize webpquicklook qlvideo
