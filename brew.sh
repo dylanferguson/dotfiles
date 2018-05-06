@@ -78,7 +78,7 @@ brew cask install --appdir="/Applications" spectacle
 brew cask install --appdir="/Applications" spotify
 brew cask install --appdir="/Applications" sublime-text
 brew cask install --appdir="/Applications" the-unarchiver
-brew cask install --appdir="/Applications" tranmission
+brew cask install --appdir="/Applications" transmission
 brew cask install --appdir="/Applications" tyke
 brew cask install --appdir="/Applications" vlc
 

@@ -7,3 +7,4 @@
 
 [core]
 	editor = sublime -n -w
+	excludesfile = /Users/dylan/.gitignore_global
