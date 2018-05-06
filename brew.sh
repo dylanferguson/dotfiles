@@ -24,7 +24,6 @@ brew install go
 brew install grep --with-default-names
 brew install heroku/brew/heroku
 brew install imagemagick
-brew install java
 brew install mas
 brew install mysql
 brew install node
