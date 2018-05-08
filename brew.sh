@@ -65,7 +65,6 @@ brew cask install --appdir="/Applications" firefox
 brew cask install --appdir="/Applications" firefox-developer-edition
 brew cask install --appdir="/Applications" flux
 brew cask install --appdir="/Applications" google-chrome
-brew cask install --appdir="/Applications" backblaze
 brew cask install --appdir="/Applications" iterm2
 brew cask install --appdir="/Applications" nocturne
 brew cask install --appdir="/Applications" nordvpn
