@@ -33,5 +33,4 @@ ln -s /Volumes/Samsung_T3/Calibre\ Library ~/Calibre\ Library
 #Yarn global 
 yarn global add prettier
 
-
 . system_defaults.sh
