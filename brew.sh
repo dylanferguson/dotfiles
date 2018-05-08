@@ -71,6 +71,7 @@ brew cask install --appdir="/Applications" nordvpn
 brew cask install --appdir="/Applications" notational-velocity
 brew cask install --appdir="/Applications" paragon-ntfs
 brew cask install --appdir="/Applications" postman
+brew cask install --appdir="/Applications" prey
 brew cask install --appdir="/Applications" sequel-pro
 brew cask install --appdir="/Applications" slack
 brew cask install --appdir="/Applications" spectacle
