@@ -56,6 +56,7 @@ brew cask install 'font-source-serif-pro'
 brew cask install --appdir="/Applications" 1password
 brew cask install --appdir="/Applications" anki
 brew cask install --appdir="/Applications" appcleaner
+brew cask install --appdir="/Applications" backblaze
 brew cask install --appdir="/Applications" calibre
 brew cask install --appdir="/Applications" daisydisk
 brew cask install --appdir="/Applications" docker
