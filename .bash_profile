@@ -70,4 +70,4 @@ alias showBlocked='sudo ipfw list'                  # showBlocked:  All ipfw rul
         echo
     }
 
-alias editHosts='sudo edit /etc/hosts'                  # editHosts:        Edit /etc/hosts file
+alias editHosts='sudo edit /etc/hosts'                  # editHosts:        Edit /etc/hosts fileexport PATH="/usr/local/sbin:$PATH"

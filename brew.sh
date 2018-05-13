@@ -23,9 +23,11 @@ brew install git-standup
 brew install go
 brew install grep --with-default-names
 brew install heroku/brew/heroku
+brew install hugo
 brew install imagemagick
 brew install mas
 brew install mysql
+brew install nginx
 brew install node
 brew install openssl
 brew install pyenv
