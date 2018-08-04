@@ -9,6 +9,7 @@ brew doctor
 # Install packages
 brew install awscli
 brew install bash
+brew install bmon
 brew install clisp
 brew install cmatrix
 brew install colordiff
@@ -27,6 +28,7 @@ brew install hugo
 brew install imagemagick
 brew install mas
 brew install mysql
+brew install nethogs
 brew install nginx
 brew install node
 brew install openssl
