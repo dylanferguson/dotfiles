@@ -14,6 +14,7 @@ brew install clisp
 brew install cmatrix
 brew install colordiff
 brew install coreutils # Install GNU core utilities (those that come with macOS are outdated)
+brew install darksky-weather
 brew install dockutil
 brew install exiftool
 brew install ffmpeg
