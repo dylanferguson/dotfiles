@@ -19,7 +19,7 @@ brew 'gifsicle'
 brew 'git'
 brew 'git-standup'
 brew 'go'
-brew 'grep' --with-default-names
+brew 'grep', args['with-default-names']
 brew 'heroku/brew/heroku'
 brew 'hugo'
 brew 'imagemagick'
