@@ -6,6 +6,7 @@ tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/core"
+brew "asciidoc"
 brew "openssl"
 brew "sqlite"
 brew "python"
@@ -17,6 +18,7 @@ brew "cloc"
 brew "cmatrix"
 brew "colordiff"
 brew "coreutils"
+brew "cowsay"
 brew "darksky-weather"
 brew "dockutil"
 brew "exiftool"
@@ -31,6 +33,8 @@ brew "grep", args: ["with-default-names"]
 brew "hugo"
 brew "imagemagick"
 brew "jrnl"
+brew "lolcat"
+brew "macvim"
 brew "markdown"
 brew "mas"
 brew "mongodb"
@@ -109,4 +113,5 @@ mas "LINE", id: 539883307
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Tomato One", id: 907364780
+mas "WhatsApp", id: 1147396723
 mas "Xcode", id: 497799835
