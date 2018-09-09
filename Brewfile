@@ -37,6 +37,7 @@ brew "gifsicle"
 brew "git"
 brew "git-standup"
 brew "go"
+brew "graphviz"
 brew "grep", args: ["with-default-names"]
 brew "htop"
 brew "hugo"
