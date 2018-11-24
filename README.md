@@ -25,7 +25,7 @@ sudo reboot
     1. [Install](https://packagecontrol.io/installation) Package Control
     2. Restart ST3
 
-- *Update bash* (Since OSX ships with `3.2.57` &#128077;): 
+- *Update bash*: 
 ```shell
 echo $BASH_VERSION
 sudo -s
