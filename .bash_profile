@@ -1,8 +1,10 @@
 #Sourced from https://natelandau.com/my-mac-osx-bash_profile/
-export PS1='\[\e[36m\w\] \[\e[33m\]\[\e[1m\]$ \[\e[0m\]'
-export PS2="> "
+# export PS1=``\s-\v\$ ''
+# export PS2=``> ''
+# export PS1='\[\e[36m\w\] \[\e[33m\]\[\e[1m\]$ \[\e[0m\]'
+# export PS2="> "
 
-export EDITOR=/usr/local/bin/subl
+# export EDITOR=/usr/local/bin/subl
 
 alias edit='subl'                           # edit:         Opens any file in sublime editor
 alias cp='cp -iv'                           # Preferred 'cp' implementation
@@ -11,6 +13,18 @@ alias mkdir='mkdir -pv'                     # Preferred 'mkdir' implementation
 alias f='open -a Finder ./'                 # f:            Opens current directory in MacOS Finde
 alias c='clear'                             # c:            Clear terminal display
 ql () { qlmanage -p "$*" >& /dev/null; }    # ql:           Opens any file in MacOS Quicklook Preview
+
+_jrnl () {
+    pushd ~/.jrnl
+    make
+    popd
+}
+
+alias cat='bat'
+alias ping='prettyping --nolegend'
+alias top='sudo htop'
+alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
+alias help='tldr'
 
 #extract:  Extract most know archives with one command
 extract () {
@@ -71,3 +85,16 @@ alias showBlocked='sudo ipfw list'                  # showBlocked:  All ipfw rul
     }
 
 alias editHosts='sudo edit /etc/hosts'                  # editHosts:        Edit /etc/hosts fileexport PATH="/usr/local/sbin:$PATH"
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+# added by Anaconda3 5.2.0 installer
+export PATH="/anaconda3/bin:$PATH"
+
+##
+# Your previous /Users/dylan/.bash_profile file was backed up as /Users/dylan/.bash_profile.macports-saved_2018-07-25_at_09:12:26
+##
+
+# MacPorts Installer addition on 2018-07-25_at_09:12:26: adding an appropriate PATH variable for use with MacPorts.
+export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+# Finished adapting your PATH environment variable for use with MacPorts.
+

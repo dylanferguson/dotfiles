@@ -6,8 +6,8 @@
 	user = dylanferguson
 
 [core]
-	editor = sublime -n -w
 	excludesfile = /Users/dylan/.gitignore_global
+	editor = subl -n -w
 
 [credential]
 	helper = osxkeychain
