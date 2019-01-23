@@ -16,7 +16,7 @@ if [[ $(git diff --stat Brewfile) != '' ]]; then
   echo 'Pushed'
 fi
 
-echo 'Up update...'
+echo 'MAS update...'
 mas outdated | terminal-notifier -message
 mas upgrade
 
