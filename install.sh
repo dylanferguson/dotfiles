@@ -39,4 +39,7 @@ ln -s /Volumes/Samsung_T3/Calibre\ Library ~/Calibre\ Library
 #Yarn global 
 yarn global add prettier
 
+# Set cron job to do daily updates
+(crontab -l ; echo "0 19 * * * cd ~/.dotfiles && sh update.sh") | crontab
+
 . system_defaults.sh
