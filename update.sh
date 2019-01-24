@@ -1,5 +1,7 @@
 # !/bin/bash
+PATH=/usr/local/bin
 
+terminal-notifier -message 'Running daily update...'
 echo 'Updating Brew...'
 brew update
 brew upgrade
@@ -17,7 +19,7 @@ if [[ $(git diff --stat Brewfile) != '' ]]; then
 fi
 
 echo 'MAS update...'
-mas outdated | terminal-notifier -message
+mas outdated
 mas upgrade
 
 echo 'Updating NPM global packages...'
