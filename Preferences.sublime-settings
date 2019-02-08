@@ -3,4 +3,6 @@
 	"show_full_path": true,
 	"word_wrap": true,
 	"font_size": 14,
+	"folder_exclude_patterns": ["node_modules/"],
+	"binary_file_patterns": ["node_modules/"],
 }
