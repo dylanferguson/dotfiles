@@ -135,6 +135,7 @@ cask "vlc"
 cask "webpquicklook"
 mas "1Password", id: 443987910
 mas "BetterSnapTool", id: 417375580
+mas "GIF Brewery 3", id: 1081413713
 mas "GIPHY CAPTURE", id: 668208984
 mas "Keynote", id: 409183694
 mas "Kindle", id: 405399194
