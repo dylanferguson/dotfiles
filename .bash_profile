@@ -6,6 +6,7 @@
 
 # export EDITOR=/usr/local/bin/subl
 
+alias brewup='brew update; brew upgrade; brew prune; brew cleanup; brew doctor'
 alias edit='subl'                           # edit:         Opens any file in sublime editor
 alias cp='cp -iv'                           # Preferred 'cp' implementation
 alias mv='mv -iv'                           # Preferred 'mv' implementation
