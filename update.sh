@@ -1,5 +1,4 @@
 # !/bin/bash
-PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
 terminal-notifier -message 'Running daily update...'
 echo 'Updating Brew...'

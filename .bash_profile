@@ -1,12 +1,7 @@
-#Sourced from https://natelandau.com/my-mac-osx-bash_profile/
-# export PS1=``\s-\v\$ ''
-# export PS2=``> ''
-# export PS1='\[\e[36m\w\] \[\e[33m\]\[\e[1m\]$ \[\e[0m\]'
-# export PS2="> "
+export VISUAL=subl
+export EDITOR="$VISUAL"
 
-# export EDITOR=/usr/local/bin/subl
-
-alias brewup='brew update; brew upgrade; brew prune; brew cleanup; brew doctor'
+alias brewup='brew update; brew upgrade; brew cleanup; brew cleanup --prune-prefix; brew doctor'
 alias edit='subl'                           # edit:         Opens any file in sublime editor
 alias cp='cp -iv'                           # Preferred 'cp' implementation
 alias mv='mv -iv'                           # Preferred 'mv' implementation
