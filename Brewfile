@@ -6,6 +6,7 @@ tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/core"
+tap "kde-mac/kde"
 brew "ack"
 brew "asciidoc"
 brew "openssl"
@@ -21,6 +22,7 @@ brew "cmatrix"
 brew "colordiff"
 brew "coreutils"
 brew "cowsay"
+brew "cpanminus"
 brew "csvkit"
 brew "darksky-weather"
 brew "diff-so-fancy"
@@ -141,14 +143,15 @@ cask "tyke"
 cask "visual-studio-code"
 cask "vlc"
 cask "webpquicklook"
-mas "com.agilebits.onepassword-osx", id: 443987910
-mas "com.amazon.Kindle", id: 405399194
-mas "com.apple.iWork.Keynote", id: 409183694
-mas "com.apple.iWork.Numbers", id: 409203825
-mas "com.apple.iWork.Pages", id: 409201541
-mas "com.fasthatchapps.gifgrabberosx", id: 668208984
-mas "com.hegenberg.BetterSnapTool", id: 417375580
-mas "com.helloresolven.GIF-Brewery-3", id: 1081413713
-mas "desktop.WhatsApp", id: 1147396723
-mas "jp.naver.line.mac", id: 539883307
-mas "net.rinik.Pomodoro-One", id: 907364780
+cask "wireshark"
+mas "1Password", id: 443987910
+mas "BetterSnapTool", id: 417375580
+mas "GIF Brewery 3", id: 1081413713
+mas "GIPHY CAPTURE", id: 668208984
+mas "Keynote", id: 409183694
+mas "Kindle", id: 405399194
+mas "LINE", id: 539883307
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "Tomato One", id: 907364780
+mas "WhatsApp", id: 1147396723
