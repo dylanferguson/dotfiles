@@ -80,6 +80,7 @@ brew "rename"
 brew "ripgrep"
 brew "ruby", link: true
 brew "scala"
+brew "sox"
 brew "terminal-notifier"
 brew "the_silver_searcher"
 brew "thefuck"
@@ -149,7 +150,6 @@ mas "BetterSnapTool", id: 417375580
 mas "GIF Brewery 3", id: 1081413713
 mas "GIPHY CAPTURE", id: 668208984
 mas "Keynote", id: 409183694
-mas "Kindle", id: 405399194
 mas "LINE", id: 539883307
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
