@@ -266,16 +266,21 @@
 	</data>
 	<key>NSTableView Supports v2 KeyBingingTable</key>
 	<true/>
+	<key>NSToolbar Configuration com.apple.NSColorPanel</key>
+	<dict>
+		<key>TB Is Shown</key>
+		<integer>1</integer>
+	</dict>
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>410 375 620 392 0 0 1440 878 </string>
 	<key>NSWindow Frame SessionsPreferences</key>
-	<string>269 126 606 469 0 0 1440 878 </string>
+	<string>269 126 606 469 0 0 1440 877 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>276 252 796 486 0 0 1440 877 </string>
+	<string>276 226 918 512 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>308 -481 570 452 308 -900 1440 877 </string>
+	<string>125 229 570 452 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>559 426 570 452 0 0 1920 1057 </string>
+	<string>360 299 570 452 0 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>204 539 570 452 0 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
@@ -975,14 +980,14 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2019-03-18T03:46:18Z</date>
+	<date>2019-06-06T00:35:08Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>ShowFullScreenTabBar</key>
-	<false/>
+	<true/>
 	<key>findMode_iTerm</key>
 	<integer>0</integer>
 	<key>iTerm Version</key>
-	<string>3.2.7</string>
+	<string>3.2.8</string>
 </dict>
 </plist>
