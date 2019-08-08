@@ -22,3 +22,4 @@
 	st = status
 	last = log -1 HEAD
 	wat = whatchanged
+	acm = "!f() { git add . && git commit -m \"$(echo $@)\"; }; f";
