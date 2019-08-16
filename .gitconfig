@@ -18,7 +18,10 @@
 
 [alias]
 	co = checkout
+	com = checkout master
 	br = branch
+	amend = commit -a --amend
+	rb = rebase
 	st = status
 	last = log -1 HEAD
 	wat = whatchanged

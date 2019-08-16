@@ -13,17 +13,26 @@ alias ping='prettyping --nolegend'
 alias top='sudo htop'
 alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
 alias help='tldr'
+alias weather="curl -s \"https://wttr.in/elwood?q&n&p\" | head -n -3"
 ql () { qlmanage -p "$*" >& /dev/null; }    # ql:           Opens any file in MacOS Quicklook Preview
 
+# aws 
+aws-deploy-lambda() {
+    zip -r f.zip . && aws lambda update-function-code --region ap-southeast-2 --function-name "$1" --zip-file fileb://f.zip
+}
+
+# misc
 _jrnl () {
     pushd ~/.jrnl
     make
     popd
 }
 
+# ffmpeg
 get_codec () {
     ffprobe -v error -select_streams v:0 -show_entries stream=codec_name -of default=noprint_wrappers=1:nokey=1 $1
 }
+
 #extract:  Extract most know archives with one command
 extract () {
         if [ -f $1 ] ; then
