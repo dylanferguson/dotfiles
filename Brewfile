@@ -81,6 +81,7 @@ brew "ruby-build"
 brew "rbenv"
 brew "rename"
 brew "ripgrep"
+brew "roswell"
 brew "ruby", link: true
 brew "scala"
 brew "sox"
