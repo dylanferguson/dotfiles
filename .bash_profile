@@ -15,7 +15,7 @@ alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
 alias help='tldr'
 alias weather="curl -s \"https://wttr.in/elwood?q&n&p\" | head -n -3"
 ql () { qlmanage -p "$*" >& /dev/null; }    # ql:           Opens any file in MacOS Quicklook Preview
-
+alias python-init='python3 -m venv .;activate;pip install -r requirements.txt'
 # aws 
 aws-deploy-lambda() {
     zip -r f.zip . && aws lambda update-function-code --region ap-southeast-2 --function-name "$1" --zip-file fileb://f.zip
