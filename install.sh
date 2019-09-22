@@ -25,6 +25,8 @@ git config --list
 #Symlink bash_profile
 rm -rf ~/.bash_profile
 ln -s ~/.dotfiles/.bash_profile ~/.bash_profile
+rm -rf ~/.zshrc
+ln -s ~/.dotfiles/.zshrc ~/.zshrc
 
 #VSCode setup
 rm -rf ~/Library/Application\ Support/Code/User/settings.json

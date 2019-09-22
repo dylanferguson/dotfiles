@@ -33,29 +33,3 @@ echo /usr/local/bin/bash >> /etc/shells
 chsh -s /usr/local/bin/bash
 echo $BASH_VERSION
 ```
-
-### Sublime Packages
- - ApplySyntax
- - BracketHighlighter
- - CSScomb
- - Git
- - JsPrettier
- - Markdown Preview
- - Non Text Files
- - Package Control
- - PackageResourceViewer
- - Pretty JSON
- - Python Improved
- - SideBarEnhancements
- - SublimeLinter
- - SublimeLinter-annotations
- - SublimeLinter-clang
- - SublimeLinter-csslint
- - SublimeLinter-eslint
- - SublimeLinter-flow
- - SublimeLinter-html-tidy
- - SublimeLinter-json
- - SublimeLinter-jsxhint
- - SublimeLinter-shellcheck
- - SublimeREPL
- - nginx

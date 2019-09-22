@@ -3,3 +3,4 @@ esbenp.prettier-vscode@2.2.2
 flowtype.flow-for-vscode@1.5.0
 ginfuru.ginfuru-better-solarized-dark-theme@0.7.0
 mattn.Lisp@0.1.9
+waderyan.gitblame@3.0.1

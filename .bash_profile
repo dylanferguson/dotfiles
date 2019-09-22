@@ -1,21 +1,27 @@
-export VISUAL=subl
+export VISUAL=code
 export EDITOR="$VISUAL"
 
+# Trigger ~/.bashrc commands
+. ~/.bashrc
+
+
 alias brewup='brew update; brew upgrade; brew cleanup; brew cleanup --prune-prefix; brew doctor'
-alias edit='subl'                           # edit:         Opens any file in sublime editor
-alias cp='cp -iv'                           # Preferred 'cp' implementation
-alias mv='mv -iv'                           # Preferred 'mv' implementation
-alias mkdir='mkdir -pv'                     # Preferred 'mkdir' implementation
-alias f='open -a Finder ./'                 # f:            Opens current directory in MacOS Finde
-alias c='clear'                             # c:            Clear terminal display
+alias bash-reset='source ~/.bash_profile'
+alias zsh-reset='source .~/.zshrc'
 alias cat='bat'
 alias ping='prettyping --nolegend'
 alias top='sudo htop'
 alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
-alias help='tldr'
-alias weather="curl -s \"https://wttr.in/elwood?q&n&p\" | head -n -3"
-ql () { qlmanage -p "$*" >& /dev/null; }    # ql:           Opens any file in MacOS Quicklook Preview
-alias python-init='python3 -m venv .;activate;pip install -r requirements.txt'
+alias weather="curl -s 'https://wttr.in/elwood?q&n&p'"
+alias python-venv-init='python3 -m venv venv; activate; pip install -r requirements.txt'
+
+#git 
+git-lazy-commit() {
+    git add .
+    git commit -a -m "$1"
+    git push
+}
+
 # aws 
 aws-deploy-lambda() {
     zip -r f.zip . && aws lambda update-function-code --region ap-southeast-2 --function-name "$1" --zip-file fileb://f.zip
@@ -28,7 +34,10 @@ _jrnl () {
     popd
 }
 
-# ffmpeg
+brew-install-no-update() {
+    HOMEBREW_NO_AUTO_UPDATE=1 brew install "$@"
+}
+
 get_codec () {
     ffprobe -v error -select_streams v:0 -show_entries stream=codec_name -of default=noprint_wrappers=1:nokey=1 $1
 }
@@ -93,4 +102,3 @@ alias showBlocked='sudo ipfw list'                  # showBlocked:  All ipfw rul
 
 alias editHosts='sudo edit /etc/hosts'                  # editHosts:        Edit /etc/hosts fileexport PATH="/usr/local/sbin:$PATH"
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-
