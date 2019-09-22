@@ -26,6 +26,11 @@ git config --list
 rm -rf ~/.bash_profile
 ln -s ~/.dotfiles/.bash_profile ~/.bash_profile
 
+#VSCode setup
+rm -rf ~/Library/Application\ Support/Code/User/settings.json
+ln -s ~/.dotfiles/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
+cat vscode/extensions.txt | xargs -L 1 code --install-extension
+
 #Sublime preferences and packages
 wget https://packagecontrol.io/Package%20Control.sublime-package -P ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages
 rm -rf  ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Package\ Control.sublime-settings

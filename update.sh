@@ -17,6 +17,9 @@ if [[ $(git diff --stat Brewfile) != '' ]]; then
   echo 'Pushed'
 fi
 
+echo 'VSCode backup...'
+code --list-extensions --show-versions > vscode/extensions.txt
+
 echo 'MAS update...'
 mas outdated
 mas upgrade
