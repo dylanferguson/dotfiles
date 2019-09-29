@@ -1,4 +1,4 @@
-# !/bin/bash
+#!/bin/bash
 
 terminal-notifier -message 'Running daily update...'
 echo 'Updating Brew...'
