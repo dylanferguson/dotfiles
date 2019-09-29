@@ -9,11 +9,9 @@
   "journals": {
     "default": {
       "journal": "~/Dropbox/.jrnl/journal.txt"
-      "encrypt": true 
-    }
+    },
     "work": {
       "journal": "~/Dropbox/.jrnl/work.txt"
-      "encrypt": true 
     }
   }, 
   "tagsymbols": "@"

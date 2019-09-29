@@ -28,6 +28,10 @@ ln -s ~/.dotfiles/.bash_profile ~/.bash_profile
 rm -rf ~/.zshrc
 ln -s ~/.dotfiles/.zshrc ~/.zshrc
 
+#Jrnl config
+rm -rf ~/.jrnl_config
+ln -s ~/.dotfiles/.jrnl_config ~/.jrnl_config
+
 #VSCode setup
 rm -rf ~/Library/Application\ Support/Code/User/settings.json
 ln -s ~/.dotfiles/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
