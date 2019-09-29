@@ -7,12 +7,8 @@
   "default_minute": 0, 
   "highlight": true, 
   "journals": {
-    "default": {
-      "journal": "~/Dropbox/.jrnl/journal.txt"
-    },
-    "work": {
-      "journal": "~/Dropbox/.jrnl/work.txt"
-    }
+    "default": "~/Dropbox/.jrnl/journal.txt",
+    "work": "~/Dropbox/.jrnl/work.txt"
   }, 
   "tagsymbols": "@"
 }
