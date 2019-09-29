@@ -1,9 +1,4 @@
-export VISUAL=code
-export EDITOR="$VISUAL"
-
-# Trigger ~/.bashrc commands
 . ~/.bashrc
-
 
 alias brewup='brew update; brew upgrade; brew cleanup; brew cleanup --prune-prefix; brew doctor'
 alias bash-reset='source ~/.bash_profile'
@@ -34,7 +29,7 @@ _jrnl () {
     popd
 }
 
-brew-install-no-update() {
+brewinstall() {
     HOMEBREW_NO_AUTO_UPDATE=1 brew install "$@"
 }
 
@@ -84,6 +79,7 @@ alias ipInfo0='ipconfig getpacket en0'              # ipInfo0:      Get info on 
 alias ipInfo1='ipconfig getpacket en1'              # ipInfo1:      Get info on connections for en1
 alias openPorts='sudo lsof -i | grep LISTEN'        # openPorts:    All listening connections
 alias showBlocked='sudo ipfw list'                  # showBlocked:  All ipfw rules inc/ blocked IPs
+alias editHosts='sudo edit /etc/hosts'
 
 
 #   ii:  display useful host related informaton
@@ -100,5 +96,4 @@ alias showBlocked='sudo ipfw list'                  # showBlocked:  All ipfw rul
         echo
     }
 
-alias editHosts='sudo edit /etc/hosts'                  # editHosts:        Edit /etc/hosts fileexport PATH="/usr/local/sbin:$PATH"
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
