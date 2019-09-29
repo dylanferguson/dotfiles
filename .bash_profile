@@ -96,4 +96,4 @@ alias editHosts='sudo edit /etc/hosts'
         echo
     }
 
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+if command -v rbenv > /dev/null; then eval "$(rbenv init -)"; fi

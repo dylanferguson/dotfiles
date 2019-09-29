@@ -25,4 +25,5 @@ mas outdated
 mas upgrade
 
 echo 'Updating NPM global packages...'
-npm update -g 
+npm update -g
+yarn global upgrade
