@@ -9,7 +9,7 @@ for i in "${apps[@]}"; do
 done
 
 dockutil --add /Applications --view grid --display folder
-dockutil --add /Dropbox --view grid --display folder
+dockutil --add ~/Dropbox --view grid --display folder
 
 killall Dock
 
