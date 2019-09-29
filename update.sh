@@ -19,6 +19,7 @@ fi
 
 echo 'VSCode backup...'
 code --list-extensions --show-versions > vscode/extensions.txt
+[[ $(git diff --stat vscode/extensions.txt) != '' ]] && git add vscode/extensions.txt && git commit -m 'vscode extensions update' && git push
 
 echo 'MAS update...'
 mas outdated
