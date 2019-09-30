@@ -43,14 +43,10 @@ rm -rf  ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/Package\ C
 mkdir -p ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/
 cp ~/.dotfiles/Package\ Control.sublime-settings ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/
 cp ~/.dotfiles/Preferences.sublime-settings ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/User/
-#Package Control: List Packages
 
 ln -s /Volumes/Samsung_T3/Calibre\ Library ~/Calibre\ Library  
 
-#Yarn global 
-yarn global add prettier
-
 # Set cron job to do daily updates
-(crontab -l ; echo "0 19 * * * cd ~/.dotfiles && sh update.sh") | crontab
+(crontab -l ; echo "0 19 * * * cd ~/.dotfiles && sh update.sh >/dev/null 2>&1") | crontab
 
 . system_defaults.sh
