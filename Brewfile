@@ -161,9 +161,5 @@ mas "1Password", id: 443987910
 mas "BetterSnapTool", id: 417375580
 mas "GIF Brewery 3", id: 1081413713
 mas "GIPHY CAPTURE", id: 668208984
-mas "Keynote", id: 409183694
-mas "LINE", id: 539883307
-mas "Numbers", id: 409203825
-mas "Pages", id: 409201541
 mas "Tomato One", id: 907364780
 mas "WhatsApp", id: 1147396723
