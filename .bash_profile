@@ -1,8 +1,12 @@
 . ~/.bashrc
 
+export HOMEBREW_NO_AUTO_UPDATE=1
+export ANSIBLE_COW_SELECTION=random
+export ANSIBLE_NOCOWS=1
+
 alias brewup='brew update; brew upgrade; brew cleanup; brew cleanup --prune-prefix; brew doctor'
-alias bash-reset='source ~/.bash_profile'
-alias zsh-reset='source .~/.zshrc'
+alias bash-reset='. ~/.bash_profile'
+alias zsh-reset='. ~/.zshrc'
 alias cat='bat'
 alias ping='prettyping --nolegend'
 alias top='sudo htop'
@@ -11,26 +15,15 @@ alias weather="curl -s 'https://wttr.in/elwood?q&n&p'"
 alias python-venv-init='python3 -m venv venv; activate; pip install -r requirements.txt'
 
 #git 
-git-lazy-commit() {
+git_lazy_commit() {
     git add .
     git commit -a -m "$1"
     git push
 }
 
 # aws 
-aws-deploy-lambda() {
+aws_deploy_lambda() {
     zip -r f.zip . && aws lambda update-function-code --region ap-southeast-2 --function-name "$1" --zip-file fileb://f.zip
-}
-
-# misc
-_jrnl () {
-    pushd ~/.jrnl
-    make
-    popd
-}
-
-brewinstall() {
-    HOMEBREW_NO_AUTO_UPDATE=1 brew install "$@"
 }
 
 get_codec () {
