@@ -7,7 +7,6 @@
 
 [core]
 	excludesfile = /Users/dylan/.gitignore_global
-	editor = subl -n -w
 
 [credential]
 	helper = osxkeychain
