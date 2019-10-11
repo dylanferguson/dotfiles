@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>phrase</key>
+		<string>(ಸ‿ಸ)</string>
+		<key>shortcut</key>
+		<string>\cooked</string>
+	</dict>
+	<dict>
+		<key>phrase</key>
+		<string> (◡‿◡✿)</string>
+		<key>shortcut</key>
+		<string>\flower</string>
+	</dict>
+	<dict>
+		<key>phrase</key>
+		<string>(◕‿◕✿)</string>
+		<key>shortcut</key>
+		<string>\flower2</string>
+	</dict>
+	<dict>
+		<key>phrase</key>
+		<string>( •_•)
+
+( •_•)&gt;⌐■-■
+
+(⌐■_■)</string>
+		<key>shortcut</key>
+		<string>\horatio</string>
+	</dict>
+	<dict>
+		<key>phrase</key>
+		<string>ᕕ( ᐛ )ᕗ</string>
+		<key>shortcut</key>
+		<string>\joy</string>
+	</dict>
+	<dict>
+		<key>phrase</key>
+		<string>( ͡° ͜ʖ ͡°)</string>
+		<key>shortcut</key>
+		<string>\lenny</string>
+	</dict>
+	<dict>
+		<key>phrase</key>
+		<string>¯\_(ツ)_/¯</string>
+		<key>shortcut</key>
+		<string>\shrug</string>
+	</dict>
+	<dict>
+		<key>phrase</key>
+		<string>(ﾉ◕ヮ◕)ﾉ*:・ﾟ✧</string>
+		<key>shortcut</key>
+		<string>\sparkles</string>
+	</dict>
+	<dict>
+		<key>phrase</key>
+		<string>(╯°□°）╯︵ ┻┻</string>
+		<key>shortcut</key>
+		<string>\table</string>
+	</dict>
+</array>
+</plist>
