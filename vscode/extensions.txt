@@ -6,6 +6,7 @@ flowtype.flow-for-vscode@1.5.0
 ginfuru.ginfuru-better-solarized-dark-theme@0.7.0
 JamesBirtles.svelte-vscode@0.9.3
 mattn.Lisp@0.1.9
+ms-python.python@2019.10.41019
 redhat.vscode-yaml@0.5.3
 timonwong.shellcheck@0.8.1
 waderyan.gitblame@3.0.1
