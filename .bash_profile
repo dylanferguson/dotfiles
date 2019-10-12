@@ -1,9 +1,15 @@
+#!/bin/bash
+
 . ~/.bashrc
 
 export HOMEBREW_NO_AUTO_UPDATE=1
 export ANSIBLE_COW_SELECTION=random
 export ANSIBLE_NOCOWS=1
 
+alias ..='cd ..'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
 alias brewup='brew update; brew upgrade; brew cleanup; brew cleanup --prune-prefix; brew doctor'
 alias bash-reset='. ~/.bash_profile'
 alias zsh-reset='. ~/.zshrc'
