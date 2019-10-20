@@ -1,5 +1,4 @@
 {
-    "workbench.colorTheme": "Better Solarized Dark",
     "window.zoomLevel": 1,
     "workbench.iconTheme": "Monokai Pro Icons",
     "[html]": {
@@ -13,5 +12,16 @@
     },
     "[typescript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "workbench.colorTheme": "Better Solarized Dark",
+    "terminal.integrated.shell.osx": "/usr/local/bin/bash",
+    "[yaml]": {
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "files.associations": {
+        "*.workflow": "yaml"
     }
 }
