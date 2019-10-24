@@ -19,6 +19,7 @@
 	co = checkout
 	com = checkout master
 	br = branch
+	d = diff
 	amend = commit -a --amend
 	rb = rebase
 	st = status

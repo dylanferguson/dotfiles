@@ -2,6 +2,8 @@
 
 . ~/.bashrc
 
+eval "$(thefuck --alias)"
+
 export HOMEBREW_NO_AUTO_UPDATE=1
 export ANSIBLE_COW_SELECTION=random
 export ANSIBLE_NOCOWS=1
