@@ -2,6 +2,10 @@
 
 . ~/.bashrc
 
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+bind 'set show-all-if-ambiguous on'
+bind 'TAB:menu-complete'
+
 eval "$(thefuck --alias)"
 
 export HOMEBREW_NO_AUTO_UPDATE=1
@@ -13,6 +17,7 @@ alias ..='cd ..'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
+alias cl='clear'
 alias brewup='brew update; brew upgrade; brew cleanup; brew cleanup --prune-prefix; brew doctor'
 alias bash-reset='. ~/.bash_profile'
 alias zsh-reset='. ~/.zshrc'
