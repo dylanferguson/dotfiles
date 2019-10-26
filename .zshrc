@@ -102,3 +102,5 @@ source $ZSH/oh-my-zsh.sh
   autoload -U promptinit; promptinit
   prompt spaceship
 export PATH="/usr/local/sbin:$PATH"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

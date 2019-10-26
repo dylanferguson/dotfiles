@@ -11,22 +11,25 @@ eval "$(thefuck --alias)"
 export HOMEBREW_NO_AUTO_UPDATE=1
 export ANSIBLE_COW_SELECTION=random
 export ANSIBLE_NOCOWS=1
-export FZF_DEFAULT_COMMAND='ag -U --hidden --ignore .git -g ""'
+export FZF_DEFAULT_COMMAND='ag -U --hidden --ignore .git --ignore node_modules -g ""'
 
-alias ..='cd ..'
+
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
-alias cl='clear'
-alias brewup='brew update; brew upgrade; brew cleanup; brew cleanup --prune-prefix; brew doctor'
 alias bash-reset='. ~/.bash_profile'
-alias zsh-reset='. ~/.zshrc'
+alias brewup='brew update; brew upgrade; brew cleanup; brew cleanup --prune-prefix; brew doctor'
 alias cat='bat'
-alias ping='prettyping --nolegend'
-alias top='sudo htop'
+alias cl='clear'
 alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
+alias find='fd'
+alias grep='rg'
+alias ls='exa'
+alias ping='prettyping --nolegend'
+alias python-venv-init='python3 -m venv .venv; source .venv/bin/activate; pip install -r requirements.txt'
+alias top='sudo htop'
 alias weather="curl -s 'https://wttr.in/elwood?q&n&p'"
-alias python-venv-init='python3 -m venv venv; activate; pip install -r requirements.txt'
+alias zsh-reset='. ~/.zshrc'
 
 #git 
 git_lazy_commit() {
@@ -76,17 +79,17 @@ alias memHogsPs='ps wwaxm -o pid,stat,vsize,rss,time,command | head -10'
 alias cpu_hogs='ps wwaxr -o pid,stat,%cpu,time,command | head -10'
 
 #Networking 
-alias myip='curl ifconfig.co'                    # myip:         Public facing IP Address
-alias netCons='lsof -i'                             # netCons:      Show all open TCP/IP sockets
+alias editHosts='sudo edit /etc/hosts'
 alias flushDNS='dscacheutil -flushcache'            # flushDNS:     Flush out the DNS Cache
-alias lsock='sudo /usr/sbin/lsof -i -P'             # lsock:        Display open sockets
-alias lsockU='sudo /usr/sbin/lsof -nP | grep UDP'   # lsockU:       Display only open UDP sockets
-alias lsockT='sudo /usr/sbin/lsof -nP | grep TCP'   # lsockT:       Display only open TCP sockets
 alias ipInfo0='ipconfig getpacket en0'              # ipInfo0:      Get info on connections for en0
 alias ipInfo1='ipconfig getpacket en1'              # ipInfo1:      Get info on connections for en1
+alias lsock='sudo /usr/sbin/lsof -i -P'             # lsock:        Display open sockets
+alias lsockT='sudo /usr/sbin/lsof -nP | grep TCP'   # lsockT:       Display only open TCP sockets
+alias lsockU='sudo /usr/sbin/lsof -nP | grep UDP'   # lsockU:       Display only open UDP sockets
+alias myip='curl ifconfig.co'                    # myip:         Public facing IP Address
+alias netCons='lsof -i'                             # netCons:      Show all open TCP/IP sockets
 alias openPorts='sudo lsof -i | grep LISTEN'        # openPorts:    All listening connections
 alias showBlocked='sudo ipfw list'                  # showBlocked:  All ipfw rules inc/ blocked IPs
-alias editHosts='sudo edit /etc/hosts'
 
 
 #   ii:  display useful host related informaton
