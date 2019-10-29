@@ -17,6 +17,12 @@ export FZF_DEFAULT_COMMAND='ag -U --hidden --ignore .git --ignore node_modules -
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
+alias git-repo='git rev-parse --is-inside-work-tree 2> /dev/null'
+alias git-branch-sorted='git branch --sort=-committerdate'
+alias get-remote='git ls-remote --get-url'
+alias current-branch='git rev-parse --abbrev-ref HEAD'
+alias origin-diff='git fetch && git diff origin'
+alias reset-to-remote='git fetch origin && git reset --hard origin/$(current-branch)'
 alias bash-reset='. ~/.bash_profile'
 alias brewup='brew update; brew upgrade; brew cleanup; brew cleanup --prune-prefix; brew doctor'
 alias cat='bat'
@@ -31,11 +37,24 @@ alias top='sudo htop'
 alias weather="curl -s 'https://wttr.in/elwood?q&n&p'"
 alias zsh-reset='. ~/.zshrc'
 
-#git 
 git_lazy_commit() {
-    git add .
-    git commit -a -m "$1"
+  if [ ! `git-repo` ]; then
+    echo "nope, not a git repo"
+    return 1
+  fi
+
+  local msg="update"
+  if [ -n "$1" ]; then msg="$@"; fi
+  local branch=`git rev-parse --abbrev-ref HEAD`
+  read -p "Are you sure you want to push to $branch w/ the commit message '$msg'? (y/n): " -n 1 -r < /dev/tty
+  if [[ $REPLY =~ ^[Yy]$ ]]; then
+    echo
+    git add . 
+    git commit -m "$msg"
     git push
+  else
+    echo -e "\nPush aborted."
+  fi
 }
 
 # aws 
@@ -45,6 +64,10 @@ aws_deploy_lambda() {
 
 get_codec () {
     ffprobe -v error -select_streams v:0 -show_entries stream=codec_name -of default=noprint_wrappers=1:nokey=1 $1
+}
+
+record_screen() {
+    ffmpeg -f avfoundation -i 1:0 "$(date +%s).mkv"
 }
 
 #extract:  Extract most know archives with one command
