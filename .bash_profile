@@ -49,7 +49,7 @@ git_lazy_commit() {
   read -p "Are you sure you want to push to $branch w/ the commit message '$msg'? (y/n): " -n 1 -r < /dev/tty
   if [[ $REPLY =~ ^[Yy]$ ]]; then
     echo
-    git add . 
+    git add -p
     git commit -m "$msg"
     git push
   else
@@ -57,6 +57,25 @@ git_lazy_commit() {
   fi
 }
 
+compress_file() {
+  name=$(echo "$1" | cut -d'.' -f1)_out
+  ext=$(echo "$1" | cut -d'.' -f2)
+  readonly name ext
+
+  if [[ -f "$1" ]]; then
+    case "$1" in
+      *.jpg)  convert "$1" -sampling-factor 4:2:0 -strip -quality 85 -interlace JPEG -colorspace sRGB "${name}.jpg";;
+      *.png)    convert "$1" -strip "${name}.png";;
+      *.gif)    ffmpeg -i "$1" -movflags faststart -pix_fmt yuv420p -vf "scale=trunc(iw/2)*2:trunc(ih/2)*2" "${name}.mp4";;
+      *.mp4)    ffmpeg -an -i "$1" -vcodec h264 -crf 17 "${name}.mp4";;
+      *)        echo "$ext is not supported";;
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
+}
+
+ 
 # aws 
 aws_deploy_lambda() {
     zip -r f.zip . && aws lambda update-function-code --region ap-southeast-2 --function-name "$1" --zip-file fileb://f.zip
