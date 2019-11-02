@@ -13,7 +13,7 @@
     "[typescript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "workbench.colorTheme": "SynthWave '84",
+    "workbench.colorTheme": "Solarized Dark",
     "terminal.integrated.shell.osx": "/usr/local/bin/bash",
     "[yaml]": {
         "editor.defaultFormatter": "redhat.vscode-yaml"
