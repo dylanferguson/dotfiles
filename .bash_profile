@@ -6,7 +6,7 @@
 bind 'set show-all-if-ambiguous on'
 bind 'TAB:menu-complete'
 
-eval "$(thefuck --alias)"
+eval "$(thefuck --alias)" 
 
 export HOMEBREW_NO_AUTO_UPDATE=1
 export ANSIBLE_COW_SELECTION=random

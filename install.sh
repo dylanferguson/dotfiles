@@ -23,9 +23,9 @@ git config --global core.excludesfile ~/.gitignore_global
 git config --list
 
 #Symlink bash_profile
-rm -rf ~/.bash_profile
+rm -rf ~/.bash_profile ~/.bashrc ~/.zshrc
 ln -s ~/.dotfiles/.bash_profile ~/.bash_profile
-rm -rf ~/.zshrc
+ln -s ~/.dotfiles/.bashrc ~/.bashrc
 ln -s ~/.dotfiles/.zshrc ~/.zshrc
 
 #Jrnl config
