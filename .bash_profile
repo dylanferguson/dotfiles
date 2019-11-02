@@ -13,7 +13,6 @@ export ANSIBLE_COW_SELECTION=random
 export ANSIBLE_NOCOWS=1
 export FZF_DEFAULT_COMMAND='ag -U --hidden --ignore .git --ignore node_modules -g ""'
 
-
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
