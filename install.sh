@@ -22,12 +22,6 @@ ln -s ~/.dotfiles/.gitignore_global ~/.gitignore_global
 git config --global core.excludesfile ~/.gitignore_global
 git config --list
 
-#Git open
-pushd /usr/local/bin/
-sudo curl -O https://raw.githubusercontent.com/paulirish/git-open/master/git-open
-chmod +x git-open
-popd
-
 #Symlink bash_profile
 rm -rf ~/.bash_profile
 ln -s ~/.dotfiles/.bash_profile ~/.bash_profile
