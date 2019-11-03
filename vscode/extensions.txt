@@ -9,5 +9,7 @@ mattn.Lisp@0.1.9
 ms-python.python@2019.10.44104
 redhat.vscode-yaml@0.5.3
 RobbOwen.synthwave-vscode@0.0.7
+sissel.scss-style-tag@0.1.0
+syler.sass-indented@1.6.7
 timonwong.shellcheck@0.8.1
 waderyan.gitblame@3.0.1
