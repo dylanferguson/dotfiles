@@ -74,7 +74,12 @@ compress_file() {
   fi
 }
 
-# aws 
+# - docker -------------------
+docker_it() {
+  docker run -it --entrypoint /bin/bash "$1"
+}
+
+# - aws -------------------
 aws_deploy_lambda() {
     zip -r f.zip . && aws lambda update-function-code --region ap-southeast-2 --function-name "$1" --zip-file fileb://f.zip
 }
