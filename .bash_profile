@@ -27,7 +27,6 @@ alias brewup='brew update; brew upgrade; brew cleanup; brew cleanup --prune-pref
 alias cat='bat'
 alias cl='clear'
 alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
-alias find='fd'
 alias grep='rg'
 alias ls='exa'
 alias ping='prettyping --nolegend'
