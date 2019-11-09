@@ -1,6 +1,5 @@
 {
     "window.zoomLevel": 1,
-    "workbench.iconTheme": "Monokai Pro Icons",
     "[html]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
@@ -24,5 +23,9 @@
     "files.associations": {
         "*.workflow": "yaml"
     },
-    "editor.tabCompletion": "on"
+    "editor.tabCompletion": "on",
+    "window.restoreWindows": "all",
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "explorer.confirmDragAndDrop": false,
+    "workbench.iconTheme": "vscode-icons"
 }

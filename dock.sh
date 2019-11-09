@@ -4,7 +4,7 @@ apps=("Google Chrome" Firefox "Firefox Developer Edition" Spotify "Visual Studio
 
 dockutil --no-restart --remove all
 for i in "${apps[@]}"; do
-    dockutil --no-restart --add /Applications/${i}.app
+    dockutil --no-restart --add "/Applications/$i.app"
     echo "$i"
 done
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. ~/.bashrc
+. "$HOME/.bashrc"
 
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 bind 'set show-all-if-ambiguous on'
@@ -34,19 +34,20 @@ alias ls='exa'
 alias ping='prettyping --nolegend'
 alias python-venv-init='python3 -m venv .venv; source .venv/bin/activate; pip install -r requirements.txt'
 alias top='sudo htop'
-alias update-all-the-things="$HOME/.dotfiles/update.sh"
+alias update-all-the-things='$HOME/.dotfiles/update.sh'
 alias weather="curl -s 'https://wttr.in/elwood?q&n&p'"
 alias zsh-reset='. ~/.zshrc'
 
 git_lazy_commit() {
-  if [ ! $(git-repo) ]; then
+  if [ ! "$(git-repo)" ]; then
     echo "nope, not a git repo"
     return 1
   fi
 
   local msg="update"
-  if [ -n "$1" ]; then msg="$@"; fi
-  local branch=$(git rev-parse --abbrev-ref HEAD)
+  if [ -n "$1" ]; then msg="$*"; fi
+  local branch
+  branch=$(git rev-parse --abbrev-ref HEAD)
   read -p "Are you sure you want to push to $branch w/ the commit message '$msg'? (y/n): " -n 1 -r < /dev/tty
   if [[ $REPLY =~ ^[Yy]$ ]]; then
     echo
@@ -81,7 +82,7 @@ aws_deploy_lambda() {
 }
 
 get_codec () {
-    ffprobe -v error -select_streams v:0 -show_entries stream=codec_name -of default=noprint_wrappers=1:nokey=1 $1
+    ffprobe -v error -select_streams v:0 -show_entries stream=codec_name -of default=noprint_wrappers=1:nokey=1 "$1"
 }
 
 record_screen() {
@@ -90,19 +91,19 @@ record_screen() {
 
 #extract:  Extract most know archives with one command
 extract () {
-        if [ -f $1 ] ; then
-          case $1 in
-            *.tar.bz2)   tar xjf $1     ;;
-            *.tar.gz)    tar xzf $1     ;;
-            *.bz2)       bunzip2 $1     ;;
-            *.rar)       unrar e $1     ;;
-            *.gz)        gunzip $1      ;;
-            *.tar)       tar xf $1      ;;
-            *.tbz2)      tar xjf $1     ;;
-            *.tgz)       tar xzf $1     ;;
-            *.zip)       unzip $1       ;;
-            *.Z)         uncompress $1  ;;
-            *.7z)        7z x $1        ;;
+        if [ -f "$1" ] ; then
+          case "$1" in
+            *.tar.bz2)   tar xjf "$1"     ;;
+            *.tar.gz)    tar xzf "$1"     ;;
+            *.bz2)       bunzip2 "$1"     ;;
+            *.rar)       unrar e "$1"     ;;
+            *.gz)        gunzip "$1"      ;;
+            *.tar)       tar xf "$1"      ;;
+            *.tbz2)      tar xjf "$1"     ;;
+            *.tgz)       tar xzf "$1"     ;;
+            *.zip)       unzip "$1"       ;;
+            *.Z)         uncompress "$1"  ;;
+            *.7z)        7z x "$1"        ;;
             *)     echo "'$1' cannot be extracted via extract()" ;;
              esac
          else

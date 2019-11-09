@@ -3,7 +3,7 @@
 . dock.sh
 
 #change default shell to zsh 
-sudo dscl . -create /Users/$USER UserShell /usr/local/bin/zsh
+# sudo dscl . -create "/Users/$USER" UserShell /usr/local/bin/zsh
 # oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 curl -O https://raw.githubusercontent.com/MartinSeeler/iterm2-material-design/master/material-design-colors.itermcolors
@@ -35,7 +35,7 @@ ln -s ~/.dotfiles/.jrnl_config ~/.jrnl_config
 #VSCode setup
 rm -rf ~/Library/Application\ Support/Code/User/settings.json
 ln -s ~/.dotfiles/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
-cat vscode/extensions.txt | xargs -L 1 code --install-extension
+xargs -L 1 code --install-extension <  vscode/extensions.txt
 
 #Sublime preferences and packages
 wget https://packagecontrol.io/Package%20Control.sublime-package -P ~/Library/Application\ Support/Sublime\ Text\ 3/Installed\ Packages
@@ -46,7 +46,7 @@ cp ~/.dotfiles/Preferences.sublime-settings ~/Library/Application\ Support/Subli
 
 ln -s /Volumes/Samsung_T3/Calibre\ Library ~/Calibre\ Library  
 
-# Set cron job to do daily updates
-(crontab -l ; echo "0 19 * * * cd ~/.dotfiles && sh update.sh >/dev/null 2>&1") | crontab
+
+(crontab -l ; echo "0 19 * * * cd $HOME/.dotfiles && sh update.sh >/dev/null 2>&1") | crontab
 
 . system_defaults.sh
