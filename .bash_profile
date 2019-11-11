@@ -75,6 +75,7 @@ compress_file() {
 }
 
 # - docker -------------------
+alias docker_clear_containers='docker rm -f $(docker ps -a -q)'
 docker_it() {
   docker run -it --entrypoint /bin/bash "$1"
 }
