@@ -11,7 +11,7 @@ mattn.Lisp@0.1.9
 ms-azuretools.vscode-docker@0.8.2
 ms-python.python@2019.10.44104
 octref.vetur@0.22.6
-redhat.vscode-yaml@0.6.0
+redhat.vscode-yaml@0.6.1
 RobbOwen.synthwave-vscode@0.0.7
 syler.sass-indented@1.6.9
 timonwong.shellcheck@0.8.1
