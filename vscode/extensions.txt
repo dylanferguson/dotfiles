@@ -2,14 +2,14 @@ ardenivanov.svelte-intellisense@0.7.1
 ban.spellright@3.0.48
 bierner.color-info@0.5.1
 christian-kohler.path-intellisense@1.4.2
-esbenp.prettier-vscode@3.6.0
+esbenp.prettier-vscode@3.9.0
 fivethree.vscode-svelte-snippets@0.3.0
 flowtype.flow-for-vscode@1.5.0
 ginfuru.ginfuru-better-solarized-dark-theme@0.7.0
 JamesBirtles.svelte-vscode@0.9.3
-mattn.Lisp@0.1.9
+mattn.Lisp@0.1.10
 ms-azuretools.vscode-docker@0.8.2
-ms-python.python@2019.10.44104
+ms-python.python@2019.11.50794
 octref.vetur@0.22.6
 redhat.vscode-yaml@0.6.1
 RobbOwen.synthwave-vscode@0.0.7
