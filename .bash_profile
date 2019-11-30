@@ -3,6 +3,8 @@
 . "$HOME/.bashrc"
 
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 bind 'set show-all-if-ambiguous on'
 bind 'TAB:menu-complete'
 
@@ -12,6 +14,7 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 export ANSIBLE_COW_SELECTION=random
 export ANSIBLE_NOCOWS=1
 export FZF_DEFAULT_COMMAND='ag -U --hidden --ignore .git --ignore node_modules -g ""'
+export NVM_DIR="$HOME/.nvm"
 
 alias ..='cd ..'
 alias ...='cd ../..'
