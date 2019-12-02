@@ -2,7 +2,7 @@ ardenivanov.svelte-intellisense@0.7.1
 ban.spellright@3.0.48
 bierner.color-info@0.5.1
 christian-kohler.path-intellisense@1.4.2
-esbenp.prettier-vscode@3.9.0
+esbenp.prettier-vscode@3.11.0
 fivethree.vscode-svelte-snippets@0.3.0
 flowtype.flow-for-vscode@1.5.0
 ginfuru.ginfuru-better-solarized-dark-theme@0.7.0
@@ -13,6 +13,6 @@ ms-python.python@2019.11.50794
 octref.vetur@0.22.6
 redhat.vscode-yaml@0.6.1
 RobbOwen.synthwave-vscode@0.0.7
-syler.sass-indented@1.6.9
+syler.sass-indented@1.7.1
 timonwong.shellcheck@0.8.1
 waderyan.gitblame@3.0.1
