@@ -8,7 +8,7 @@ flowtype.flow-for-vscode@1.5.0
 ginfuru.ginfuru-better-solarized-dark-theme@0.7.0
 JamesBirtles.svelte-vscode@0.9.3
 mattn.Lisp@0.1.10
-ms-azuretools.vscode-docker@0.8.2
+ms-azuretools.vscode-docker@0.9.0
 ms-python.python@2019.11.50794
 octref.vetur@0.22.6
 redhat.vscode-yaml@0.6.1
