@@ -11,6 +11,7 @@ bind 'TAB:menu-complete'
 eval "$(thefuck --alias)" 
 
 export HOMEBREW_NO_ANALYTICS=1
+export GATSBY_TELEMETRY_DISABLED=1
 export HOMEBREW_NO_AUTO_UPDATE=1
 export ANSIBLE_COW_SELECTION=random
 export ANSIBLE_NOCOWS=1
