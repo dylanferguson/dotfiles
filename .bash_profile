@@ -79,6 +79,14 @@ compress_file() {
   fi
 }
 
+cmprss-diff() {
+  ORIGINAL_SIZE=$(wc -c "$1" | awk '{print $1}')
+  GZ_SIZE=$(gzip -c "$1" | wc -c | awk '{print $1}')
+  BROTLI_SIZE=$(brotli -c "$1" | wc -c | awk '{print $1}')
+  echo "gzip:   $(bc <<< "scale=2; ($ORIGINAL_SIZE - $GZ_SIZE) / $ORIGINAL_SIZE * 100")% reduction"
+  echo "brotli: $(bc <<< "scale=2; ($ORIGINAL_SIZE - $BROTLI_SIZE) / $ORIGINAL_SIZE * 100")% reduction"
+}
+
 # - docker -------------------
 alias docker_clear_containers='docker rm -f $(docker ps -a -q)'
 docker_it() {
