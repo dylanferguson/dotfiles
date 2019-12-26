@@ -14,5 +14,5 @@ octref.vetur@0.22.6
 redhat.vscode-yaml@0.6.1
 RobbOwen.synthwave-vscode@0.0.7
 syler.sass-indented@1.7.1
-timonwong.shellcheck@0.8.2
+timonwong.shellcheck@0.9.0
 waderyan.gitblame@3.0.1
