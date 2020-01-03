@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 terminal-notifier -message 'Running daily update...'
 echo 'Updating Brew...'
@@ -7,6 +8,8 @@ brew upgrade
 brew cleanup -s
 brew doctor
 brew missing
+
+pushd "$HOME/.dotfiles"
 
 brew bundle dump --force
 if [[ $(git diff --stat Brewfile) != '' ]]; then
@@ -28,3 +31,5 @@ mas upgrade
 echo 'Updating NPM global packages...'
 npm update -g
 yarn global upgrade
+
+popd
