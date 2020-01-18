@@ -1,7 +1,6 @@
 #!/bin/bash
 set -e
 
-terminal-notifier -message 'Running daily update...'
 echo 'Updating Brew...'
 brew update
 brew upgrade
