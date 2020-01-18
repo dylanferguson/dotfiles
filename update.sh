@@ -16,13 +16,15 @@ if [[ $(git diff --stat Brewfile) != '' ]]; then
   echo 'Updating Brewfile...'
   git add Brewfile
   git commit -m 'auto update Brewfile'
-  git push
-  echo 'Pushed'
 fi
+
+echo 'pipx pkg backup...'
+pipx list > pipx.txt
+[[ $(git diff --stat pipx.txt) != '' ]] && git add pipx.txt && git commit -m 'pipx pkg list update'
 
 echo 'VSCode backup...'
 code --list-extensions --show-versions > vscode/extensions.txt
-[[ $(git diff --stat vscode/extensions.txt) != '' ]] && git add vscode/extensions.txt && git commit -m 'vscode extensions update' && git push
+[[ $(git diff --stat vscode/extensions.txt) != '' ]] && git add vscode/extensions.txt && git commit -m 'vscode extensions update'
 
 echo 'MAS update...'
 mas outdated
