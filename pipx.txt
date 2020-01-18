@@ -2,3 +2,5 @@ venvs are in /Users/dylan/.local/pipx/venvs
 apps are exposed on your $PATH at /Users/dylan/.local/bin
    package jrnl 2.1.1, Python 3.7.6
     - jrnl
+   package poetry 1.0.2, Python 3.7.6
+    - poetry
