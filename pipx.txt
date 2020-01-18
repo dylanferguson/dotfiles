@@ -1,0 +1,4 @@
+venvs are in /Users/dylan/.local/pipx/venvs
+apps are exposed on your $PATH at /Users/dylan/.local/bin
+   package jrnl 2.1.1, Python 3.7.6
+    - jrnl
