@@ -79,7 +79,9 @@ compress_file() {
   fi
 }
 
-cmprss-diff() {
+proc_on_port() { lsof -i :"$1"; }
+
+cmprss_diff() {
   ORIGINAL_SIZE=$(wc -c "$1" | awk '{print $1}')
   GZ_SIZE=$(gzip -c "$1" | wc -c | awk '{print $1}')
   BROTLI_SIZE=$(brotli -c "$1" | wc -c | awk '{print $1}')
