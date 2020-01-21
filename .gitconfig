@@ -21,9 +21,9 @@
 	com = checkout master
 	br = branch
 	d = diff
-	# Never `git pull`! You want `git fetch origin`, 
-	#	then `git merge --ff-only origin/mybranch` (to fast forward) or 
-	#	`git merge --no-ff origin/mybranch` (to create a merge bubble) or 
+	# Never `git pull`! You want `git fetch origin`,
+	#	then `git merge --ff-only origin/mybranch` (to fast forward) or
+	#	`git merge --no-ff origin/mybranch` (to create a merge bubble) or
 	#	`git rebase origin/mybranch` (to rebase) — grb
 	ff = merge --ff-only
     noff = merge --no-ff
