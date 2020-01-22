@@ -81,6 +81,8 @@ compress_file() {
 
 proc_on_port() { lsof -i :"$1"; }
 
+time_d() { /usr/bin/time -l "$@"; }
+
 cmprss_diff() {
   ORIGINAL_SIZE=$(wc -c "$1" | awk '{print $1}')
   GZ_SIZE=$(gzip -c "$1" | wc -c | awk '{print $1}')
