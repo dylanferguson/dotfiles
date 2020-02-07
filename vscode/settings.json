@@ -27,5 +27,7 @@
     "window.restoreWindows": "all",
     "workbench.editor.enablePreviewFromQuickOpen": false,
     "explorer.confirmDragAndDrop": false,
-    "workbench.iconTheme": "vscode-icons"
+    "workbench.iconTheme": "vscode-icons",
+    "svelte.language-server.runtime": "/usr/local/bin/node",
+    "window.restoreFullscreen": true
 }
