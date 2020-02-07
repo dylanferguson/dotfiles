@@ -10,6 +10,8 @@ bind 'TAB:menu-complete'
 
 eval "$(thefuck --alias)" 
 
+export PATH="$PATH:$HOME/.local/bin"
+
 export HOMEBREW_NO_ANALYTICS=1
 export GATSBY_TELEMETRY_DISABLED=1
 export HOMEBREW_NO_AUTO_UPDATE=1
