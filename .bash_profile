@@ -65,6 +65,14 @@ git_lazy_commit() {
   fi
 }
 
+# fuzzy git checkout
+fbr() {
+  local branches branch
+  branches=$(git --no-pager branch -vv) &&
+  branch=$(echo "$branches" | fzf +m) &&
+  git checkout "$(echo "$branch" | awk '{print $1}' | sed "s/.* //")"
+}
+
 compress_file() {
   name=$(echo "$1" | cut -d'.' -f1)_out
   ext=$(echo "$1" | cut -d'.' -f2)
