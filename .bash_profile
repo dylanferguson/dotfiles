@@ -46,14 +46,15 @@ alias weather="curl -s 'https://wttr.in/elwood?q&n&p'"
 alias zsh-reset='. ~/.zshrc'
 
 git_lazy_commit() {
+  local msg branch
   if [ ! "$(git-repo)" ]; then
     echo "nope, not a git repo"
     return 1
   fi
 
-  local msg="update"
+  msg="update"
   if [ -n "$1" ]; then msg="$*"; fi
-  local branch
+
   branch=$(git rev-parse --abbrev-ref HEAD)
   read -p "Are you sure you want to push to $branch w/ the commit message '$msg'? (y/n): " -n 1 -r < /dev/tty
   if [[ $REPLY =~ ^[Yy]$ ]]; then
@@ -75,6 +76,7 @@ fbr() {
 }
 
 compress_file() {
+  local name ext
   name=$(echo "$1" | cut -d'.' -f1)_out
   ext=$(echo "$1" | cut -d'.' -f2)
 
@@ -96,11 +98,12 @@ proc_on_port() { lsof -i :"$1"; }
 time_d() { /usr/bin/time -l "$@"; }
 
 cmprss_diff() {
-  ORIGINAL_SIZE=$(wc -c "$1" | awk '{print $1}')
-  GZ_SIZE=$(gzip -c "$1" | wc -c | awk '{print $1}')
-  BROTLI_SIZE=$(brotli -c "$1" | wc -c | awk '{print $1}')
-  echo "gzip:   $(bc <<< "scale=2; ($ORIGINAL_SIZE - $GZ_SIZE) / $ORIGINAL_SIZE * 100")% reduction"
-  echo "brotli: $(bc <<< "scale=2; ($ORIGINAL_SIZE - $BROTLI_SIZE) / $ORIGINAL_SIZE * 100")% reduction"
+  local original gz brotli
+  original=$(wc -c "$1" | awk '{print $1}')
+  gz=$(gzip -c "$1" | wc -c | awk '{print $1}')
+  brotli=$(brotli -c "$1" | wc -c | awk '{print $1}')
+  echo "gzip:   $(bc <<< "scale=2; ($original - $gz) / $original * 100")% reduction"
+  echo "brotli: $(bc <<< "scale=2; ($original - $brotli) / $original * 100")% reduction"
 }
 
 # - docker -------------------
