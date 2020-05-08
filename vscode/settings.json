@@ -1,34 +1,35 @@
 {
-    "window.zoomLevel": 1,
-    "[html]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[json]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[jsonc]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[typescript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "workbench.colorTheme": "Solarized Dark",
-    "terminal.integrated.shell.osx": "/usr/local/bin/bash",
-    "[yaml]": {
-        "editor.defaultFormatter": "redhat.vscode-yaml"
-    },
-    "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "files.associations": {
-        "*.workflow": "yaml"
-    },
-    "editor.tabCompletion": "on",
-    "window.restoreWindows": "all",
-    "workbench.editor.enablePreviewFromQuickOpen": false,
-    "explorer.confirmDragAndDrop": false,
-    "workbench.iconTheme": "vscode-icons",
-    "svelte.language-server.runtime": "/usr/local/bin/node",
-    "window.restoreFullscreen": true,
-    "files.autoSave": "afterDelay"
+  "window.zoomLevel": 1,
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.colorTheme": "Solarized Dark",
+  "terminal.integrated.shell.osx": "/usr/local/bin/bash",
+  "[yaml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "files.associations": {
+    "*.workflow": "yaml"
+  },
+  "editor.tabCompletion": "on",
+  "window.restoreWindows": "all",
+  "workbench.editor.enablePreviewFromQuickOpen": false,
+  "explorer.confirmDragAndDrop": false,
+  "workbench.iconTheme": "vscode-icons",
+  "svelte.language-server.runtime": "/usr/local/bin/node",
+  "window.restoreFullscreen": true,
+  "files.autoSave": "afterDelay",
+  "spellright.language": ["en-GB"]
 }
