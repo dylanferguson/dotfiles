@@ -31,5 +31,12 @@
   "svelte.language-server.runtime": "/usr/local/bin/node",
   "window.restoreFullscreen": true,
   "files.autoSave": "afterDelay",
-  "spellright.language": ["en-GB"]
+  "spellright.language": [
+    "en-GB"
+  ],
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.fontFamily": "Fira Code, JetBrains Mono, Source Code Pro, Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontLigatures": true
 }
