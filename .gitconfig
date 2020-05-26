@@ -30,6 +30,8 @@
 	amend = commit -a --amend
 	rb = rebase
 	st = status
+	fixup = commit --fixup HEAD
+	autosquash = rebase -i --autosquash
 	last = log -1 HEAD
 	wat = whatchanged
 	acm = "!f() { git add . && git commit -m \"$(echo $@)\"; }; f";
