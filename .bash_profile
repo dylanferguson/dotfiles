@@ -24,6 +24,7 @@ export NVM_DIR="$HOME/.nvm"
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
+alias g='git'
 alias git-repo='git rev-parse --is-inside-work-tree 2> /dev/null'
 alias git-branch-sorted='git branch --sort=-committerdate'
 alias get-remote='git ls-remote --get-url'

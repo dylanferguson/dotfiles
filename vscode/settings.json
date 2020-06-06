@@ -38,5 +38,6 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "editor.fontFamily": "Fira Code, JetBrains Mono, Source Code Pro, Menlo, Monaco, 'Courier New', monospace",
-  "editor.fontLigatures": true
+  "editor.fontLigatures": true,
+  "javascript.updateImportsOnFileMove.enabled": "always"
 }
