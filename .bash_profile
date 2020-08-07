@@ -45,6 +45,8 @@ alias top='sudo htop'
 alias update-all-the-things='$HOME/.dotfiles/update.sh'
 alias weather="curl -s 'https://wttr.in/elwood?q&n&p'"
 alias zsh-reset='. ~/.zshrc'
+alias tcp_ports='netstat -ant | grep LISTEN'
+
 
 git_lazy_commit() {
   local msg branch
