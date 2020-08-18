@@ -39,5 +39,6 @@
   },
   "editor.fontFamily": "Fira Code, JetBrains Mono, Source Code Pro, Menlo, Monaco, 'Courier New', monospace",
   "editor.fontLigatures": true,
-  "javascript.updateImportsOnFileMove.enabled": "always"
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "editor.renderWhitespace": "all"
 }

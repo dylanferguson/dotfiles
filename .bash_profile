@@ -6,6 +6,11 @@
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 [ -f "$(brew --prefix)/etc/profile.d/z.sh" ] && source "$(brew --prefix)/etc/profile.d/z.sh" # rupa's Z
+[ -f "$(brew --prefix asdf)/asdf.sh" ] && source "$(brew --prefix asdf)/asdf.sh"
+
+# if [ -f '/Users/dylan/Downloads/google-cloud-sdk/path.bash.inc' ]; then . '/Users/dylan/Downloads/google-cloud-sdk/path.bash.inc'; fi
+# if [ -f '/Users/dylan/Downloads/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/dylan/Downloads/google-cloud-sdk/completion.bash.inc'; fi
+
 bind 'set show-all-if-ambiguous on'
 bind 'TAB:menu-complete'
 
