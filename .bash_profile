@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export PATH="$PATH:$HOME/.local/bin"
+
 . "$HOME/.bashrc"
 
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
@@ -8,15 +10,10 @@
 [ -f "$(brew --prefix)/etc/profile.d/z.sh" ] && source "$(brew --prefix)/etc/profile.d/z.sh" # rupa's Z
 [ -f "$(brew --prefix asdf)/asdf.sh" ] && source "$(brew --prefix asdf)/asdf.sh"
 
-# if [ -f '/Users/dylan/Downloads/google-cloud-sdk/path.bash.inc' ]; then . '/Users/dylan/Downloads/google-cloud-sdk/path.bash.inc'; fi
-# if [ -f '/Users/dylan/Downloads/google-cloud-sdk/completion.bash.inc' ]; then . '/Users/dylan/Downloads/google-cloud-sdk/completion.bash.inc'; fi
-
 bind 'set show-all-if-ambiguous on'
 bind 'TAB:menu-complete'
 
 eval "$(thefuck --alias)" 
-
-export PATH="$PATH:$HOME/.local/bin"
 
 export HOMEBREW_NO_ANALYTICS=1
 export GATSBY_TELEMETRY_DISABLED=1
