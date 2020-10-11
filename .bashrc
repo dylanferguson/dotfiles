@@ -1,8 +1,6 @@
 # Run twolfson/sexy-bash-prompt
 . ~/.bash_prompt
 
-eval "$(thefuck --alias)"
-
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 HISTSIZE=2048
