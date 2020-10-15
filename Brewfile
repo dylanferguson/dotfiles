@@ -11,9 +11,9 @@ tap "rigellute/tap"
 tap "uptech/oss"
 brew "ack"
 brew "sqlite"
-brew "python@3.8"
 brew "ansible"
 brew "ansible-lint"
+brew "python@3.8"
 brew "asciidoc"
 brew "coreutils"
 brew "asdf", args: ["HEAD"]
@@ -67,6 +67,7 @@ brew "iftop"
 brew "libomp"
 brew "imagemagick"
 brew "jq"
+brew "jrnl"
 brew "links"
 brew "llvm"
 brew "lolcat"
@@ -86,7 +87,6 @@ brew "nvm"
 brew "open-mpi"
 brew "pandoc"
 brew "pandoc-citeproc"
-brew "pipx"
 brew "ponysay"
 brew "postgresql"
 brew "potrace"
@@ -105,6 +105,7 @@ brew "sox"
 brew "stow"
 brew "terminal-notifier"
 brew "the_silver_searcher"
+brew "thefuck"
 brew "tig"
 brew "tinyproxy"
 brew "tldr"
@@ -186,7 +187,6 @@ mas "1Password", id: 443987910
 mas "BetterSnapTool", id: 417375580
 mas "GIF Brewery 3", id: 1081413713
 mas "GIPHY CAPTURE", id: 668208984
-mas "Install macOS Catalina", id: 0
 mas "Intelligent Translator", id: 1217010477
 mas "Magnet", id: 441258766
 mas "Tomato One", id: 907364780
