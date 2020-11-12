@@ -12,13 +12,13 @@
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "workbench.colorTheme": "Solarized Dark",
+  "workbench.colorTheme": "Retreon",
   "terminal.integrated.shell.osx": "/usr/local/bin/bash",
   "[yaml]": {
     "editor.defaultFormatter": "redhat.vscode-yaml"
   },
   "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "vscode.typescript-language-features"
   },
   "files.associations": {
     "*.workflow": "yaml"
@@ -40,5 +40,6 @@
   "editor.fontFamily": "Fira Code, JetBrains Mono, Source Code Pro, Menlo, Monaco, 'Courier New', monospace",
   "editor.fontLigatures": true,
   "javascript.updateImportsOnFileMove.enabled": "always",
-  "editor.renderWhitespace": "all"
+  "editor.renderWhitespace": "all",
+  "update.showReleaseNotes": false
 }
