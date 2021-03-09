@@ -22,7 +22,6 @@ brew "bash-completion@2"
 brew "bat"
 brew "bmon"
 brew "brotli"
-brew "python@3.8", link: true
 brew "clisp"
 brew "cloc"
 brew "cmatrix"
@@ -64,6 +63,7 @@ brew "htop"
 brew "hub"
 brew "hugo"
 brew "iftop"
+brew "python@3.8"
 brew "libomp"
 brew "imagemagick"
 brew "jq"
@@ -104,6 +104,7 @@ brew "sl"
 brew "sox"
 brew "stow"
 brew "terminal-notifier"
+brew "terraform"
 brew "the_silver_searcher"
 brew "thefuck"
 brew "tig"
@@ -157,10 +158,6 @@ cask "nvalt"
 cask "paragon-ntfs"
 cask "postman"
 cask "processing"
-cask "qlimagesize"
-cask "qlmarkdown"
-cask "qlprettypatch"
-cask "qlvideo"
 cask "quicklook-csv"
 cask "quicklook-json"
 cask "responsively"
@@ -186,6 +183,10 @@ mas "BetterSnapTool", id: 417375580
 mas "GIF Brewery 3", id: 1081413713
 mas "GIPHY CAPTURE", id: 668208984
 mas "Intelligent Translator", id: 1217010477
+mas "Keynote", id: 409183694
+mas "LINE", id: 539883307
 mas "Magnet", id: 441258766
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
 mas "Tomato One", id: 907364780
 mas "WhatsApp", id: 1147396723
