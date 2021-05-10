@@ -41,6 +41,7 @@ alias cl='clear'
 alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
 alias grep='rg'
 alias ls='exa'
+alias pbjson='pbpaste | json_pp | pbcopy' # / jq '.'
 alias ping='prettyping --nolegend'
 alias python-venv-init='python3 -m venv .venv; source .venv/bin/activate; pip install -r requirements.txt'
 alias top='sudo htop'

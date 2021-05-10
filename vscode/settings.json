@@ -1,7 +1,7 @@
 {
   "window.zoomLevel": 1,
   "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "vscode.html-language-features"
   },
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -12,7 +12,7 @@
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "workbench.colorTheme": "Retreon",
+  "workbench.colorTheme": "Blueberry dark theme",
   "terminal.integrated.shell.osx": "/usr/local/bin/bash",
   "[yaml]": {
     "editor.defaultFormatter": "redhat.vscode-yaml"
