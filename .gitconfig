@@ -43,3 +43,6 @@
 
 [help]
 	autocorrect = 1
+
+[merge]
+	conflictstyle = diff3
