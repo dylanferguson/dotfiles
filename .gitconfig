@@ -18,7 +18,7 @@
 [alias]
 	a = add
 	co = checkout
-	com = checkout master
+	com = "!git checkout master  2>/dev/null || git checkout main"
 	br = branch
 	d = diff
 	# Never `git pull`! You want `git fetch origin`,
@@ -46,3 +46,5 @@
 
 [merge]
 	conflictstyle = diff3
+[init]
+	defaultBranch = main

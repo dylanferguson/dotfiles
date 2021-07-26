@@ -41,5 +41,8 @@
   "editor.fontLigatures": true,
   "javascript.updateImportsOnFileMove.enabled": "always",
   "editor.renderWhitespace": "all",
-  "update.showReleaseNotes": false
+  "update.showReleaseNotes": false,
+  "editor.cursorSmoothCaretAnimation": true,
+  "editor.formatOnSave": true,
+  "explorer.confirmDelete": false
 }
