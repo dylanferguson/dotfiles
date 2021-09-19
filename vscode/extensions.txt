@@ -11,12 +11,12 @@ hoovercj.vscode-power-mode@2.2.0
 kamikillerto.vscode-colorize@0.11.1
 kgscott.retreon@0.0.1
 ms-azuretools.vscode-docker@1.16.1
-ms-vscode-remote.remote-containers@0.191.1
+ms-vscode-remote.remote-containers@0.194.0
 paulvarache.vscode-taskfile@0.0.5
 peymanslh.blueberry-dark-theme@1.1.0
 pmndrs.pmndrs@0.3.2
 redhat.vscode-xml@0.18.0
 redhat.vscode-yaml@0.22.0
-streetsidesoftware.code-spell-checker@1.10.2
+streetsidesoftware.code-spell-checker@2.0.5
 TakumiI.markdowntable@0.7.0
 waderyan.gitblame@8.1.0
