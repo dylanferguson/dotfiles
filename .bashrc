@@ -11,3 +11,5 @@ HISTSIZE=2048
 
 complete -o bashdefault -o default -o nospace -F __git_wrap__git_main g
 eval "$(thefuck --alias)"
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"

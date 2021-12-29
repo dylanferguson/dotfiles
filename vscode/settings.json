@@ -1,5 +1,4 @@
 {
-  "window.zoomLevel": 1,
   "[html]": {
     "editor.defaultFormatter": "vscode.html-language-features"
   },
@@ -18,7 +17,7 @@
     "editor.defaultFormatter": "redhat.vscode-yaml"
   },
   "[javascript]": {
-    "editor.defaultFormatter": "vscode.typescript-language-features"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "files.associations": {
     "*.workflow": "yaml"
@@ -44,5 +43,9 @@
   "update.showReleaseNotes": false,
   "editor.cursorSmoothCaretAnimation": true,
   "editor.formatOnSave": true,
-  "explorer.confirmDelete": false
+  "explorer.confirmDelete": false,
+  "window.zoomLevel": 1,
+  "[nunjucks]": {
+    "editor.defaultFormatter": "okitavera.vscode-nunjucks-formatter"
+  }
 }
