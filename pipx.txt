@@ -1,6 +1,7 @@
+upgrading shared libraries...
 venvs are in /Users/dylan/.local/pipx/venvs
 apps are exposed on your $PATH at /Users/dylan/.local/bin
-   package awsume 4.5.0, Python 3.9.4
+   package awsume 4.5.0, installed using Python 3.9.4
     - autoawsume
     - awsume
     - awsume-autocomplete
