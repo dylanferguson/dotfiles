@@ -1,8 +1,12 @@
 #!/bin/bash
 
-export PATH="$PATH:$HOME/.local/bin"
+if command -v rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH:/Users/dylan/.local/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 . "$HOME/.bashrc"
+. /opt/homebrew/etc/profile.d/z.sh
 
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
@@ -21,6 +25,7 @@ export HOMEBREW_NO_AUTO_UPDATE=1
 export ANSIBLE_COW_SELECTION=random
 export ANSIBLE_NOCOWS=1
 export FZF_DEFAULT_COMMAND='ag -U --hidden --ignore .git --ignore node_modules -g ""'
+export AWS_CLI_AUTO_PROMPT=on
 export NVM_DIR="$HOME/.nvm"
 
 alias ..='cd ..'
@@ -191,6 +196,6 @@ alias showBlocked='sudo ipfw list'                  # showBlocked:  All ipfw rul
         echo
     }
 
-if command -v rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
+
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*

@@ -1,5 +1,5 @@
 # Run twolfson/sexy-bash-prompt
-. ~/.bash_prompt
+# . ~/.bash_prompt
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
@@ -10,6 +10,8 @@ HISTSIZE=2048
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 complete -o bashdefault -o default -o nospace -F __git_wrap__git_main g
-eval "$(thefuck --alias)"
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+eval "$(starship init bash)"

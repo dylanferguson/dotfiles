@@ -11,7 +11,6 @@
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "workbench.colorTheme": "Blueberry dark theme",
   "terminal.integrated.shell.osx": "/usr/local/bin/bash",
   "[yaml]": {
     "editor.defaultFormatter": "redhat.vscode-yaml"
@@ -47,5 +46,6 @@
   "window.zoomLevel": 1,
   "[nunjucks]": {
     "editor.defaultFormatter": "okitavera.vscode-nunjucks-formatter"
-  }
+  },
+  "workbench.colorTheme": "Yarra Valley"
 }
