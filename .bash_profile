@@ -6,6 +6,7 @@ export PATH="$VOLTA_HOME/bin:$PATH:/Users/dylan/.local/bin:/Applications/Visual 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 . "$HOME/.bashrc"
+. "$HOME/.asdf/asdf.sh"
 . /opt/homebrew/etc/profile.d/z.sh
 
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
@@ -16,8 +17,6 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 bind 'set show-all-if-ambiguous on'
 bind 'TAB:menu-complete'
-
-eval "$(thefuck --alias)" 
 
 export HOMEBREW_NO_ANALYTICS=1
 export GATSBY_TELEMETRY_DISABLED=1
@@ -45,7 +44,7 @@ alias cat='bat'
 alias cl='clear'
 alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
 alias grep='rg'
-alias ls='exa'
+alias ls='eza'
 alias pbjson='pbpaste | json_pp | pbcopy' # / jq '.'
 alias ping='prettyping --nolegend'
 alias pg='postgres'
@@ -199,3 +198,12 @@ alias showBlocked='sudo ipfw list'                  # showBlocked:  All ipfw rul
 
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+# export PYENV_ROOT="$HOME/.pyenv"
+# command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init -)"
+
+
+# Added by OrbStack: command-line tools and integration
+# This won't be added again if you remove it.
+source ~/.orbstack/shell/init.fish 2>/dev/null || :
