@@ -173,6 +173,8 @@ alias showBlocked='sudo ipfw list'                  # showBlocked:  All ipfw rul
 
 #   ii:  display useful host related informaton
 #   -------------------------------------------------------------------
+    RED='\033[0;31m'
+    NC='\033[0m'
     ii() {
         echo -e "\nYou are logged on ${RED}$HOST"
         echo -e "\nAdditionnal information:$NC " ; uname -a

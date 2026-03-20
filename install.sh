@@ -34,4 +34,4 @@ ln -s "$HOME/.dotfiles/cursor/settings.json" "$HOME/Library/Application Support/
 #Volta
 curl https://get.volta.sh | bash
 
-. system_defaults.sh
+. "$(dirname "$0")/system_defaults.sh"

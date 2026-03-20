@@ -36,12 +36,6 @@ sudo systemsetup -setwakeonnetworkaccess off
 # Do not show password hints
 sudo defaults write /Library/Preferences/com.apple.loginwindow RetriesUntilHint -int 0
 
-# Disable diagnostic reports
-sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.SubmitDiagInfo.plist
-
-# SSD-specific tweaks
-# Disable local Time Machine snapshots
-sudo tmutil disablelocal
 
 COMPUTER_NAME=”dylan”
 
@@ -57,20 +51,6 @@ sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.serve
 # the Dock to launch apps.
 defaults write com.apple.dock persistent-apps -array ""
 
-# Disable the sound effects on boot"
-sudo nvram SystemAudioVolume=" "
-
-# Menu bar: hide the Time Machine, Volume, User, and Bluetooth icons"
-for domain in ~/Library/Preferences/ByHost/com.apple.systemuiserver.*; do
-  defaults write "${domain}" dontAutoLoad -array \
-    "/System/Library/CoreServices/Menu Extras/TimeMachine.menu" \
-    "/System/Library/CoreServices/Menu Extras/Volume.menu" \
-    "/System/Library/CoreServices/Menu Extras/User.menu"
-done;
-defaults write com.apple.systemuiserver menuExtras -array \
-  "/System/Library/CoreServices/Menu Extras/AirPort.menu" \
-  "/System/Library/CoreServices/Menu Extras/Battery.menu" \
-  "/System/Library/CoreServices/Menu Extras/Clock.menu"
 
 # Save to disk (not to iCloud) by default"
 defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
@@ -105,8 +85,6 @@ defaults write com.apple.finder AppleShowAllFiles -bool true
 # Show all filename extensions"
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
-# Allow text selection in Quick Look"
-defaults write com.apple.finder QLEnableTextSelection -bool true
 
 # When performing a search, search the current folder by default"
 defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
