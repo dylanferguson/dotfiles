@@ -6,15 +6,23 @@
 	user = dylanferguson
 
 [core]
-	excludesfile = /Users/dylan/.gitignore_global
+	excludesfile = ~/.gitignore_global
 
 [credential]
 	helper = osxkeychain
 
 [pager]
-	pager = delta
-    diff = diff-so-fancy | less --tabs=1,5 -RFX
-    show = diff-so-fancy | less --tabs=1,5 -RFX
+	diff = delta
+	show = delta
+	log = delta
+
+[delta]
+	navigate = true
+	side-by-side = true
+	line-numbers = true
+
+[interactive]
+	diffFilter = delta --color-only
 
 [alias]
 	a = add

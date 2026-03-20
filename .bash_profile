@@ -2,35 +2,26 @@
 
 if command -v rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH:/Users/dylan/.local/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+export PATH="$VOLTA_HOME/bin:$PATH:$HOME/.local/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 . "$HOME/.bashrc"
-. "$HOME/.asdf/asdf.sh"
-. /opt/homebrew/etc/profile.d/z.sh
 
-[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-[ -f "$(brew --prefix)/etc/profile.d/z.sh" ] && source "$(brew --prefix)/etc/profile.d/z.sh" # rupa's Z
-[ -f "$(brew --prefix asdf)/asdf.sh" ] && source "$(brew --prefix asdf)/asdf.sh"
+[[ -r "$(brew --prefix)/etc/profile.d/bash_completion.sh" ]] && . "$(brew --prefix)/etc/profile.d/bash_completion.sh"
 
 bind 'set show-all-if-ambiguous on'
 bind 'TAB:menu-complete'
 
 export HOMEBREW_NO_ANALYTICS=1
-export GATSBY_TELEMETRY_DISABLED=1
 export HOMEBREW_NO_AUTO_UPDATE=1
-export ANSIBLE_COW_SELECTION=random
-export ANSIBLE_NOCOWS=1
-export FZF_DEFAULT_COMMAND='ag -U --hidden --ignore .git --ignore node_modules -g ""'
+export FZF_DEFAULT_COMMAND='rg --files --hidden --ignore .git --ignore node_modules'
 export AWS_CLI_AUTO_PROMPT=on
-export NVM_DIR="$HOME/.nvm"
 
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias g='git'
+alias cc='claude'
 alias git-repo='git rev-parse --is-inside-work-tree 2> /dev/null'
 alias git-branch-sorted='git branch --sort=-committerdate'
 alias get-remote='git ls-remote --get-url'
@@ -52,7 +43,6 @@ alias python-venv-init='python3 -m venv .venv; source .venv/bin/activate; pip in
 alias top='sudo htop'
 alias update-all-the-things='$HOME/.dotfiles/update.sh'
 alias weather="curl -s 'https://wttr.in/elwood?q&n&p'"
-alias zsh-reset='. ~/.zshrc'
 alias tcp_ports='netstat -ant | grep LISTEN'
 
 
@@ -191,19 +181,9 @@ alias showBlocked='sudo ipfw list'                  # showBlocked:  All ipfw rul
         echo -e "\n${RED}Machine stats :$NC " ; uptime
         echo -e "\n${RED}Current network location :$NC " ; scselect
         echo -e "\n${RED}Public facing IP Address :$NC " ;myip
-        #echo -e "\n${RED}DNS Configuration:$NC " ; scutil --dns
         echo
     }
 
-
-
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
-# export PYENV_ROOT="$HOME/.pyenv"
-# command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-# eval "$(pyenv init -)"
-
-
 # Added by OrbStack: command-line tools and integration
 # This won't be added again if you remove it.
-source ~/.orbstack/shell/init.fish 2>/dev/null || :
+source ~/.orbstack/shell/init.bash 2>/dev/null || :

@@ -19,7 +19,6 @@ sudo defaults write /Library/Preferences/com.apple.alf globalstate -int 1
 
 # Enable firewall stealth mode (no response to ICMP / ping requests)
 # Source: https://support.apple.com/kb/PH18642
-#sudo defaults write /Library/Preferences/com.apple.alf stealthenabled -int 1
 sudo defaults write /Library/Preferences/com.apple.alf stealthenabled -int 1
 
 # Disable remote apple events
@@ -40,14 +39,11 @@ sudo defaults write /Library/Preferences/com.apple.loginwindow RetriesUntilHint 
 # Disable diagnostic reports
 sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.SubmitDiagInfo.plist
 
-# Disable the “Are you sure you want to open this application?” dialog
-defaults write com.apple.LaunchServices LSQuarantine -bool false
-
-# SSD-specific tweaks 
+# SSD-specific tweaks
 # Disable local Time Machine snapshots
 sudo tmutil disablelocal
 
-COMPUTER_NAME="dylan"
+COMPUTER_NAME=”dylan”
 
 # Set computer name (as done via System Preferences → Sharing)
 sudo scutil --set ComputerName "$COMPUTER_NAME"
@@ -55,14 +51,6 @@ sudo scutil --set HostName "$COMPUTER_NAME"
 sudo scutil --set LocalHostName "$COMPUTER_NAME"
 sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "$COMPUTER_NAME"
 
-# Stop iTunes from responding to the keyboard media keys"
-launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null
-
-# Show icons for hard drives, servers, and removable media on the desktop"
-defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
-defaults write com.apple.finder ShowHardDrivesOnDesktop -bool true
-defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
-defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
 
 # Wipe all (default) app icons from the Dock"
 # This is only really useful when setting up a new Mac, or if you don’t use
@@ -143,11 +131,6 @@ chflags nohidden ~/Library
 # Minimize windows into their application’s icon"
 defaults write com.apple.dock minimize-to-application -bool true
 
-# Disable Dashboard"
-defaults write com.apple.dashboard mcx-disabled -bool true
-
-# Don’t show Dashboard as a Space"
-defaults write com.apple.dock dashboard-in-overlay -bool true
 
 # Disable Spotlight indexing for any volume that gets mounted and has not yet been indexed"
 # Use `sudo mdutil -i off "/Volumes/foo"` to stop indexing any volume.
@@ -156,8 +139,6 @@ sudo defaults write /.Spotlight-V100/VolumeConfiguration Exclusions -array "/Vol
 # Prevent Time Machine from prompting to use new hard drives as backup volume"
 defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
 
-# Disable local Time Machine backups"
-hash tmutil &> /dev/null && sudo tmutil disablelocal
 
 # Show all processes in Activity Monitor
 defaults write com.apple.ActivityMonitor ShowCategory -int 0
