@@ -26,6 +26,11 @@ rm -f ~/.bash_profile ~/.bashrc ~/.zshrc
 ln -s ~/.dotfiles/.bash_profile ~/.bash_profile
 ln -s ~/.dotfiles/.bashrc ~/.bashrc
 
+#Ghostty setup
+mkdir -p "$HOME/Library/Application Support/com.mitchellh.ghostty"
+rm -f "$HOME/Library/Application Support/com.mitchellh.ghostty/config.ghostty"
+ln -s "$HOME/.dotfiles/ghostty.config" "$HOME/Library/Application Support/com.mitchellh.ghostty/config.ghostty"
+
 #Cursor setup
 mkdir -p "$HOME/Library/Application Support/Cursor/User"
 rm -f "$HOME/Library/Application Support/Cursor/User/settings.json"

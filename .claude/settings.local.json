@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(brew install:*)"
+      "Bash(brew install:*)",
+      "Bash(rm \"$HOME/Library/Application Support/com.mitchellh.ghostty/config.ghostty\")",
+      "Bash(ln -s \"$HOME/.dotfiles/ghostty.config\" \"$HOME/Library/Application Support/com.mitchellh.ghostty/config.ghostty\")"
     ]
   }
 }
