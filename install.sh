@@ -26,6 +26,14 @@ rm -f ~/.bash_profile ~/.bashrc ~/.zshrc
 ln -s ~/.dotfiles/.bash_profile ~/.bash_profile
 ln -s ~/.dotfiles/.bashrc ~/.bashrc
 
+#AI agent setup
+mkdir -p ~/.claude
+rm -f ~/.claude/CLAUDE.md
+ln -s ~/.dotfiles/AGENTS.md ~/.claude/CLAUDE.md
+
+#Cursor also supports AGENTS.md per-project (no global path)
+#Use `agents-here` alias to link it into a project
+
 #Ghostty setup
 mkdir -p "$HOME/Library/Application Support/com.mitchellh.ghostty"
 rm -f "$HOME/Library/Application Support/com.mitchellh.ghostty/config.ghostty"
