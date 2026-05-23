@@ -8,3 +8,9 @@ eval "$(starship init bash)"
 
 # opencode
 export PATH=$HOME/.opencode/bin:$PATH
+
+# opencode
+export PATH=/Users/dylan/.opencode/bin:$PATH
+
+# z - directory jumper
+source /opt/homebrew/etc/profile.d/z.sh

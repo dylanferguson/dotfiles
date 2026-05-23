@@ -1,4 +1,5 @@
 {
     "window.commandCenter": true,
-    "workbench.sideBar.location": "left"
+    "workbench.sideBar.location": "left",
+    "workbench.secondarySideBar.location": "right"
 }
