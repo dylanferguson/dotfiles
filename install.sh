@@ -31,6 +31,12 @@ mkdir -p ~/.claude
 rm -f ~/.claude/CLAUDE.md
 ln -s ~/.dotfiles/AGENTS.md ~/.claude/CLAUDE.md
 
+#Skills live in dotfiles/agents (vendor-agnostic)
+rm -rf ~/.claude/skills
+ln -s ~/.dotfiles/agents/skills ~/.claude/skills
+rm -rf ~/.agents/skills
+ln -s ~/.dotfiles/agents/skills ~/.agents/skills
+
 #Cursor also supports AGENTS.md per-project (no global path)
 #Use `agents-here` alias to link it into a project
 
