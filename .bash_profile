@@ -4,6 +4,7 @@ if command -v rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 export VOLTA_HOME="$HOME/.volta"
 export PATH="$VOLTA_HOME/bin:$PATH:$HOME/.local/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(fzf --bash)"
 
 . "$HOME/.bashrc"
 
