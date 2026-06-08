@@ -46,5 +46,9 @@
     "editor.defaultFormatter": "okitavera.vscode-nunjucks-formatter"
   },
   "workbench.colorTheme": "Yarra Valley",
-  "workbench.startupEditor": "none"
+  "workbench.startupEditor": "none",
+  "plantuml.render": "Local",
+  "plantuml.java": "/opt/homebrew/opt/openjdk/bin/java",
+  "plantuml.jar": "/opt/homebrew/opt/plantuml/libexec/plantuml.jar",
+  "plantuml.exportFormat": "svg"
 }

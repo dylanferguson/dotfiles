@@ -45,3 +45,4 @@ Thumbs.db
 
 # Ignore Python version files from pyenv
 .python-version
+**/.claude/settings.local.json

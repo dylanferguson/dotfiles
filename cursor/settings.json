@@ -1,5 +1,10 @@
 {
     "window.commandCenter": true,
     "workbench.sideBar.location": "left",
-    "workbench.secondarySideBar.location": "right"
+    "workbench.secondarySideBar.location": "right",
+    "window.autoDetectColorScheme": false,
+    "plantuml.render": "Local",
+    "plantuml.java": "/opt/homebrew/opt/openjdk/bin/java",
+    "plantuml.jar": "/opt/homebrew/opt/plantuml/libexec/plantuml.jar",
+    "plantuml.exportFormat": "svg"
 }
