@@ -6,5 +6,6 @@
     "plantuml.render": "Local",
     "plantuml.java": "/opt/homebrew/opt/openjdk/bin/java",
     "plantuml.jar": "/opt/homebrew/opt/plantuml/libexec/plantuml.jar",
-    "plantuml.exportFormat": "svg"
+    "plantuml.exportFormat": "svg",
+    "files.autoSave": "afterDelay"
 }
