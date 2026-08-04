@@ -113,9 +113,9 @@ meat() {
     echo "meat: no OpenCode Zen credential; run 'opencode auth login'" >&2
     return 1
   fi
-  ANTHROPIC_BASE_URL="https://opencode.ai/zen" \
-  ANTHROPIC_API_KEY="$key" \
-  MEAT_MODEL="${MEAT_MODEL:-claude-opus-4-8}" \
+  OPENAI_BASE_URL="https://opencode.ai/zen/v1" \
+  OPENAI_API_KEY="$key" \
+  MEAT_MODEL="${MEAT_MODEL:-gpt-5.6-sol}" \
   command meat "$@"
 }
 
