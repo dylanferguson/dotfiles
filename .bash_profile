@@ -104,6 +104,21 @@ compress_file() {
 
 proc_on_port() { lsof -i :"$1"; }
 
+# meat — route through the OpenCode Zen gateway (no OpenAI/Anthropic key of our
+# own). Scoped to this call so ANTHROPIC_API_KEY never leaks into other tools.
+meat() {
+  local key
+  key=$(jq -r '.opencode.key // empty' "$HOME/.local/share/opencode/auth.json" 2>/dev/null)
+  if [ -z "$key" ]; then
+    echo "meat: no OpenCode Zen credential; run 'opencode auth login'" >&2
+    return 1
+  fi
+  ANTHROPIC_BASE_URL="https://opencode.ai/zen" \
+  ANTHROPIC_API_KEY="$key" \
+  MEAT_MODEL="${MEAT_MODEL:-claude-opus-4-8}" \
+  command meat "$@"
+}
+
 time_d() { /usr/bin/time -l "$@"; }
 
 cmprss_diff() {
