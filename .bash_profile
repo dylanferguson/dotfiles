@@ -130,6 +130,20 @@ cmprss_diff() {
   echo "brotli: $(bc <<< "scale=2; ($original - $brotli) / $original * 100")% reduction"
 }
 
+# - tmux / zellij session helpers -------------------
+alias tls='tmux ls'
+alias ta='tmux attach -t'
+
+tm() {
+  tmux attach -t "$1" 2>/dev/null || tmux new -s "$1"
+}
+
+alias zls='zellij list-sessions'
+
+zj() {
+  zellij attach "$1" 2>/dev/null || zellij --session "$1"
+}
+
 # - docker -------------------
 alias docker_clear_containers='docker rm -f $(docker ps -a -q)'
 docker_it() {
