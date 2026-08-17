@@ -1,8 +1,6 @@
 # .dotfiles
 
-macOS configuration: bash, git, Ghostty, editors, and shared AI agent
-instructions. The [Brewfile](Brewfile) is a checklist for setting up the next
-machine — what to reinstall, not a manifest this machine is held to.
+macOS configuration: bash, git, Ghostty, editors, and shared AI agent instructions. The [Brewfile](Brewfile) is a checklist for setting up the next machine — what to reinstall, not a manifest this machine is held to.
 
 ## Install
 
@@ -14,23 +12,20 @@ sudo softwareupdate -i -a
 xcode-select --install
 ```
 
-Then clone and run. `install.sh` installs Homebrew if it is missing, so this
-works on a machine with nothing on it:
+Then clone and run. `install.sh` installs Homebrew if it is missing, so this works on a machine with nothing on it:
 ```shell
 git clone https://github.com/dylanferguson/dotfiles.git $HOME/.dotfiles
 $HOME/.dotfiles/bin/install.sh
 ```
 
-`bin/install.sh` installs the Brewfile, makes the Homebrew bash your login shell,
-symlinks every config, then applies `system_defaults.sh`. It is safe to re-run.
+`bin/install.sh` installs the Brewfile, makes the Homebrew bash your login shell, symlinks every config, then applies `system_defaults.sh`. It is safe to re-run.
 
 Finally:
 ```shell
 sudo reboot
 ```
 
-A few apps have no cask and need installing by hand. They are listed at the
-bottom of the [Brewfile](Brewfile).
+A few apps have no cask and need installing by hand. They are listed at the bottom of the [Brewfile](Brewfile).
 
 ## Layout
 
@@ -61,48 +56,31 @@ Every destination:
 | `agents/extensions` | `~/.pi/agent/extensions` |
 | `agents/claude/settings.json` | `~/.claude/settings.json` |
 
-`macos/system_defaults.sh` applies system preferences and is run by
-`bin/install.sh`, not symlinked. `macos/app_defaults.sh` does the same for apps
-that keep their settings in a plist rather than a config file — currently
-Rectangle, whose shortcuts are in `macos/app_defaults/`.
+`macos/system_defaults.sh` applies system preferences and is run by `bin/install.sh`, not symlinked. `macos/app_defaults.sh` does the same for apps that keep their settings in a plist rather than a config file — currently Rectangle, whose shortcuts are in `macos/app_defaults/`.
 
 ## Runtimes
 
-[mise](https://mise.jdx.dev) owns every host-managed runtime — node, bun, go,
-rust, hugo — plus the global CLIs that ship on npm, in
-[mise/config.toml](mise/config.toml). Projects override it with their own
-`mise.toml`, `.tool-versions`, or `.nvmrc`.
+[mise](https://mise.jdx.dev) owns every host-managed runtime — node, bun, go, rust, hugo — plus the global CLIs that ship on npm, in [mise/config.toml](mise/config.toml). Projects override it with their own `mise.toml`, `.tool-versions`, or `.nvmrc`.
 
-Nothing else manages runtimes: Volta and the Homebrew go formula were removed,
-and `~/.local/bin` now sits behind the mise shims so a bundled node cannot
-shadow the managed one. Check what is in use with `mise ls` and `which node`.
+Nothing else manages runtimes: Volta and the Homebrew go formula were removed, and `~/.local/bin` now sits behind the mise shims so a bundled node cannot shadow the managed one. Check what is in use with `mise ls` and `which node`.
 
-`AGENTS.md` is the single set of agent instructions, shared by every tool.
-Cursor has no global path for it — use the `agents-here` alias to link it into
-a project.
+`AGENTS.md` is the single set of agent instructions, shared by every tool. Cursor has no global path for it — use the `agents-here` alias to link it into a project.
 
 ## Maintenance
 
 ```shell
 make lint
 ```
-Runs shellcheck over every shell file, using Docker if shellcheck is not
-installed. CI runs the same target.
+Runs shellcheck over every shell file, using Docker if shellcheck is not installed. CI runs the same target.
 
 ```shell
 macos/app_defaults.sh export
 ```
-Reads app preferences back into the repo. Run it after changing a shortcut in
-Rectangle, then commit the plist. `import` writes them back, which
-`bin/install.sh` already does.
+Reads app preferences back into the repo. Run it after changing a shortcut in Rectangle, then commit the plist. `import` writes them back, which `bin/install.sh` already does.
 
 ```shell
 bin/update.sh
 ```
-Upgrades Homebrew packages and the mise runtimes, then lists anything
-installed here that the Brewfile does not mention yet — including apps
-installed outside Homebrew. Add what you want on the next machine; ignore the
-rest. It does not commit anything.
+Upgrades Homebrew packages and the mise runtimes, then lists anything installed here that the Brewfile does not mention yet — including apps installed outside Homebrew. Add what you want on the next machine; ignore the rest. It does not commit anything.
 
-GUI apps update themselves, and Homebrew leaves their versions alone on
-purpose, so `brew upgrade` never fights an app's own updater.
+GUI apps update themselves, and Homebrew leaves their versions alone on purpose, so `brew upgrade` never fights an app's own updater.
