@@ -1,36 +1,33 @@
-#!/bin/bash
-set -e
+#!/usr/bin/env bash
+set -euo pipefail
+
+DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 echo 'Updating Brew...'
 brew update
 brew upgrade
 brew cleanup -s
-brew doctor
-brew missing
+brew doctor || true
+brew missing || true
 
-pushd "$HOME/.dotfiles"
-
-brew bundle dump --force
-if [[ $(git diff --stat Brewfile) != '' ]]; then
-  echo 'Updating Brewfile...'
-  git add Brewfile
-  git commit -m 'auto update Brewfile'
-fi
-
-echo 'pipx pkg backup...'
-pipx list > pipx.txt
-[[ $(git diff --stat pipx.txt) != '' ]] && git add pipx.txt && git commit -m 'pipx pkg list update'
-
-echo 'VSCode backup...'
-code --list-extensions --show-versions > vscode/extensions.txt
-[[ $(git diff --stat vscode/extensions.txt) != '' ]] && git add vscode/extensions.txt && git commit -m 'vscode extensions update'
-
-echo 'MAS update...'
+echo 'Updating Mac App Store apps...'
 mas outdated
 mas upgrade
 
-echo 'Updating NPM global packages...'
+echo 'Updating global npm packages...'
 npm update -g
-yarn global upgrade
 
-popd
+#Report drift instead of committing it: `brew bundle dump` overwrites the
+#curated Brewfile, including its comments, so review changes by hand.
+echo
+echo 'Brewfile drift:'
+if brew bundle check --file="$DOTFILES/Brewfile" --verbose; then
+  echo '  Brewfile is satisfied.'
+fi
+echo "  Anything installed but untracked shows up in: brew bundle cleanup --file=$DOTFILES/Brewfile"
+brew bundle cleanup --file="$DOTFILES/Brewfile" || true
+
+echo
+echo 'VS Code extension drift:'
+diff <(code --list-extensions | sed 's/^/vscode "/;s/$/"/' | sort) \
+  <(grep '^vscode ' "$DOTFILES/Brewfile" | sort) || true
