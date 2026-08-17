@@ -1,91 +1,125 @@
 ---
 name: typography-audit
 description: |
-  Audit a webpage or document against Butterick's Practical Typography. Measures body text size, line spacing, line length and font choice from the rendered page, runs deterministic checks for quote, dash, spacing and symbol errors in the source, then reports findings ranked by impact with a citation to practicaltypography.com for each one.
+  Audit a webpage or document against Butterick's Practical Typography, reporting measured values against his thresholds with a citation for each finding.
   Use only when explicitly asked to audit, review or check the typography of a specific page, site or document. Do not use for general design, layout or CSS work.
 ---
 
 # Typography Audit
 
-Audit a target against the rules in Butterick's *Practical Typography*, reporting
-measured values rather than opinions.
-
 ## Cite, never reproduce
 
-The book is free to read and reader-supported. This skill stores thresholds and
-check logic only. It does not store Butterick's prose, and neither should any
-report it produces.
-
+The book is free to read and reader-supported. This file stores thresholds and
+page names, not Butterick's prose, and neither should any report it produces.
 Every finding carries the URL of the page it comes from, so the reader can go
-read the argument. If you have not paid for the book, see
-<https://practicaltypography.com/how-to-pay-for-this-book.html>.
+read the argument for themselves.
 
-## Grading order
+Pages cited below are `https://practicaltypography.com/<name>.html`. If you have
+not paid for the book, see `how-to-pay-for-this-book.html`.
 
-Body text is most of typography, so audit it first and report it first. The four
-decisions that matter most, in order:
+## Grade in this order
 
-1. Point size
-2. Line spacing
-3. Line length
-4. Font choice
+Body text is most of typography. Audit and report it first, in this order:
 
-Only after those are settled do you report quotes, dashes, symbols and spacing.
+| Rule | Target | Page |
+| --- | --- | --- |
+| Point size | 10–12 pt print, 15–25 px web | `point-size` |
+| Line spacing | 120–145% of point size | `line-spacing` |
+| Line length | 45–90 characters | `line-length` |
+| Font choice | A professional font over a system font | `font-recommendations` |
+
 A report that leads with em-dash corrections while the measure sits at 120
 characters is a failed report.
 
-Thresholds and citation URLs: `references/rules.md`.
+## Measure the render, don't read the source
 
-## Workflow
+A type scale, a `clamp()` and a container query all resolve at render time.
+Never infer these numbers from CSS — open the page and measure it. Characters
+per line in particular cannot be eyeballed.
 
-### Web pages
+Run this through `javascript_tool` on the page under audit:
 
-1. Open the target. Use `preview_start` with `{name}` for a local dev server, or
-   `{url}` for a deployed site.
-2. Measure the rendered page: read `scripts/measure.js` and run its contents
-   through `javascript_tool`. It returns computed point size, line spacing ratio,
-   measured characters per line, font stack, and underline or all-caps
-   violations. Source files cannot tell you these numbers — measure the render.
-3. Repeat at mobile width with `resize_window`, then re-run. Line length and
-   point size commonly pass on desktop and fail on mobile.
-4. Screenshot both widths for the judgment pass.
-5. Run the source checks over the content files:
+```js
+(() => {
+  const el = [...document.querySelectorAll('p')]
+    .reduce((a, b) => (b.textContent.length > a.textContent.length ? b : a));
+  const s = getComputedStyle(el);
+  const size = parseFloat(s.fontSize);
+  const text = el.textContent.replace(/\s+/g, ' ').trim();
+  const ctx = document.createElement('canvas').getContext('2d');
+  ctx.font = `${s.fontStyle} ${s.fontWeight} ${s.fontSize} ${s.fontFamily}`;
+  const box = el.getBoundingClientRect().width
+    - parseFloat(s.paddingLeft) - parseFloat(s.paddingRight);
+  return {
+    pointSize: s.fontSize,
+    lineSpacing: Math.round((parseFloat(s.lineHeight) / size) * 100) + '%',
+    lineLength: Math.round(box / (ctx.measureText(text).width / text.length)),
+    font: s.fontFamily,
+  };
+})();
+```
 
-   ```bash
-   node scripts/mechanics.mjs src/**/*.astro data/*.json5
-   ```
+Then `resize_window` to mobile and run it again. Point size and line length
+routinely pass on desktop and fail on mobile.
 
-### Documents
+## Then the rest
 
-Run `scripts/mechanics.mjs` over the source, then read the text for structure,
-hierarchy and whitespace. Skip the rendered measurement steps unless the document
-has a rendered form you can open.
+**Fonts to question:** novelty (`goofy-fonts`), monospaced as body text
+(`monospaced-fonts`), free (`free-fonts`), system stacks such as Arial, Georgia
+and Verdana (`system-fonts`).
 
-## What the script cannot judge
+**Paragraphs and layout**
 
-`mechanics.mjs` covers what is mechanically decidable. You still have to assess:
+| Rule | Target | Page |
+| --- | --- | --- |
+| Indent **or** paragraph spacing, never both | Indent 1–4× point size, or 4–10 pt of space | `first-line-indents`, `space-between-paragraphs` |
+| Hyphenation | On when justified, off when ragged | `hyphenation`, `justified-text` |
+| Centred text | Sparingly | `centered-text` |
+| Letterspacing | 5–12% on caps and small caps | `letterspacing` |
+| Kerning | On | `kerning` |
 
-- Font choice and pairing, beyond flagging system fonts
-- Whether the heading hierarchy is doing real work
-- Page margins and whitespace
-- Tables, lists and captions
-- Whether the page reads as though it was set with care
+**Emphasis**
 
-Do this from the screenshots, and say plainly when a call is a matter of taste.
+| Rule | Target | Page |
+| --- | --- | --- |
+| Bold and italic | Sparingly | `bold-or-italic` |
+| Underlining | Never, except as a link affordance | `underlining` |
+| All caps | Under one line | `all-caps` |
+| Small caps | Real, never faux | `small-caps` |
+
+**Punctuation and symbols**
+
+| Rule | Target | Page |
+| --- | --- | --- |
+| Quotation marks | Curly | `straight-and-curly-quotes` |
+| Apostrophes | Curly, always downward | `apostrophes` |
+| Foot and inch marks | Straight, and only here | `foot-and-inch-marks` |
+| Sentence spacing | One space | `one-space-between-sentences` |
+| Word spacing | Never more than one | `word-spaces` |
+| Hyphens and dashes | Three distinct characters | `hyphens-and-dashes` |
+| Ellipses | The single character | `ellipses` |
+| Exclamation points | About one per three pages | `question-marks-and-exclamation-points` |
+| Ampersands | Sparingly | `ampersands` |
+| Trademark and copyright | ™ © ®, not (tm) (c) (r) | `trademark-and-copyright-symbols` |
+
+For an exhaustive punctuation sweep, grep the content files rather than reading
+for them — straight quotes and stray `--` hide well. Read the hits before
+filing them: quotes, code and URLs legitimately contain all of these.
+
+**Web habits Butterick names:** body text too small, headings too large, system
+fonts, overbuilt navigation, large blocks of colour (`websites`,
+`typewriter-habits`, `body-text`, `headings`, `color`).
 
 ## Reporting
 
-Rank findings by impact using the grading order above. Each one gets:
+Rank by the grading order. Each finding gets the measured value and the target
+range — "line length 118 characters, target 45–90", never "lines feel long" —
+plus the file and line for source findings, and the citation URL.
 
-- The measured value and the target range, not an adjective. "Line length 118
-  characters, target 45–90" beats "lines feel long."
-- The file and line, for source findings.
-- The citation URL from `references/rules.md`.
+These are ranges, and Butterick states when to break his own rules. Where a
+target deliberately sits outside one, say so and move on instead of filing it.
+Quoted passages are not the author's punctuation; don't charge them for it.
 
-Butterick states when to break his own rules, and the thresholds are ranges
-rather than limits. Where a target deliberately sits outside a range, say so and
-move on instead of filing it. Mark low-confidence findings as such.
-
-Report only by default. If asked to fix, limit automatic changes to the text
-substitutions in `mechanics.mjs` — quotes, dashes, ellipses, symbols. Never
-change a font stack, type scale or spacing without confirmation.
+Report only by default. If asked to fix, limit automatic changes to text
+substitutions — quotes, dashes, ellipses, symbols. Never change a font stack,
+type scale or spacing without confirmation.
