@@ -1,5 +1,9 @@
-tap "humanlayer/humanlayer", trusted: true
-tap "nikitabobko/tap"
+#A checklist for setting up the next machine, not a manifest this machine is
+#held to. Run `brew bundle` on a fresh install; after that, treat it as the
+#record of what to reinstall and let the apps update themselves.
+#
+#Most GUI apps here self-update, so Homebrew deliberately leaves their versions
+#alone. That is the quiet setup: no version fights between brew and the app.
 
 brew "bash"
 brew "bash-completion@2"
@@ -19,7 +23,6 @@ brew "htop"
 brew "iftop"
 brew "imagemagick"
 brew "jq"
-brew "mas"
 brew "micro"
 brew "mise"
 brew "mosh"
@@ -37,7 +40,6 @@ brew "unar"
 brew "z"
 brew "zellij"
 
-cask "nikitabobko/tap/aerospace", trusted: true
 cask "1password"
 cask "appcleaner"
 cask "betterdisplay"
@@ -49,7 +51,6 @@ cask "dropbox"
 cask "ghostty"
 cask "google-chrome"
 cask "grok-bot"
-cask "humanlayer/humanlayer/humanlayer"
 cask "jellyfin"
 cask "macmediakeyforwarder"
 cask "microsoft-edge"
@@ -67,8 +68,6 @@ cask "transmission"
 cask "visual-studio-code"
 cask "vlc"
 cask "whatsapp"
-
-mas "Keynote", id: 409183694
 
 vscode "dustypomerleau.yarra-valley"
 vscode "jebbs.plantuml"

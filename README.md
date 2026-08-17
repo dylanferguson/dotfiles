@@ -1,7 +1,8 @@
 # .dotfiles
 
 macOS configuration: bash, git, Ghostty, editors, and shared AI agent
-instructions. Homebrew is the source of truth for packages and apps.
+instructions. The [Brewfile](Brewfile) is a checklist for setting up the next
+machine — what to reinstall, not a manifest this machine is held to.
 
 ## Install
 
@@ -41,7 +42,7 @@ terminal/   ghostty.config, starship.toml
 editors/    cursor/, vscode/
 agents/     AGENTS.md, skills/, extensions/, claude/
 mise/       config.toml
-bin/        install.sh, update.sh, adopt.sh
+bin/        install.sh, update.sh
 ```
 
 Every destination:
@@ -87,14 +88,12 @@ Runs shellcheck over every shell file, using Docker if shellcheck is not
 installed. CI runs the same target.
 
 ```shell
-bin/adopt.sh
-```
-Hands apps you installed by hand over to Homebrew, so `brew bundle` stops
-trying to reinstall them. Needed once on a machine that predates the Brewfile.
-
-```shell
 bin/update.sh
 ```
-Upgrades Homebrew, App Store, and npm packages, then reports drift between the
-machine and the Brewfile. It does not commit anything — review and commit
-Brewfile changes by hand.
+Upgrades Homebrew packages and the mise runtimes, then lists anything
+installed here that the Brewfile does not mention yet — including apps
+installed outside Homebrew. Add what you want on the next machine; ignore the
+rest. It does not commit anything.
+
+GUI apps update themselves, and Homebrew leaves their versions alone on
+purpose, so `brew upgrade` never fights an app's own updater.
