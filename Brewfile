@@ -56,7 +56,6 @@ cask "macmediakeyforwarder"
 cask "microsoft-edge"
 cask "obsidian"
 cask "ollama-app"
-cask "opencode-desktop"
 cask "orbstack"
 cask "protonvpn"
 cask "rectangle"
@@ -71,8 +70,6 @@ cask "whatsapp"
 
 vscode "dustypomerleau.yarra-valley"
 vscode "jebbs.plantuml"
-
-uv "semble"
 
 #No cask available — install these by hand after a clean install:
 #  DaVinci Resolve + Blackmagic RAW (blackmagicdesign.com, needs registration)
