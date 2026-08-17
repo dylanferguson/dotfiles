@@ -1,8 +1,35 @@
-#!/usr/bin/bash
-set -e
+#!/usr/bin/env bash
+set -euo pipefail
+
+DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+#link SRC DEST — replace DEST with a symlink to DOTFILES/SRC, whatever DEST is
+link() {
+  local src="$DOTFILES/$1" dest="$2"
+  mkdir -p "$(dirname "$dest")"
+  rm -rf "$dest"
+  ln -s "$src" "$dest"
+  echo "linked $dest -> $src"
+}
+
+#Homebrew — install it first, since everything below assumes it
+if ! command -v brew > /dev/null; then
+  echo 'Installing Homebrew...'
+  NONINTERACTIVE=1 /bin/bash -c \
+    "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 #Homebrew packages
-brew bundle --file="$(dirname "$0")/Brewfile"
+brew update
+brew bundle --file="$DOTFILES/Brewfile"
+
+#Use the Homebrew bash as the login shell
+BREW_BASH="$(brew --prefix)/bin/bash"
+if [[ "${SHELL:-}" != "$BREW_BASH" ]]; then
+  grep -qxF "$BREW_BASH" /etc/shells || sudo tee -a /etc/shells <<< "$BREW_BASH" > /dev/null
+  chsh -s "$BREW_BASH"
+fi
 
 #Setup and tidy
 read -p "Delete ~/Movies, ~/Music, ~/Pictures, ~/Public, ~/Documents? (y/n): " -n 1 -r
@@ -12,54 +39,38 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
 fi
 
 #Git config
-rm -f ~/.gitconfig
-ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
-
-#Git ignore
-rm -f ~/.gitignore_global
-ln -s ~/.dotfiles/.gitignore_global ~/.gitignore_global
+link .gitconfig ~/.gitconfig
+link .gitignore_global ~/.gitignore_global
 git config --global core.excludesfile ~/.gitignore_global
-git config --list
+#git also reads ~/.config/git/ignore, which would shadow the file above
+rm -f ~/.config/git/ignore
 
-#Symlink bash_profile
-rm -f ~/.bash_profile ~/.bashrc ~/.zshrc
-ln -s ~/.dotfiles/.bash_profile ~/.bash_profile
-ln -s ~/.dotfiles/.bashrc ~/.bashrc
+#Bash
+rm -f ~/.zshrc
+link .bash_profile ~/.bash_profile
+link .bashrc ~/.bashrc
 
 #AI agent setup
-mkdir -p ~/.codex
-rm -f ~/.codex/AGENTS.md
-ln -s ~/.dotfiles/AGENTS.md ~/.codex/AGENTS.md
-
-mkdir -p ~/.claude
-rm -f ~/.claude/CLAUDE.md
-ln -s ~/.dotfiles/AGENTS.md ~/.claude/CLAUDE.md
+link AGENTS.md ~/.codex/AGENTS.md
+link AGENTS.md ~/.claude/CLAUDE.md
+link agents/claude/settings.json ~/.claude/settings.json
 
 #Skills live in dotfiles/agents (vendor-agnostic)
-rm -rf ~/.claude/skills
-ln -s ~/.dotfiles/agents/skills ~/.claude/skills
-rm -rf ~/.agents/skills
-ln -s ~/.dotfiles/agents/skills ~/.agents/skills
+link agents/skills ~/.claude/skills
+link agents/skills ~/.agents/skills
 
 #pi coding agent extensions live in dotfiles/agents/extensions
-mkdir -p ~/.pi/agent
-rm -rf ~/.pi/agent/extensions
-ln -s ~/.dotfiles/agents/extensions ~/.pi/agent/extensions
+link agents/extensions ~/.pi/agent/extensions
 
 #Cursor also supports AGENTS.md per-project (no global path)
 #Use `agents-here` alias to link it into a project
 
-#Ghostty setup
-mkdir -p "$HOME/Library/Application Support/com.mitchellh.ghostty"
-rm -f "$HOME/Library/Application Support/com.mitchellh.ghostty/config.ghostty"
-ln -s "$HOME/.dotfiles/ghostty.config" "$HOME/Library/Application Support/com.mitchellh.ghostty/config.ghostty"
+#Terminal and prompt
+link ghostty.config "$HOME/Library/Application Support/com.mitchellh.ghostty/config.ghostty"
+link starship.toml ~/.config/starship.toml
 
-#Cursor setup
-mkdir -p "$HOME/Library/Application Support/Cursor/User"
-rm -f "$HOME/Library/Application Support/Cursor/User/settings.json"
-ln -s "$HOME/.dotfiles/cursor/settings.json" "$HOME/Library/Application Support/Cursor/User/settings.json"
+#Editors
+link cursor/settings.json "$HOME/Library/Application Support/Cursor/User/settings.json"
+link vscode/settings.json "$HOME/Library/Application Support/Code/User/settings.json"
 
-#Volta
-curl https://get.volta.sh | bash
-
-. "$(dirname "$0")/system_defaults.sh"
+"$DOTFILES/system_defaults.sh"
