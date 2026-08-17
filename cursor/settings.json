@@ -7,5 +7,6 @@
     "plantuml.java": "/opt/homebrew/opt/openjdk/bin/java",
     "plantuml.jar": "/opt/homebrew/opt/plantuml/libexec/plantuml.jar",
     "plantuml.exportFormat": "svg",
-    "files.autoSave": "afterDelay"
+    "files.autoSave": "afterDelay",
+    "editor.multiCursorModifier": "ctrlCmd"
 }
