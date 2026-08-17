@@ -8,10 +8,11 @@ rust = "stable"
 hugo = "latest"
 
 #Global CLIs that ship on npm, previously installed through Volta.
+#pi moved from @mariozechner to @earendil-works, which deprecated the old name.
 #pnpm uses the npm backend because its release assets no longer match the
 #names the default aqua backend looks for.
 "npm:pnpm" = "11"
-"npm:@mariozechner/pi-coding-agent" = "latest"
+"npm:@earendil-works/pi-coding-agent" = "latest"
 "npm:@kitlangton/ghui" = "latest"
 
 [settings]

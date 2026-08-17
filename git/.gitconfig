@@ -27,7 +27,7 @@
 [alias]
 	a = add
 	co = checkout
-	com = "!git checkout master  2>/dev/null || git checkout main"
+	com = "!git checkout main 2>/dev/null || git checkout master"
 	br = branch
 	d = diff
 	# Never `git pull`! You want `git fetch origin`,
