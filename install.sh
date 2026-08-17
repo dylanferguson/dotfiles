@@ -27,6 +27,10 @@ ln -s ~/.dotfiles/.bash_profile ~/.bash_profile
 ln -s ~/.dotfiles/.bashrc ~/.bashrc
 
 #AI agent setup
+mkdir -p ~/.codex
+rm -f ~/.codex/AGENTS.md
+ln -s ~/.dotfiles/AGENTS.md ~/.codex/AGENTS.md
+
 mkdir -p ~/.claude
 rm -f ~/.claude/CLAUDE.md
 ln -s ~/.dotfiles/AGENTS.md ~/.claude/CLAUDE.md
@@ -36,6 +40,11 @@ rm -rf ~/.claude/skills
 ln -s ~/.dotfiles/agents/skills ~/.claude/skills
 rm -rf ~/.agents/skills
 ln -s ~/.dotfiles/agents/skills ~/.agents/skills
+
+#pi coding agent extensions live in dotfiles/agents/extensions
+mkdir -p ~/.pi/agent
+rm -rf ~/.pi/agent/extensions
+ln -s ~/.dotfiles/agents/extensions ~/.pi/agent/extensions
 
 #Cursor also supports AGENTS.md per-project (no global path)
 #Use `agents-here` alias to link it into a project
