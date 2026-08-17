@@ -3,6 +3,7 @@ name: typography-audit
 description: |
   Apply the principles from Butterick's Practical Typography to set or audit type — body text size, line spacing, measure, font choice, then punctuation and emphasis — citing the page behind each call.
   Use only when explicitly asked to audit, review or check the typography of a specific page, site or document, or to set type for one. Do not use for general design, layout or CSS work.
+disable-model-invocation: true
 ---
 
 # Typography
