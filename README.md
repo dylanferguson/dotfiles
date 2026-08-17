@@ -69,11 +69,6 @@ Nothing else manages runtimes: Volta and the Homebrew go formula were removed, a
 ## Maintenance
 
 ```shell
-make lint
-```
-Runs shellcheck over every shell file, using Docker if shellcheck is not installed. CI runs the same target.
-
-```shell
 macos/app_defaults.sh export
 ```
 Reads app preferences back into the repo. Run it after changing a shortcut in Rectangle, then commit the plist. `import` writes them back, which `bin/install.sh` already does.
@@ -84,3 +79,9 @@ bin/update.sh
 Upgrades Homebrew packages and the mise runtimes, then lists anything installed here that the Brewfile does not mention yet — including apps installed outside Homebrew. Add what you want on the next machine; ignore the rest. It does not commit anything.
 
 GUI apps update themselves, and Homebrew leaves their versions alone on purpose, so `brew upgrade` never fights an app's own updater.
+
+There is no lint setup to maintain. When a shell file needs checking, run shellcheck in a container. The `-e` flags drop the two warnings rc files always produce, about sourcing paths that only exist on a configured machine:
+
+```shell
+docker run --rm -v "$PWD":/mnt koalaman/shellcheck:stable -e SC1090,SC1091 --shell=bash bin/*.sh macos/*.sh bash/.bash_profile bash/.bashrc
+```
