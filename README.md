@@ -62,7 +62,9 @@ Every destination:
 | `agents/claude/settings.json` | `~/.claude/settings.json` |
 
 `macos/system_defaults.sh` applies system preferences and is run by
-`bin/install.sh`, not symlinked.
+`bin/install.sh`, not symlinked. `macos/app_defaults.sh` does the same for apps
+that keep their settings in a plist rather than a config file — currently
+Rectangle, whose shortcuts are in `macos/app_defaults/`.
 
 ## Runtimes
 
@@ -86,6 +88,13 @@ make lint
 ```
 Runs shellcheck over every shell file, using Docker if shellcheck is not
 installed. CI runs the same target.
+
+```shell
+macos/app_defaults.sh export
+```
+Reads app preferences back into the repo. Run it after changing a shortcut in
+Rectangle, then commit the plist. `import` writes them back, which
+`bin/install.sh` already does.
 
 ```shell
 bin/update.sh
