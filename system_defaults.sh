@@ -1,4 +1,5 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
+set -uo pipefail
 
 # Ask for the administrator password upfront
 sudo -v
@@ -27,9 +28,6 @@ sudo systemsetup -setremoteappleevents off
 # Disable remote login
 sudo systemsetup -setremotelogin off
 
-# Disable wake-on modem
-sudo systemsetup -setwakeonmodem off
-
 # Disable wake-on LAN
 sudo systemsetup -setwakeonnetworkaccess off
 
@@ -37,7 +35,7 @@ sudo systemsetup -setwakeonnetworkaccess off
 sudo defaults write /Library/Preferences/com.apple.loginwindow RetriesUntilHint -int 0
 
 
-COMPUTER_NAME=”dylan”
+COMPUTER_NAME="dylan"
 
 # Set computer name (as done via System Preferences → Sharing)
 sudo scutil --set ComputerName "$COMPUTER_NAME"
@@ -100,9 +98,6 @@ defaults write com.apple.finder OpenWindowForNewRemovableDisk -bool true
 # Disable the warning before emptying the Trash"
 defaults write com.apple.finder WarnOnEmptyTrash -bool false
 
-# Empty Trash securely by default"
-defaults write com.apple.finder EmptyTrashSecurely -bool true
-
 # Show the ~/Library folder"
 chflags nohidden ~/Library
 
@@ -132,8 +127,9 @@ defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 0
 
-# Set format of date & hours in menu bar
-defaults write com.apple.menuextra.clock DateFormat -string "EEE d MMM  HH:mm"
+# Show the date and a 24-hour clock in the menu bar
+defaults write com.apple.menuextra.clock ShowDate -int 1
+defaults write com.apple.menuextra.clock Show24Hour -bool true
 
 for app in "Address Book" "Calendar" "Contacts" "Dock" "Finder" "Mail" "Safari" "SystemUIServer" "iCal"; do
   killall "${app}" &> /dev/null
