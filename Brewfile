@@ -1,3 +1,4 @@
+tap "humanlayer/humanlayer", trusted: true
 tap "nikitabobko/tap"
 
 brew "bash"
@@ -5,7 +6,7 @@ brew "bash-completion@2"
 brew "bat"
 brew "brotli"
 brew "colordiff"
-brew "delta"
+brew "cowsay"
 brew "dive"
 brew "exiftool"
 brew "eza"
@@ -13,6 +14,7 @@ brew "ffmpeg"
 brew "fzf"
 brew "gh"
 brew "git"
+brew "git-delta"
 brew "go"
 brew "htop"
 brew "iftop"
@@ -28,12 +30,57 @@ brew "pipx"
 brew "plantuml"
 brew "prettyping"
 brew "ripgrep"
+brew "sdl3"
+brew "shellcheck"
 brew "starship"
 brew "tmux"
 brew "unar"
+brew "volta"
 brew "z"
 brew "zellij"
 
 cask "nikitabobko/tap/aerospace", trusted: true
+cask "1password"
+cask "appcleaner"
+cask "betterdisplay"
 cask "calibre"
+cask "chatgpt"
+cask "claude"
+cask "cursor"
+cask "dropbox"
+cask "ghostty"
+cask "google-chrome"
+cask "grok-bot"
+cask "humanlayer/humanlayer/humanlayer"
+cask "jellyfin"
+cask "macmediakeyforwarder"
+cask "microsoft-edge"
+cask "obsidian"
+cask "ollama-app"
+cask "opencode-desktop"
 cask "orbstack"
+cask "protonvpn"
+cask "rectangle"
+cask "signal"
+cask "spokenly"
+cask "spotify"
+cask "tailscale-app"
+cask "transmission"
+cask "visual-studio-code"
+cask "vlc"
+cask "whatsapp"
+
+mas "Keynote", id: 409183694
+
+vscode "dustypomerleau.yarra-valley"
+vscode "jebbs.plantuml"
+
+uv "semble"
+
+#No cask available — install these by hand after a clean install:
+#  DaVinci Resolve + Blackmagic RAW (blackmagicdesign.com, needs registration)
+#  Hermes (hermes.dev)
+#  nvALT (brettterpstra.com/projects/nvalt)
+#
+#opencode and claude CLIs install themselves into ~/.opencode/bin and
+#~/.local/bin, so they are not tracked here either.
