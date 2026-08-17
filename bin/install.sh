@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 #link SRC DEST — replace DEST with a symlink to DOTFILES/SRC, whatever DEST is
 link() {
@@ -39,20 +39,20 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
 fi
 
 #Git config
-link .gitconfig ~/.gitconfig
-link .gitignore_global ~/.gitignore_global
+link git/.gitconfig ~/.gitconfig
+link git/.gitignore_global ~/.gitignore_global
 git config --global core.excludesfile ~/.gitignore_global
 #git also reads ~/.config/git/ignore, which would shadow the file above
 rm -f ~/.config/git/ignore
 
 #Bash
 rm -f ~/.zshrc
-link .bash_profile ~/.bash_profile
-link .bashrc ~/.bashrc
+link bash/.bash_profile ~/.bash_profile
+link bash/.bashrc ~/.bashrc
 
 #AI agent setup
-link AGENTS.md ~/.codex/AGENTS.md
-link AGENTS.md ~/.claude/CLAUDE.md
+link agents/AGENTS.md ~/.codex/AGENTS.md
+link agents/AGENTS.md ~/.claude/CLAUDE.md
 link agents/claude/settings.json ~/.claude/settings.json
 
 #Skills live in dotfiles/agents (vendor-agnostic)
@@ -71,11 +71,11 @@ mise trust "$DOTFILES/mise/config.toml"
 mise install
 
 #Terminal and prompt
-link ghostty.config "$HOME/Library/Application Support/com.mitchellh.ghostty/config.ghostty"
-link starship.toml ~/.config/starship.toml
+link terminal/ghostty.config "$HOME/Library/Application Support/com.mitchellh.ghostty/config.ghostty"
+link terminal/starship.toml ~/.config/starship.toml
 
 #Editors
-link cursor/settings.json "$HOME/Library/Application Support/Cursor/User/settings.json"
-link vscode/settings.json "$HOME/Library/Application Support/Code/User/settings.json"
+link editors/cursor/settings.json "$HOME/Library/Application Support/Cursor/User/settings.json"
+link editors/vscode/settings.json "$HOME/Library/Application Support/Code/User/settings.json"
 
-"$DOTFILES/system_defaults.sh"
+"$DOTFILES/macos/system_defaults.sh"

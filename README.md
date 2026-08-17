@@ -17,10 +17,10 @@ Then clone and run. `install.sh` installs Homebrew if it is missing, so this
 works on a machine with nothing on it:
 ```shell
 git clone https://github.com/dylanferguson/dotfiles.git $HOME/.dotfiles
-$HOME/.dotfiles/install.sh
+$HOME/.dotfiles/bin/install.sh
 ```
 
-The script installs the Brewfile, makes the Homebrew bash your login shell,
+`bin/install.sh` installs the Brewfile, makes the Homebrew bash your login shell,
 symlinks every config, then applies `system_defaults.sh`. It is safe to re-run.
 
 Finally:
@@ -33,19 +33,35 @@ bottom of the [Brewfile](Brewfile).
 
 ## Layout
 
+```
+bash/       .bash_profile, .bashrc
+git/        .gitconfig, .gitignore_global
+macos/      system_defaults.sh
+terminal/   ghostty.config, starship.toml
+editors/    cursor/, vscode/
+agents/     AGENTS.md, skills/, extensions/, claude/
+mise/       config.toml
+bin/        install.sh, update.sh, adopt.sh
+```
+
+Every destination:
+
 | Path | Goes to |
 | --- | --- |
-| `.bash_profile`, `.bashrc` | `~/` |
-| `.gitconfig`, `.gitignore_global` | `~/` |
-| `starship.toml` | `~/.config/` |
+| `bash/.bash_profile`, `bash/.bashrc` | `~/` |
+| `git/.gitconfig`, `git/.gitignore_global` | `~/` |
+| `terminal/starship.toml` | `~/.config/` |
 | `mise/config.toml` | `~/.config/mise/` |
-| `ghostty.config` | `~/Library/Application Support/com.mitchellh.ghostty/` |
-| `cursor/settings.json` | `~/Library/Application Support/Cursor/User/` |
-| `vscode/settings.json` | `~/Library/Application Support/Code/User/` |
-| `AGENTS.md` | `~/.claude/CLAUDE.md`, `~/.codex/AGENTS.md` |
+| `terminal/ghostty.config` | `~/Library/Application Support/com.mitchellh.ghostty/` |
+| `editors/cursor/settings.json` | `~/Library/Application Support/Cursor/User/` |
+| `editors/vscode/settings.json` | `~/Library/Application Support/Code/User/` |
+| `agents/AGENTS.md` | `~/.claude/CLAUDE.md`, `~/.codex/AGENTS.md` |
 | `agents/skills` | `~/.claude/skills`, `~/.agents/skills` |
 | `agents/extensions` | `~/.pi/agent/extensions` |
 | `agents/claude/settings.json` | `~/.claude/settings.json` |
+
+`macos/system_defaults.sh` applies system preferences and is run by
+`bin/install.sh`, not symlinked.
 
 ## Runtimes
 
@@ -71,13 +87,13 @@ Runs shellcheck over every shell file, using Docker if shellcheck is not
 installed. CI runs the same target.
 
 ```shell
-./adopt.sh
+bin/adopt.sh
 ```
 Hands apps you installed by hand over to Homebrew, so `brew bundle` stops
 trying to reinstall them. Needed once on a machine that predates the Brewfile.
 
 ```shell
-./update.sh
+bin/update.sh
 ```
 Upgrades Homebrew, App Store, and npm packages, then reports drift between the
 machine and the Brewfile. It does not commit anything — review and commit

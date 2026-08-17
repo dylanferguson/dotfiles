@@ -39,12 +39,12 @@ alias reset-to-remote='git fetch origin && git reset --hard origin/$(current-bra
 alias cc='claude'
 alias cc-yolo='claude --dangerously-skip-permissions'
 alias oc='opencode'
-alias agents-here='ln -sf ~/.dotfiles/AGENTS.md ./AGENTS.md && echo "Linked AGENTS.md → $(pwd)/AGENTS.md"'
+alias agents-here='ln -sf ~/.dotfiles/agents/AGENTS.md ./AGENTS.md && echo "Linked AGENTS.md → $(pwd)/AGENTS.md"'
 
 # - this machine -------------------
 alias bash-reset='. ~/.bash_profile'
 alias brewup='brew update; brew upgrade; brew cleanup; brew cleanup --prune-prefix; brew doctor'
-alias update-all-the-things='$HOME/.dotfiles/update.sh'
+alias update-all-the-things='$HOME/.dotfiles/bin/update.sh'
 alias myip='curl ifconfig.co'
 alias flushDNS='dscacheutil -flushcache'
 

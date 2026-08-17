@@ -6,7 +6,7 @@ set -euo pipefail
 #existing app to Homebrew instead. Run this once on a machine that predates the
 #Brewfile; a clean install never needs it.
 
-DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 mapfile -t tracked < <(grep -oE '^cask "[^"]+"' "$DOTFILES/Brewfile" | sed 's/cask "//;s/"//')
 installed="$(brew list --cask)"

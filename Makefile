@@ -1,6 +1,7 @@
 .PHONY: lint
 
-SHELL_FILES = install.sh update.sh adopt.sh system_defaults.sh .bash_profile .bashrc
+SHELL_FILES = bin/install.sh bin/update.sh bin/adopt.sh macos/system_defaults.sh \
+	bash/.bash_profile bash/.bashrc
 
 #Uses the local shellcheck when there is one, Docker otherwise
 lint:
