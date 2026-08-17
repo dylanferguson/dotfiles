@@ -1,9 +1,5 @@
 # .dotfiles
 
-## ToDo
-
-- Rewrite repo as Ansible roles: set up a complete local dev environment with a single, idempotent command
-
 ## Install
 
 First, do a [clean install](https://www.imore.com/how-do-clean-install-macos)
