@@ -38,6 +38,7 @@ bottom of the [Brewfile](Brewfile).
 | `.bash_profile`, `.bashrc` | `~/` |
 | `.gitconfig`, `.gitignore_global` | `~/` |
 | `starship.toml` | `~/.config/` |
+| `mise/config.toml` | `~/.config/mise/` |
 | `ghostty.config` | `~/Library/Application Support/com.mitchellh.ghostty/` |
 | `cursor/settings.json` | `~/Library/Application Support/Cursor/User/` |
 | `vscode/settings.json` | `~/Library/Application Support/Code/User/` |
@@ -45,6 +46,17 @@ bottom of the [Brewfile](Brewfile).
 | `agents/skills` | `~/.claude/skills`, `~/.agents/skills` |
 | `agents/extensions` | `~/.pi/agent/extensions` |
 | `agents/claude/settings.json` | `~/.claude/settings.json` |
+
+## Runtimes
+
+[mise](https://mise.jdx.dev) owns every host-managed runtime — node, bun, go,
+rust, hugo — plus the global CLIs that ship on npm, in
+[mise/config.toml](mise/config.toml). Projects override it with their own
+`mise.toml`, `.tool-versions`, or `.nvmrc`.
+
+Nothing else manages runtimes: Volta and the Homebrew go formula were removed,
+and `~/.local/bin` now sits behind the mise shims so a bundled node cannot
+shadow the managed one. Check what is in use with `mise ls` and `which node`.
 
 `AGENTS.md` is the single set of agent instructions, shared by every tool.
 Cursor has no global path for it — use the `agents-here` alias to link it into

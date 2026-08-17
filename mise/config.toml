@@ -1,0 +1,19 @@
+#Every host-managed runtime lives here. Projects override it with their own
+#mise.toml, .tool-versions, or .nvmrc.
+[tools]
+node = "24"
+bun = "latest"
+go = "1.24"
+rust = "stable"
+hugo = "latest"
+
+#Global CLIs that ship on npm, previously installed through Volta.
+#pnpm uses the npm backend because its release assets no longer match the
+#names the default aqua backend looks for.
+"npm:pnpm" = "11"
+"npm:@mariozechner/pi-coding-agent" = "latest"
+"npm:@kitlangton/ghui" = "latest"
+
+[settings]
+#Respect .nvmrc in repos that predate mise
+idiomatic_version_file_enable_tools = ["node"]

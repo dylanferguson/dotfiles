@@ -25,3 +25,7 @@ esac
 
 # Hermes Agent — ensure ~/.local/bin is on PATH
 export PATH="$HOME/.local/bin:$PATH"
+
+# mise — host-managed runtimes (node, bun, go, rust, hugo, pnpm)
+# Activated last so its shims take precedence over ~/.local/bin
+eval "$(mise activate bash)"

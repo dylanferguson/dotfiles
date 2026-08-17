@@ -65,6 +65,11 @@ link agents/extensions ~/.pi/agent/extensions
 #Cursor also supports AGENTS.md per-project (no global path)
 #Use `agents-here` alias to link it into a project
 
+#Runtimes — mise owns node, bun, go, rust, hugo, and the npm-installed CLIs
+link mise/config.toml ~/.config/mise/config.toml
+mise trust "$DOTFILES/mise/config.toml"
+mise install
+
 #Terminal and prompt
 link ghostty.config "$HOME/Library/Application Support/com.mitchellh.ghostty/config.ghostty"
 link starship.toml ~/.config/starship.toml
