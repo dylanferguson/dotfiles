@@ -14,6 +14,7 @@ own, invoke by name. Keep that line when adding or updating a skill.
 | `judge` | Adversarial review — assume the code is broken until proven otherwise. |
 | `typography-audit` | Audit or set type against Butterick's *Practical Typography*. |
 | `bro` | Restate the last message in plain language. |
+| `eli5` | Explain a topic for a total beginner, as an HTML artifact. |
 
 ## Created by others
 
