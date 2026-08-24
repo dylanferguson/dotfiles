@@ -15,6 +15,7 @@ own, invoke by name. Keep that line when adding or updating a skill.
 | `typography-audit` | Audit or set type against Butterick's *Practical Typography*. |
 | `bro` | Restate the last message in plain language. |
 | `eli5` | Explain a topic for a total beginner, as an HTML artifact. |
+| `calldiff` | Walk the changed call trees to explain what changed behaviorally. |
 
 ## Created by others
 
