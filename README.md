@@ -35,7 +35,7 @@ git/        .gitconfig, .gitignore_global
 macos/      system_defaults.sh
 terminal/   ghostty.config, starship.toml
 editors/    cursor/, vscode/
-agents/     AGENTS.md, skills/, extensions/, claude/
+agents/     AGENTS.md, CODING_STANDARDS.md, skills/, extensions/, claude/
 mise/       config.toml
 bin/        install.sh, update.sh
 ```
@@ -65,6 +65,8 @@ Every destination:
 Nothing else manages runtimes: Volta and the Homebrew go formula were removed, and `~/.local/bin` now sits behind the mise shims so a bundled node cannot shadow the managed one. Check what is in use with `mise ls` and `which node`.
 
 `AGENTS.md` is the single set of agent instructions, shared by every tool. Cursor has no global path for it — use the `agents-here` alias to link it into a project.
+
+`agents/CODING_STANDARDS.md` is a reference doc, not part of that set. No agent discovers the filename on its own and nothing symlinks it, so it stays a place to collect standards until they are worth folding into `AGENTS.md`.
 
 ## Maintenance
 
