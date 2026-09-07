@@ -46,3 +46,6 @@ for mise_entry in "${mise_entries[@]}"; do
 done
 export PATH="$mise_shims:$mise_rest"
 unset mise_shims mise_rest mise_entries mise_entry
+
+# Vite+ bin (https://viteplus.dev)
+. "$HOME/.config/vite-plus/env"
