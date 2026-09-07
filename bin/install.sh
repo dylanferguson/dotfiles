@@ -54,6 +54,7 @@ link bash/.bashrc ~/.bashrc
 link agents/AGENTS.md ~/.codex/AGENTS.md
 link agents/AGENTS.md ~/.claude/CLAUDE.md
 link agents/AGENTS.md ~/.cursor/rules/personal-preferences.mdc
+link agents/pstack-models.mdc ~/.cursor/rules/pstack-models.mdc
 link agents/claude/settings.json ~/.claude/settings.json
 
 #Skills live in dotfiles/agents (vendor-agnostic)
