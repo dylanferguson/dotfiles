@@ -1,5 +1,5 @@
 ---
-name: pr
+name: write-pr
 description: Write a pull request title and body.
 disable-model-invocation: true
 ---
