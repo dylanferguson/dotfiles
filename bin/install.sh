@@ -50,9 +50,10 @@ rm -f ~/.zshrc
 link bash/.bash_profile ~/.bash_profile
 link bash/.bashrc ~/.bashrc
 
-#AI agent setup
+#AI agent setup — AGENTS.md is the source; Cursor gets a .mdc name
 link agents/AGENTS.md ~/.codex/AGENTS.md
 link agents/AGENTS.md ~/.claude/CLAUDE.md
+link agents/AGENTS.md ~/.cursor/rules/personal-preferences.mdc
 link agents/claude/settings.json ~/.claude/settings.json
 
 #Skills live in dotfiles/agents (vendor-agnostic)
@@ -62,8 +63,7 @@ link agents/skills ~/.agents/skills
 #pi coding agent extensions live in dotfiles/agents/extensions
 link agents/extensions ~/.pi/agent/extensions
 
-#Cursor also supports AGENTS.md per-project (no global path)
-#Use `agents-here` alias to link it into a project
+#Per-project AGENTS.md: `agents-here`
 
 #Runtimes — mise owns node, bun, go, rust, hugo, and the npm-installed CLIs
 link mise/config.toml ~/.config/mise/config.toml

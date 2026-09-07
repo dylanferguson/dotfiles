@@ -51,7 +51,7 @@ Every destination:
 | `terminal/ghostty.config` | `~/Library/Application Support/com.mitchellh.ghostty/` |
 | `editors/cursor/settings.json` | `~/Library/Application Support/Cursor/User/` |
 | `editors/vscode/settings.json` | `~/Library/Application Support/Code/User/` |
-| `agents/AGENTS.md` | `~/.claude/CLAUDE.md`, `~/.codex/AGENTS.md` |
+| `agents/AGENTS.md` | `~/.claude/CLAUDE.md`, `~/.codex/AGENTS.md`, `~/.cursor/rules/personal-preferences.mdc` |
 | `agents/skills` | `~/.claude/skills`, `~/.agents/skills` |
 | `agents/extensions` | `~/.pi/agent/extensions` |
 | `agents/claude/settings.json` | `~/.claude/settings.json` |
@@ -64,7 +64,7 @@ Every destination:
 
 Nothing else manages runtimes: Volta and the Homebrew go formula were removed, and `~/.local/bin` now sits behind the mise shims so a bundled node cannot shadow the managed one. Check what is in use with `mise ls` and `which node`.
 
-`AGENTS.md` is the single set of agent instructions, shared by every tool. Cursor has no global path for it — use the `agents-here` alias to link it into a project.
+`AGENTS.md` is the single set of agent instructions, shared by every tool. Cursor has no `AGENTS.md` global path, so `install.sh` also links that same file to `~/.cursor/rules/personal-preferences.mdc`. The YAML frontmatter is for Cursor (`alwaysApply`); Codex and Claude ignore it. Use `agents-here` to link it into a project.
 
 `agents/CODING_STANDARDS.md` is a reference doc, not part of that set. No agent discovers the filename on its own and nothing symlinks it, so it stays a place to collect standards until they are worth folding into `AGENTS.md`.
 
