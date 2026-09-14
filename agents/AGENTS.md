@@ -13,6 +13,7 @@ alwaysApply: true
 ## Coding Standards
 
 - Use Conventional Commits for every commit.
+- Run ShellCheck on new or modified shell scripts.
 - Change-detector and tautological tests considered harmful
 - Keep comments short. Delete any claim from comments that is derivable from the code.
 - Use TDD specifically for bug fixes, one focused behavior at a time: write or update a regression test, confirm it fails for the expected reason, implement the fix, then run the relevant tests. Do not require TDD for feature work. Do not weaken tests to make them pass. If a useful regression test is impractical, explain why.

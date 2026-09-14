@@ -20,12 +20,17 @@ one per line. Vault folder names must be unique.
 ```sh
 launchctl kickstart gui/$UID/com.dylanferguson.obsidian-backup  # Run now
 tail -20 ~/.obsidian-backup/backup.log                        # Check results
-~/.dotfiles/obsidian/check.sh                                # ShellCheck + tests
 ```
 
 `~/.obsidian-backup/last-success` records the last successful Git push and local
 Dropbox copy; Dropbox uploads separately. Startup errors go to `launchd.err`
 in the same directory.
+
+Run the regression tests:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 python3 -m unittest discover -s ~/.dotfiles/obsidian/tests -v
+```
 
 ## Disable
 
