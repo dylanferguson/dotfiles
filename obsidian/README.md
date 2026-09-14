@@ -1,8 +1,8 @@
 # Obsidian backup
 
 Hourly backups to GitHub through `~/.obsidian-backup/repo`, plus a plain-file
-Dropbox mirror at `Backups/Obsidian`. Replaced Dropbox files stay in
-`Backups/Obsidian-attic` for 90 days. See [restore instructions](backup-readme.md).
+Dropbox mirror at `Backups/Obsidian`. Use Git history for
+[restores](backup-readme.md).
 
 ## Setup
 

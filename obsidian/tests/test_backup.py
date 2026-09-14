@@ -104,16 +104,20 @@ class BackupTests(unittest.TestCase):
         self.assertEqual(self.git('rev-parse', 'HEAD'), before)
         self.assertFalse((self.repo / 'Notes').exists())
 
-    def test_attic_retains_multiple_replacements_on_the_same_day(self):
+    def test_dropbox_mirrors_edits_and_deletions_with_history_in_git(self):
         vault = self.vault()
         self.assertEqual(self.backup().returncode, 0)
+        before = self.git('rev-parse', 'HEAD')
         self.put(vault / 'note-000.md', 'second version with different size\n')
+        (vault / 'note-001.md').unlink()
+        self.put(vault / 'note-002.md', 'new note\n')
+        expected = {p.relative_to(vault): p.read_bytes() for p in vault.rglob('*') if p.is_file()}
         self.assertEqual(self.backup().returncode, 0)
-        self.put(vault / 'note-000.md', 'third version with another size again\n')
-        self.assertEqual(self.backup().returncode, 0)
-        attic = self.dropbox / 'Backups/Obsidian-attic'
-        versions = {p.read_text() for p in attic.rglob('note-000.md')}
-        self.assertEqual(versions, {'original note 0\n', 'second version with different size\n'})
+        mirror = self.dropbox / 'Backups/Obsidian/Vault'
+        self.assertEqual({p.relative_to(mirror): p.read_bytes() for p in mirror.rglob('*') if p.is_file()}, expected)
+        self.assertEqual({p.relative_to(vault): p.read_bytes() for p in vault.rglob('*') if p.is_file()}, expected)
+        self.assertEqual(self.git('show', f'{before}:Vault/note-000.md'), 'original note 0')
+        self.assertEqual(self.git('show', f'{before}:Vault/note-001.md'), 'original note 1')
 
     def test_commit_failure_is_reported_while_dropbox_still_updates(self):
         self.vault()

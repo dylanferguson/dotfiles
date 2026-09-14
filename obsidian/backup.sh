@@ -157,7 +157,7 @@ push_snapshot() {
 }
 
 mirror_dropbox() {
-  local dropbox='' candidate name destination attic run_id failed=0
+  local dropbox='' candidate name destination failed=0
   for candidate in "${OBSIDIAN_BACKUP_DROPBOX:-$HOME/Dropbox}" \
     "$HOME/Library/CloudStorage/Dropbox" "$HOME/Dropbox (Personal)"; do
     if [[ -d "$candidate" ]]; then
@@ -170,14 +170,12 @@ mirror_dropbox() {
     return 1
   fi
 
-  attic="$dropbox/Backups/Obsidian-attic"
-  run_id="$(date +%Y-%m-%dT%H%M%S)-$$"
   while IFS= read -r name; do
     destination="$dropbox/Backups/Obsidian/$name"
     if ! mkdir -p "$destination" 2>> "$LOG"; then
       log "dropbox [$name]: cannot create destination"
       failed=1
-    elif rsync -a --delete --backup --backup-dir="$attic/$run_id/$name" \
+    elif rsync -a --delete \
       --exclude '.DS_Store' --exclude '*.icloud' \
       "$REPO/$name/" "$destination/" 2>> "$LOG"; then
       log "dropbox [$name]: mirrored"
@@ -187,11 +185,6 @@ mirror_dropbox() {
     fi
   done < "$stage/synced"
 
-  if [[ -d "$attic" ]]; then
-    if ! find "$attic" -mindepth 1 -maxdepth 1 -type d -mtime +90 -exec rm -rf {} + 2>> "$LOG"; then
-      log 'dropbox: could not remove expired attic directories'
-    fi
-  fi
   return "$failed"
 }
 
