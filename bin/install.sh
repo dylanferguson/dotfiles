@@ -79,6 +79,13 @@ link terminal/starship.toml ~/.config/starship.toml
 link editors/cursor/settings.json "$HOME/Library/Application Support/Cursor/User/settings.json"
 link editors/vscode/settings.json "$HOME/Library/Application Support/Code/User/settings.json"
 
+#Obsidian backup app — rebuild only on machines where it has been enabled.
+#Enable automatic pushes on one Mac only.
+#Turn it on here with: obsidian/enable.sh
+if [[ -f "$HOME/.obsidian-backup/enabled" ]]; then
+  "$DOTFILES/obsidian/enable.sh"
+fi
+
 #App prefs that live in a plist instead of a config file
 "$DOTFILES/macos/app_defaults.sh" import
 
