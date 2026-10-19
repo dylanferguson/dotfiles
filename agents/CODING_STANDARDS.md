@@ -234,6 +234,11 @@ and his engineering notes. Prefer their advice when a rule above is silent.
 - Markus Winand, *Use The Index, Luke*; Tobias Petry, *SQL for Devs*
 - Yoni Goldberg, Node.js and JavaScript testing best practices
 - Antirez on LLMs as QA engineers
+- Go: [Effective Go](https://go.dev/doc/effective_go),
+  [Go Code Review Comments](https://go.dev/wiki/CodeReviewComments), Go
+  Proverbs, Dave Cheney's *Practical Go*, "SOLID Go Design", and
+  "Functional options", Ben Johnson, "Packages as layers, not groups", and
+  Mat Ryer, [How I write HTTP services in Go after 13 years](https://grafana.com/blog/2024/02/09/how-i-write-http-services-in-go-after-13-years/)
 
 **Studied in depth**
 
@@ -249,10 +254,22 @@ and his engineering notes. Prefer their advice when a rule above is silent.
   `.oxlintrc.jsonc`, `libs/langchain-core/src/errors/`,
   `libs/langchain-core/src/utils/async_caller.ts`,
   `libs/langchain-core/src/runnables/base.ts`, and the OpenAI provider tests
+- Go standard library: `net/http`, `context`, `errors`, `log/slog`,
+  `database/sql`, `io`, `testing`, `internal/testenv`, `cmd/dist`, and the
+  `cmd/go` script tests
+- Tailscale: `docs/commit-messages.md`, `tsweb/`, `util/vizerror/`,
+  `types/logger/`, `tstime/`, `tstest/`, `ipn/ipnlocal/local.go`, and the CI
+  workflows
+- pkgsite: `internal/derrors/`, `internal/middleware/`, and
+  `internal/postgres/test_helper.go`
+- wtf: the root package, `mock/`, `sqlite/`, and `http/`
 
 **Projects**
 
 - Three Dots Labs `wild-workouts-go-ddd-example` and
   `modern-go-application`, for Go structure
+- Go reference projects from the notes, not yet read: HashiCorp, Caddy,
+  Prometheus, Grafana, Mattermost, CockroachDB Pebble, Vitess, OPA, Coder,
+  and `google/go-github`
 - `oldboyxx/jira_clone`, ToolJet, and `desktop/desktop`, for TypeScript and
   Node structure
