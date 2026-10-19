@@ -91,6 +91,7 @@ These rules apply to all code. Area-specific rules live in [`standards/`](standa
 - Do not open issues or pull requests on third-party projects unless the user asks you to (Ghostty `AGENTS.md`).
 - Verify your change works by running it (for example, with `curl` or a script), not only by passing tests. Report what you ran and what happened.
 - Understand every line you submit. Code you cannot explain is not done.
+- Do not guess on public API or CLI shape, where performance matters (and whether CPU or memory), or whether compatibility matters. Raise these with the user. Do not preserve backward compatibility by default without asking.
 - Keep diffs reviewable. If a diff grows past roughly 1,500 lines, stop and split the work into smaller, independent changes.
 - When debugging, list several plausible causes, narrow to the most likely one or two, and confirm with evidence before you change code.
 - Suggest turning repeated review feedback into a lint rule, type, or CI check rather than a prompt rule.

@@ -41,6 +41,7 @@
 - For a change that affects performance, include a benchmark table with the command, input, and before and after numbers. State the cost you accepted (Ghostty `a2e4403`).
 - State known limitations and the options you chose not to implement.
 - Say which agent helped and what you verified yourself (Ghostty `AI_POLICY.md`).
+- Link the agent session (transcript URL or session ID) so reviewers can check the diff against the intent and later readers can see what the agent did.
 - Open a draft pull request early for work that takes more than a day.
 - Do not submit code you have not run and verified yourself. Review any agent-written description before you post it.
 
