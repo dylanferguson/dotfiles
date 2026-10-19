@@ -117,10 +117,29 @@ from.
 - Do not log an error and then rethrow it. The edge handler logs it once.
 - Do not leak stack traces or implementation details in responses.
 - Fail fast on invalid input with a specific, human-readable message.
+- Leave state unchanged when an operation fails. Do the failable step
+  first, mutate state after it succeeds, and release partial resources on
+  the error path (Ghostty `Tabstops.resize`, Zig `errdefer`).
+- Assert invariants you can prove, such as preconditions and loop
+  invariants. For conditions you believe but cannot prove, handle the
+  unexpected case with a simple fallback, such as returning an error,
+  instead of an assertion
+  ([SQLite `assert()` use](https://www.sqlite.org/assert.html)).
+- Give complex data structures an integrity check, and run it after each
+  mutation in debug and test builds (Ghostty `PageList.assertIntegrity`).
+- Write down the environmental assumptions that correctness depends on,
+  such as `fsync` semantics or delivery guarantees
+  ([SQLite atomic commit](https://www.sqlite.org/atomiccommit.html) §2).
+- Set explicit resource limits, and alert as usage approaches them, so
+  operators get warning before failure (SQLite memory limits).
+- Reject control characters in untrusted input that reaches a shell,
+  terminal, or interpreter (Ghostty `827d5c8`, `cc53940`).
 
 ## Working as an agent
 
 - Run the existing tests before you change anything.
+- Do not open issues or pull requests on third-party projects unless the
+  user asks you to (Ghostty `AGENTS.md`).
 - Verify your change works by running it (for example, with `curl` or a
   script), not only by passing tests. Report what you ran and what happened.
 - Understand every line you submit. Code you cannot explain is not done.
@@ -202,10 +221,19 @@ and his engineering notes. Prefer their advice when a rule above is silent.
 - Yoni Goldberg, Node.js and JavaScript testing best practices
 - Antirez on LLMs as QA engineers
 
+**Studied in depth**
+
+- SQLite: [How SQLite Is Tested](https://www.sqlite.org/testing.html),
+  [TH3](https://www.sqlite.org/th3.html),
+  [Use of assert()](https://www.sqlite.org/assert.html),
+  [Dynamic Memory Allocation](https://www.sqlite.org/malloc.html), and
+  [Atomic Commit](https://www.sqlite.org/atomiccommit.html)
+- Ghostty: `CONTRIBUTING.md`, `AI_POLICY.md`, `HACKING.md`, `AGENTS.md`,
+  `src/tripwire.zig`, `src/terminal/PageList.zig`,
+  `test/fuzz-libghostty/`, and Mitchell Hashimoto's recent commits
+
 **Projects**
 
-- SQLite, for its test suite
-- Ghostty, for its actionable-only issue tracker
 - Three Dots Labs `wild-workouts-go-ddd-example` and
   `modern-go-application`, for Go structure
 - `oldboyxx/jira_clone`, ToolJet, `desktop/desktop`, and LangChain.js, for

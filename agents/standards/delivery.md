@@ -28,6 +28,15 @@
 - Use staged rollouts with automated rollback on key metrics.
 - Make every change safe to roll back. Keep state changes forward and backward
   compatible.
+- Keep a release checklist for checks you cannot automate. Add an item
+  whenever a problem escapes to production (SQLite §10).
+
+## Issues
+
+- Open issues only for reproducible bugs and accepted, scoped features. Use
+  discussions for questions and ideas (Ghostty `CONTRIBUTING.md`).
+- In projects with an issue tracker, link every pull request to an accepted
+  issue.
 
 ## Commits
 
@@ -42,6 +51,15 @@
 - Read your own diff before you open a pull request.
 - In the description, state the goal, link the issue or spec, and list what is
   out of scope and any follow-up work. Attach screenshots for UI changes.
+- For a bug fix, describe the old behaviour and its cause, then give
+  reproduction steps with before and after output (Ghostty `a2e4403`,
+  `7db25f9`).
+- For a change that affects performance, include a benchmark table with
+  the command, input, and before and after numbers. State the cost you
+  accepted (Ghostty `a2e4403`).
+- State known limitations and the options you chose not to implement.
+- Say which agent helped and what you verified yourself (Ghostty
+  `AI_POLICY.md`).
 - Open a draft pull request early for work that takes more than a day.
 - Do not submit code you have not run and verified yourself. Review any
   agent-written description before you post it.

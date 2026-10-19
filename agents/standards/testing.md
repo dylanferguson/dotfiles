@@ -38,6 +38,36 @@
   most frequently changed features first. Add unit tests only to code you
   touch.
 
+## Failure paths
+
+Most bugs hide in error handling that tests never reach.
+
+- Test error paths by injecting faults at the boundary: wrap the allocator,
+  file system, or dependency client so a test can make the Nth call fail.
+  Loop N from 1 until the operation completes without hitting the fault
+  ([SQLite OOM and I/O tests](https://www.sqlite.org/testing.html#anomaly_testing);
+  Ghostty `src/tripwire.zig`, `"PageList init error"` in
+  `src/terminal/PageList.zig`).
+- Run each fault loop twice: once where the fault happens once and the
+  dependency recovers, and once where it keeps failing.
+- After every injected fault, assert that no resources leaked and that state
+  is either unchanged or fully applied, never partial (SQLite crash tests;
+  Ghostty `"Tabstops: resize alloc failure preserves state"`).
+- Test compound failures, such as a fault during recovery from an earlier
+  fault.
+- Detect leaks on every test run, not in a separate job (SQLite §6; Zig
+  `std.testing.allocator`).
+- Test both sides of every documented limit, and one step past it to confirm
+  the error.
+- Fuzz parsers and anything that reads untrusted input. Commit the inputs
+  that found bugs as a corpus, and replay it in the normal suite (SQLite
+  `fuzzcheck`; Ghostty `test/fuzz-libghostty/corpus`).
+- When code has a fast path and a slow path, or an optional optimisation,
+  assert that both produce the same output (SQLite §9; Ghostty `fuzz-stream`
+  picks the SIMD or scalar path from the first input byte).
+- Test the build you ship, with release settings, not only a debug build
+  ([TH3](https://www.sqlite.org/th3.html): "test what you fly").
+
 ## Structure
 
 - Make the unit of isolation the test, not the class. Each test must pass
@@ -58,3 +88,10 @@
   tests, for network blips, and report retried tests as flaky.
 - Make the whole suite run locally with one command, hermetically, in
   minutes. Flag changes that slow it down.
+- Keep a fast subset that runs before every commit, and run slow fault,
+  fuzz, and soak tests in CI (SQLite "veryquick").
+- While iterating, run the tests for the area you changed. Run the full
+  suite before you open a pull request (Ghostty `AGENTS.md`).
+- For behaviour you cannot automate, keep a written manual checklist in the
+  repository and run it when you touch that area (Ghostty `HACKING.md`
+  "Input Stack Testing"; SQLite release checklists).
