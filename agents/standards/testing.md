@@ -33,6 +33,10 @@ Most bugs hide in error handling that tests never reach.
 - Fuzz parsers and anything that reads untrusted input. Commit the inputs that found bugs as a corpus, and replay it in the normal suite (SQLite `fuzzcheck`; Ghostty `test/fuzz-libghostty/corpus`).
 - When code has a fast path and a slow path, or an optional optimisation, assert that both produce the same output (SQLite §9; Ghostty `fuzz-stream` picks the SIMD or scalar path from the first input byte).
 - Test the build you ship, with release settings, not only a debug build ([TH3](https://www.sqlite.org/th3.html): "test what you fly").
+- Pair each fault point with a trigger that drives the code to it, such as a compaction or a snapshot. A fault on a path the traffic never reaches proves nothing (`etcd/tests/robustness/failpoint/gofail.go`).
+- For anything with consistency guarantees, record every client operation and its result while you inject crashes and partitions, then check the history against a simple model of the API with a linearizability checker (`etcd/tests/robustness/`, porcupine).
+- Keep a table of the bugs that fault testing found, each with a command that reproduces it. Rerun them all before and after you change the test framework, so it never loses the ability to catch them (`etcd/tests/robustness/README.md`).
+- Put expensive invariant checks behind a flag that every test run enables and production leaves off (`etcd/client/pkg/verify/`, `ETCD_VERIFY=all` in `scripts/test.sh`).
 
 ## Structure
 
@@ -40,6 +44,8 @@ Most bugs hide in error handling that tests never reach.
 - Write DAMP tests. Prefer a readable, self-contained test over a DRY one.
 - Follow arrange, act, assert. Move setup that distracts from the assertion into named helpers.
 - Name tests after the behaviour they specify, for example `rejects checkout when cart is empty`.
+- Write scenario tests once against a small cluster or client interface, and run the same suite in-process and against the real binary, chosen by build tag (`etcd/tests/framework/interfaces/`, `tests/common/integration_test.go`, `tests/common/e2e_test.go`).
+- Test upgrades, downgrades, and mixed-version deployments for anything that persists data or talks to other versions (`etcd/tests/e2e/etcd_mix_versions_test.go`, `cluster_downgrade_test.go`).
 
 ## Process
 

@@ -70,6 +70,7 @@ These rules apply to all code. Area-specific rules live in [`standards/`](standa
 - Write down the environmental assumptions that correctness depends on, such as `fsync` semantics or delivery guarantees ([SQLite atomic commit](https://www.sqlite.org/atomiccommit.html) §2).
 - Set explicit resource limits, and alert as usage approaches them, so operators get warning before failure (SQLite memory limits).
 - Reject control characters in untrusted input that reaches a shell, terminal, or interpreter (Ghostty `827d5c8`, `cc53940`).
+- Apply new configuration all or nothing. Build and start it in full before you swap it in, and keep the old one running if any step fails (Caddy `caddy.go`).
 
 ## Failure under load
 
@@ -77,6 +78,8 @@ These rules apply to all code. Area-specific rules live in [`standards/`](standa
 - Use exponential backoff with jitter and a bounded number of attempts.
 - Honour `Retry-After` up to a ceiling, and fail fast beyond it. Treat an exhausted quota as permanent, not as a rate limit to wait out.
 - Classify failures by status code and error code first. Match error messages only as a last resort for third-party APIs that give nothing else.
+- Classify each operation as safe to repeat or not. Retry reads on transient errors. Retry writes only when the request provably never reached the server, such as when no connection was available (etcd `client/v3/retry.go`).
+- Treat an error or timeout on a write as an unknown outcome, not a failure: the write may have been applied. Make writes idempotent, or read before you retry (etcd `tests/robustness/model/types.go`: `MaybeEtcdResponse`).
 - Set a finite concurrency limit on calls to any rate-limited or shared dependency. Do not leave it unbounded by default.
 
 ## Working as an agent
@@ -164,9 +167,11 @@ Sources cited in Dylan's [software canon](https://dylanferguson.co/software-cano
 - Tailscale: `docs/commit-messages.md`, `tsweb/`, `util/vizerror/`, `types/logger/`, `tstime/`, `tstest/`, `ipn/ipnlocal/local.go`, and the CI workflows
 - pkgsite: `internal/derrors/`, `internal/middleware/`, and `internal/postgres/test_helper.go`
 - wtf: the root package, `mock/`, `sqlite/`, and `http/`
+- etcd: `client/v3/retry.go`, `server/storage/wal/`, `client/pkg/verify/`, gofail failpoints in `server/`, `tests/robustness/`, and `tests/framework/`; etcd-io/raft's README, `interaction_test.go`, and `tla/`; and the r/golang thread [In praise of the etcd codebase](https://www.reddit.com/r/golang/comments/1rtkcrl/in_praise_of_the_etcd_codebase/)
+- Caddy: `AGENTS.md`, `modules.go`, `caddy.go`, `context.go`, `usagepool.go`, `caddyconfig/`, `modules/caddyhttp/errors.go`, and `caddytest/`
 
 **Projects**
 
 - Three Dots Labs `wild-workouts-go-ddd-example` and `modern-go-application`, for Go structure
-- Go reference projects from the notes, not yet read: HashiCorp, Caddy, Prometheus, Grafana, Mattermost, CockroachDB Pebble, Vitess, OPA, Coder, and `google/go-github`
+- Go reference projects from the notes, not yet read: HashiCorp, Prometheus, Grafana, Mattermost, CockroachDB Pebble, Vitess, OPA, Coder, and `google/go-github`
 - `oldboyxx/jira_clone`, ToolJet, and `desktop/desktop`, for TypeScript and Node structure
