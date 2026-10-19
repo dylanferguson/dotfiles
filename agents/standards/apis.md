@@ -34,3 +34,9 @@
 ## Documentation
 
 - Document every API with OpenAPI, and AsyncAPI for events. Serve generated docs from the service.
+
+## When it applies
+
+Follow these only when the trigger matches.
+
+- When several clients can update the same resource, return an `ETag` and require `If-Match` on updates; respond 412 on mismatch ([RFC 9110 §13.1.1](https://www.rfc-editor.org/rfc/rfc9110#section-13.1.1)).

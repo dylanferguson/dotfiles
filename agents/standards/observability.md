@@ -34,7 +34,8 @@ Observability protects customer outcomes. Instrument for what the customer exper
 - Do not log the happy path. A successful request needs a counter and a duration histogram, not a log line.
 - Log only what is actionable: errors and exceptions, startup and shutdown, and audit records.
 - Write structured JSON. Put variables in fields, not interpolated into the message.
-- Log from one place at the edge, such as the error middleware, so loggers do not spread through function signatures. Do not log and rethrow.
+- Log at the edge: the handler, middleware, or main loop logs each error once. Domain logic does not log; it returns errors with context. Do not log and rethrow.
+- Give long-lived components, such as servers, clients, stores, and background workers, a logger in their constructor, and store it. Never use a global logger or one carried in request context. Do not pass a logger through ordinary function calls.
 - Include the trace ID, timestamp, service name, route, and user or session ID.
 - Send exceptions to the error tracker with their structured fields and cause chain.
 - If a project has no metrics or tracing yet, use structured logs rather than nothing.

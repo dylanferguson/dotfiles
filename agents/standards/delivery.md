@@ -22,7 +22,7 @@
 
 ## Issues
 
-- Open issues only for reproducible bugs and accepted, scoped features. Use discussions for questions and ideas (Ghostty `CONTRIBUTING.md`).
+- In projects that accept outside contributors, open issues only for reproducible bugs and accepted, scoped features. Use discussions for questions and ideas (Ghostty `CONTRIBUTING.md`).
 - In projects with an issue tracker, link every pull request to an accepted issue.
 
 ## Commits

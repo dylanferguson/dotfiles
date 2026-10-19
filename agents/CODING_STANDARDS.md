@@ -61,7 +61,7 @@ These rules apply to all code. Area-specific rules live in [`standards/`](standa
 - Handle errors in one place at the edge, such as error middleware, instead of in every function.
 - Define application error types for expected failures, and carry the cause chain (for example, JavaScript `Error.cause`).
 - Give each error two messages: the internal cause for engineers and a safe, user-facing message.
-- Do not log an error and then rethrow it. The edge handler logs it once.
+- Do not log an error and then rethrow it. Domain logic returns errors with context; the edge, such as a handler, middleware, or main loop, logs them once. Long-lived components take a logger in their constructor; see `standards/observability.md`.
 - Do not leak stack traces or implementation details in responses.
 - Fail fast on invalid input with a specific, human-readable message.
 - Leave state unchanged when an operation fails. Do the failable step first, mutate state after it succeeds, and release partial resources on the error path (Ghostty `Tabstops.resize`, Zig `errdefer`).

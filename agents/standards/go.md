@@ -4,7 +4,7 @@ These rules follow [Effective Go](https://go.dev/doc/effective_go), [Go Code Rev
 
 ## Layout
 
-- Put domain types and service interfaces in the root package, with no external dependencies. Name each subpackage after the dependency it wraps, such as `sqlite` or `http`, and wire them together in `cmd/` ([Ben Johnson, "Packages as layers"](https://www.gobeyond.dev/packages-as-layers/); `wtf/`).
+- In applications and services, not libraries, put domain types and service interfaces in the root package, with no external dependencies. Name each subpackage after the dependency it wraps, such as `sqlite` or `http`, and wire them together in `cmd/`. This is Dylan's preference, from his notes and [Ben Johnson, "Packages as layers"](https://www.gobeyond.dev/packages-as-layers/) (`wtf/`), not official Go guidance.
 - Keep `main` to one call to `run(ctx, args, getenv, stdin, stdout, stderr) error`. Tests call `run` with their own arguments and environment ([Mat Ryer](https://grafana.com/blog/2024/02/09/how-i-write-http-services-in-go-after-13-years/)).
 - Put packages that other modules must not import under `internal/` ([module layout](https://go.dev/doc/modules/layout)).
 - Give every package a doc comment ([Code Review Comments](https://go.dev/wiki/CodeReviewComments#package-comments)).
@@ -58,7 +58,7 @@ These rules follow [Effective Go](https://go.dev/doc/effective_go), [Go Code Rev
 ## Logging and metrics
 
 - Use `log/slog`. Implement `LogValuer` on types that hold secrets so they redact themselves.
-- Pass the logger as an explicit dependency, and log at the edge, per `observability.md`.
+- Give long-lived components, such as servers, clients, stores, and background workers, a `*slog.Logger` in their constructor, and store it. Never use the global default logger or one carried in `context`. Domain logic does not log: it returns wrapped errors, and the handler, middleware, or main loop logs once. Do not pass a logger through ordinary function calls.
 - Name metrics `<namespace>_<subsystem>_<name>_<unit>` in base units ([Prometheus naming](https://prometheus.io/docs/practices/naming/); `etcd_disk_wal_fsync_duration_seconds` in `etcd/server/storage/wal/metrics.go`).
 
 ## Tests
@@ -66,7 +66,7 @@ These rules follow [Effective Go](https://go.dev/doc/effective_go), [Go Code Rev
 - Use the standard `testing` package with table-driven subtests and `cmp.Diff`. Do not use assertion libraries ([Google style guide](https://google.github.io/styleguide/go/decisions#assertion-libraries)).
 - Report failures as `Foo(%q) = %v, want %v`: function, input, got, then want ([Code Review Comments](https://go.dev/wiki/CodeReviewComments#useful-test-failures)).
 - Mark helpers with `t.Helper()`. Use `t.Cleanup`, `t.Context`, `t.TempDir`, and `t.Setenv` instead of hand-written teardown.
-- Prefer hand-written fakes, which are working in-memory implementations, to generated mocks. Use `httptest.NewServer` for HTTP dependencies. For a stub, write a struct of function fields (`tailscale/tstest/integration/testcontrol/`; `wtf/mock/`).
+- Prefer hand-written fakes, which are working in-memory implementations. Use `httptest.NewServer` for HTTP dependencies. For a stub, write a struct of function fields (`tailscale/tstest/integration/testcontrol/`; `wtf/mock/`). Use generated mocks only at the outermost boundary when a fake is impractical.
 - Test the database against the real engine, and give each test or test package its own database so tests stay isolated (`pkgsite/internal/postgres/test_helper.go`; `:memory:` in `wtf/sqlite/sqlite_test.go`).
 - Skip tests that need what the machine lacks, with a reason. Do not fail them (`src/internal/testenv/testenv.go`: `MustHaveExternalNetwork`).
 - Skip a known-flaky test only with a linked issue (`testenv.SkipFlaky(t, issue)`).
