@@ -70,15 +70,15 @@ These rules apply to all code. Area-specific rules live in [`standards/`](standa
 - Write down the environmental assumptions that correctness depends on, such as `fsync` semantics or delivery guarantees ([SQLite atomic commit](https://www.sqlite.org/atomiccommit.html) §2).
 - Set explicit resource limits, and alert as usage approaches them, so operators get warning before failure (SQLite memory limits).
 - Reject control characters in untrusted input that reaches a shell, terminal, or interpreter (Ghostty `827d5c8`, `cc53940`).
-- Apply new configuration all or nothing. Build and start it in full before you swap it in, and keep the old one running if any step fails (Caddy `caddy.go`).
+- When a process reloads configuration at runtime, apply it all or nothing. Build and start it in full before you swap it in, and keep the old one running if any step fails (Caddy `caddy.go`).
 
 ## Failure under load
 
-- Retry only transient failures. Do not retry 4xx responses other than 408 and 429, and do not retry cancelled calls (langchainjs `libs/langchain-core/src/utils/async_caller.ts`).
+- Retry only transient failures. Do not retry 4xx responses other than 408 and 429, and do not retry cancelled calls ([Google SRE, "Addressing Cascading Failures"](https://sre.google/sre-book/addressing-cascading-failures/); langchainjs `libs/langchain-core/src/utils/async_caller.ts`).
 - Use exponential backoff with jitter and a bounded number of attempts.
 - Honour `Retry-After` up to a ceiling, and fail fast beyond it. Treat an exhausted quota as permanent, not as a rate limit to wait out.
 - Classify failures by status code and error code first. Match error messages only as a last resort for third-party APIs that give nothing else.
-- Classify each operation as safe to repeat or not. Retry reads on transient errors. Retry writes only when the request provably never reached the server, such as when no connection was available (etcd `client/v3/retry.go`).
+- Classify each operation as safe to repeat or not. Retry reads on transient errors. Retry writes only when the request provably never reached the server, such as when no connection was available (HTTP method idempotency, [RFC 9110 §9.2.2](https://www.rfc-editor.org/rfc/rfc9110#section-9.2.2); etcd `client/v3/retry.go`).
 - Treat an error or timeout on a write as an unknown outcome, not a failure: the write may have been applied. Make writes idempotent, or read before you retry (etcd `tests/robustness/model/types.go`: `MaybeEtcdResponse`).
 - Set a finite concurrency limit on calls to any rate-limited or shared dependency. Do not leave it unbounded by default.
 
