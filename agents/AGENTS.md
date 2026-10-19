@@ -17,3 +17,19 @@ alwaysApply: true
 - Change-detector and tautological tests considered harmful
 - Keep comments short. Delete any claim from comments that is derivable from the code.
 - Use TDD specifically for bug fixes, one focused behavior at a time: write or update a regression test, confirm it fails for the expected reason, implement the fix, then run the relevant tests. Do not require TDD for feature work. Do not weaken tests to make them pass. If a useful regression test is impractical, explain why.
+
+## Standards
+
+Before you write or review code, read `~/.dotfiles/agents/CODING_STANDARDS.md`. Before you work in one of these areas, read the matching file:
+
+| Area | File |
+|---|---|
+| Tests | `~/.dotfiles/agents/standards/testing.md` |
+| Metrics, traces, logs, alerts | `~/.dotfiles/agents/standards/observability.md` |
+| HTTP APIs, validation, error responses | `~/.dotfiles/agents/standards/apis.md` |
+| Schemas, queries, migrations | `~/.dotfiles/agents/standards/databases.md` |
+| Repos, CI/CD, pull requests, code review | `~/.dotfiles/agents/standards/delivery.md` |
+| TypeScript | `~/.dotfiles/agents/standards/typescript.md` |
+| Go | `~/.dotfiles/agents/standards/go.md` |
+
+When these files conflict with a project's own conventions, follow the project and say so.
