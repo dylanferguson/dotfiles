@@ -1,6 +1,6 @@
 # Coding standards
 
-These rules apply to all code. Area-specific rules live in [`standards/`](standards/). The [canon](#canon) lists the sources they come from.
+These rules apply to all code. Area-specific rules live in [`standards/`](standards/).
 
 ## Priorities
 
@@ -92,86 +92,10 @@ These rules apply to all code. Area-specific rules live in [`standards/`](standa
 - When debugging, list several plausible causes, narrow to the most likely one or two, and confirm with evidence before you change code.
 - Suggest turning repeated review feedback into a lint rule, type, or CI check rather than a prompt rule.
 
-## Canon
+## Sources
 
-Sources cited in Dylan's [software canon](https://dylanferguson.co/software-canon/) and his engineering notes. Prefer their advice when a rule above is silent.
+Maintainer reference for future updates, not agent instructions. Rules here are distilled from these; revisit when they change.
 
-**Books**
-
-- Frederick P. Brooks, Jr., *The Mythical Man-Month*
-- Betsy Beyer et al., *Site Reliability Engineering*, and *The Site Reliability Workbook*
-- John Ousterhout, *A Philosophy of Software Design*
-- Titus Winters et al., *Software Engineering at Google*
-- Nicole Forsgren et al., *Accelerate*
-- Dan Vanderkam, *Effective TypeScript*
-- Alex DeBrie, *The DynamoDB Book*
-- Phil Sturgeon, *Build APIs You Won't Hate*
-- Alex Hidalgo, *Implementing Service Level Objectives*
-- Karl Wiegers, *Software Requirements*
-
-**Papers**
-
-- Brian Foote and Joseph Yoder, "Big Ball of Mud"
-- Peter Naur, "Programming as Theory Building"
-- Ben Moseley and Peter Marks, "Out of the Tar Pit"
-- Frederick P. Brooks, Jr., "No Silver Bullet"
-
-**Essays and talks**
-
-- Rob Pike, "Five Rules of Programming"
-- Hyrum Wright, "Hyrum's Law"
-- Dan McKinley, "Choose Boring Technology"
-- Simon Willison, "PAGNIs: Probably Are Gonna Need Its"
-- Carson Gross, "The Grug Brained Developer"
-- Charity Majors, "I Test in Prod"
-- Brandur Leach, "The Path of Madness", and brandur.org on APIs and Postgres
-- Craig Mod, "Fast Software, the Best Software"
-- Gergely Orosz, "The Product-Minded Software Engineer"
-- Mitchell Hashimoto, "My Approach to Building Large Technical Projects" and "Contributing to Complex Projects"
-- Ted Dziuba, "I'm Going To Scale My Foot Up Your Ass"
-- Andy Hertzfeld, "-2000 Lines Of Code"
-- Joel Spolsky, "Fire And Motion"
-- Patrick McKenzie, "Don't Call Yourself A Programmer"
-- Peter Norvig, "Teach Yourself Programming in Ten Years"
-- Peter Hunt Welch, "Programming Sucks"
-- Robin Sloan, "An App Can Be a Home-Cooked Meal"
-- "Understanding the XY Problem"
-- Bryan Cantrill, "The Revolt of the Reader" and "Leadership Without Management"
-- Sunil Pai, "The Senior Engineer Death Spiral"
-- Gary Bernhardt, "Boundaries" and "Functional Core, Imperative Shell"
-- Robert Dewar, "Ada, Past Present and Future"
-- Rich Hickey, "Simple Made Easy"
-- Leslie Lamport, "Thinking Above the Code"
-- David Crawshaw, "SQLite and Go"
-- Ian Cooper, "TDD, Where Did It All Go Wrong"
-- Kent C. Dodds, "AHA Programming"; Sandi Metz, "The Wrong Abstraction"
-- Scott Wlaschin, "Domain Modeling Made Functional"; Mark Seemann, "Functional architecture: The pits of success"
-- Martin Fowler on self-testing code, Gateway, and evolutionary database design
-- Brendan Gregg, "The USE Method"
-- Tom Shutt, "5 (Opinionated) Steps to Minimalist Logging In Go"
-- Sean Goedecke, "Everything I know about good API design"
-- Google, [Engineering Practices: Code Review](https://google.github.io/eng-practices/review/)
-- The Twelve-Factor App
-- GitLab development guidelines on migrations, pagination, and feature flags
-- Markus Winand, *Use The Index, Luke*; Tobias Petry, *SQL for Devs*
-- Yoni Goldberg, Node.js and JavaScript testing best practices
-- Antirez on LLMs as QA engineers
-- Go: [Effective Go](https://go.dev/doc/effective_go), [Go Code Review Comments](https://go.dev/wiki/CodeReviewComments), Go Proverbs, Dave Cheney's *Practical Go*, "SOLID Go Design", and "Functional options", Ben Johnson, "Packages as layers, not groups", and Mat Ryer, [How I write HTTP services in Go after 13 years](https://grafana.com/blog/2024/02/09/how-i-write-http-services-in-go-after-13-years/)
-
-**Studied in depth**
-
-- SQLite: [How SQLite Is Tested](https://www.sqlite.org/testing.html), [TH3](https://www.sqlite.org/th3.html), [Use of assert()](https://www.sqlite.org/assert.html), [Dynamic Memory Allocation](https://www.sqlite.org/malloc.html), and [Atomic Commit](https://www.sqlite.org/atomiccommit.html)
-- Ghostty: `CONTRIBUTING.md`, `AI_POLICY.md`, `HACKING.md`, `AGENTS.md`, `src/tripwire.zig`, `src/terminal/PageList.zig`, `test/fuzz-libghostty/`, and Mitchell Hashimoto's recent commits
-- langchainjs: `AGENTS.md`, `CONTRIBUTING.md`, `internal/tsconfig/`, `.oxlintrc.jsonc`, `libs/langchain-core/src/errors/`, `libs/langchain-core/src/utils/async_caller.ts`, `libs/langchain-core/src/runnables/base.ts`, and the OpenAI provider tests
-- Go standard library: `net/http`, `context`, `errors`, `log/slog`, `database/sql`, `io`, `testing`, `internal/testenv`, `cmd/dist`, and the `cmd/go` script tests
-- Tailscale: `docs/commit-messages.md`, `tsweb/`, `util/vizerror/`, `types/logger/`, `tstime/`, `tstest/`, `ipn/ipnlocal/local.go`, and the CI workflows
-- pkgsite: `internal/derrors/`, `internal/middleware/`, and `internal/postgres/test_helper.go`
-- wtf: the root package, `mock/`, `sqlite/`, and `http/`
-- etcd: `client/v3/retry.go`, `server/storage/wal/`, `client/pkg/verify/`, gofail failpoints in `server/`, `tests/robustness/`, and `tests/framework/`; etcd-io/raft's README, `interaction_test.go`, and `tla/`; and the r/golang thread [In praise of the etcd codebase](https://www.reddit.com/r/golang/comments/1rtkcrl/in_praise_of_the_etcd_codebase/)
-- Caddy: `AGENTS.md`, `modules.go`, `caddy.go`, `context.go`, `usagepool.go`, `caddyconfig/`, `modules/caddyhttp/errors.go`, and `caddytest/`
-
-**Projects**
-
-- Three Dots Labs `wild-workouts-go-ddd-example` and `modern-go-application`, for Go structure
-- Go reference projects from the notes, not yet read: HashiCorp, Prometheus, Grafana, Mattermost, CockroachDB Pebble, Vitess, OPA, Coder, and `google/go-github`
-- `oldboyxx/jira_clone`, ToolJet, and `desktop/desktop`, for TypeScript and Node structure
+- Dylan's software canon: https://dylanferguson.co/software-canon/
+- Dylan's engineering notes: the `tech/` folder of his Obsidian vault.
+- Codebases studied: SQLite testing docs, Ghostty, langchainjs, Go standard library, Tailscale, pkgsite, wtf, etcd, and Caddy.
