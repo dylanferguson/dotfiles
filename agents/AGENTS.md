@@ -29,5 +29,6 @@ Before you write or review code, read `~/.dotfiles/agents/CODING_STANDARDS.md`. 
 | HTTP APIs, validation, error responses | `~/.dotfiles/agents/standards/apis.md` |
 | Schemas, queries, migrations | `~/.dotfiles/agents/standards/databases.md` |
 | Repos, CI/CD, pull requests, code review | `~/.dotfiles/agents/standards/delivery.md` |
+| TypeScript | `~/.dotfiles/agents/standards/typescript.md` |
 
 When these files conflict with a project's own conventions, follow the project and say so.

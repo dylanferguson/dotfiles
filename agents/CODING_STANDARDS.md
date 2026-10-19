@@ -135,6 +135,20 @@ from.
 - Reject control characters in untrusted input that reaches a shell,
   terminal, or interpreter (Ghostty `827d5c8`, `cc53940`).
 
+## Failure under load
+
+- Retry only transient failures. Do not retry 4xx responses other than 408
+  and 429, and do not retry cancelled calls
+  (langchainjs `libs/langchain-core/src/utils/async_caller.ts`).
+- Use exponential backoff with jitter and a bounded number of attempts.
+- Honour `Retry-After` up to a ceiling, and fail fast beyond it. Treat an
+  exhausted quota as permanent, not as a rate limit to wait out.
+- Classify failures by status code and error code first. Match error
+  messages only as a last resort for third-party APIs that give nothing
+  else.
+- Set a finite concurrency limit on calls to any rate-limited or shared
+  dependency. Do not leave it unbounded by default.
+
 ## Working as an agent
 
 - Run the existing tests before you change anything.
@@ -231,10 +245,14 @@ and his engineering notes. Prefer their advice when a rule above is silent.
 - Ghostty: `CONTRIBUTING.md`, `AI_POLICY.md`, `HACKING.md`, `AGENTS.md`,
   `src/tripwire.zig`, `src/terminal/PageList.zig`,
   `test/fuzz-libghostty/`, and Mitchell Hashimoto's recent commits
+- langchainjs: `AGENTS.md`, `CONTRIBUTING.md`, `internal/tsconfig/`,
+  `.oxlintrc.jsonc`, `libs/langchain-core/src/errors/`,
+  `libs/langchain-core/src/utils/async_caller.ts`,
+  `libs/langchain-core/src/runnables/base.ts`, and the OpenAI provider tests
 
 **Projects**
 
 - Three Dots Labs `wild-workouts-go-ddd-example` and
   `modern-go-application`, for Go structure
-- `oldboyxx/jira_clone`, ToolJet, `desktop/desktop`, and LangChain.js, for
-  TypeScript and Node structure
+- `oldboyxx/jira_clone`, ToolJet, and `desktop/desktop`, for TypeScript and
+  Node structure
