@@ -6,6 +6,7 @@
 - Provide one entry point, such as a Makefile, for `install`, `build`, `run`, `test`, and `clean`. CI runs the same commands.
 - Keep the README to what the service does in two or three sentences, how to start it, and every environment variable.
 - Keep dependencies minimal. Each one adds upgrade work and CVE exposure. Automate dependency updates.
+- Declare every dependency explicitly and commit the lockfile. Do not rely on system-installed tools or packages, and pin tool versions too ([12factor II](https://12factor.net/dependencies)).
 - Use pre-commit hooks for lint and format only, under 15 seconds. Run build and tests in pre-push.
 
 ## CI/CD
@@ -15,6 +16,7 @@
 - Require lint, format, type, and test checks to pass before merge.
 - Keep the pipeline from commit to production under 15 minutes.
 - Build one immutable artifact and promote it through environments with configuration from the environment.
+- Run one-off tasks, such as migrations, backfills, and scripts, from code in the repository, as the same release with the same config. Do not run them ad hoc on a box ([12factor XII](https://12factor.net/admin-processes)).
 - Deploy small changes often. Separate deploy from release: ship code dark and release it with a feature flag.
 - Use staged rollouts with automated rollback on key metrics.
 - Make every change safe to roll back. Keep state changes forward and backward compatible.

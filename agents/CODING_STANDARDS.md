@@ -48,11 +48,14 @@ These rules apply to all code. Area-specific rules live in [`standards/`](standa
 
 - Start with a modular monolith. Prefer libraries to services; split out a service only when team boundaries require independent deployment.
 - Use one computer before N. Know the target load before you design for scale, and assume a single well-indexed database handles far more than the current load.
+- Keep processes stateless and share-nothing. Do not keep session or cross-request state in memory or on local disk; persist it to a backing service. This holds on one computer too, so you can restart or add a second instance ([12factor VI](https://12factor.net/processes)).
+- Make processes disposable. Start fast. On `SIGTERM`, stop accepting work, finish or return in-flight work within a deadline, then exit. Make jobs safe to rerun if killed midway ([12factor IX](https://12factor.net/disposability)).
 - Choose boring technology. Each new or unfamiliar technology spends an innovation token; justify every one. Prefer fewer dependencies: each one is a system to run, monitor, upgrade, and patch.
 - Use ports and adapters. Keep domain logic independent of transports, frameworks, and storage.
 - Separate presentation, domain, and data access. Keep business rules out of route handlers, controllers, and ORM models.
 - Build the "probably are gonna need it" basics from the start: CI with a test framework, automated deploys, API pagination, audit trails, role-based access instead of an `isAdmin` flag, a kill switch, and admin tooling built alongside the feature.
 - Load config from the environment. Validate required settings with a schema at startup and fail fast if any are missing. Do not hardcode secrets.
+- Treat databases, caches, queues, mail, and object stores as attached resources located by config, such as a URL and credentials. Swapping a local one for a managed one needs no code change ([12factor IV](https://12factor.net/backing-services)).
 - Assume breach. Minimise dependencies, automate patching, and limit the blast radius of any one component.
 - Write a short design doc before large or cross-team work: context, assumptions, prioritised project values, options with trade-offs, and the decision. If you cannot write it down, the design is not clear yet.
 
@@ -99,3 +102,4 @@ Maintainer reference for future updates, not agent instructions. Rules here are 
 - Dylan's software canon: https://dylanferguson.co/software-canon/
 - Dylan's engineering notes: the `tech/` folder of his Obsidian vault.
 - Codebases studied: SQLite testing docs, Ghostty, langchainjs, Go standard library, Tailscale, pkgsite, wtf, etcd, and Caddy.
+- The Twelve-Factor App: https://12factor.net/

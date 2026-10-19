@@ -34,6 +34,7 @@ Observability protects customer outcomes. Instrument for what the customer exper
 - Do not log the happy path. A successful request needs a counter and a duration histogram, not a log line.
 - Log only what is actionable: errors and exceptions, startup and shutdown, and audit records.
 - Write structured JSON. Put variables in fields, not interpolated into the message.
+- Write logs as an unbuffered event stream to stdout. Do not manage log files or routing in the app; the platform collects them ([12factor XI](https://12factor.net/logs)).
 - Log at the edge: the handler, middleware, or main loop logs each error once. Domain logic does not log; it returns errors with context. Do not log and rethrow.
 - Give long-lived components, such as servers, clients, stores, and background workers, a logger in their constructor, and store it. Never use a global logger or one carried in request context. Do not pass a logger through ordinary function calls.
 - Include the trace ID, timestamp, service name, route, and user or session ID.
