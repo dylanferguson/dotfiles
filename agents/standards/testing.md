@@ -49,6 +49,7 @@ Most bugs hide in error handling that tests never reach.
 - Keep a fast subset that runs before every commit, and run slow fault, fuzz, and soak tests in CI (SQLite "veryquick"; Go `-short`).
 - While iterating, run the tests for the area you changed. Run the full suite before you open a pull request (Ghostty `AGENTS.md`).
 - For behaviour you cannot automate, keep a written manual checklist in the repository and run it when you touch that area (Ghostty `HACKING.md` "Input Stack Testing"; SQLite release checklists).
+- Before a release, read the commits since the last release, list what they could break, then run the manual checklist with extra attention on those areas (antirez, "LLM as QA engineer").
 
 ## When it applies
 
