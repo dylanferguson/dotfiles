@@ -33,6 +33,7 @@ files live in this repo rather than symlinking into a clone.
 | Skill | Source |
 | --- | --- |
 | `audit-your-codebase` | Aaron Francis — [gist](https://gist.github.com/aarondfrancis/8735edbe48532f97ee5ea818db4dbd47) |
+| `statechart` | backnotprop — [repo](https://github.com/backnotprop/pstack/tree/main/skills/statechart), a mirror of [cursor/plugins](https://github.com/cursor/plugins/tree/main/pstack). Copied at `f905b88` without `scripts/test`. |
 | `arena` | Unrecorded. |
 | `thermo-nuclear-code-quality-review` | Unrecorded. Added in `3c0ed71`. |
 
